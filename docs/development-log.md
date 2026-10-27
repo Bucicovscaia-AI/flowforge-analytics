@@ -46,3 +46,68 @@ versions, development proxies and CORS, environment-variable configuration.
 pytest output, this log entry.
 
 **Remaining limitations**: no GitHub remote yet; no frontend tests yet.
+
+---
+
+## 27 Oct 2026: Stage 2, dashboard interface
+
+**Work completed**
+* Built the application layout: dark sidebar, top bar with page title,
+  "Demo data" badge and live API status, and a slide-in menu for mobile.
+* Built reusable components: KPI card, card, page header, data table, status
+  badge, alert, empty state, spinner, button, pipeline steps, and two chart
+  components (line and ranked horizontal bar).
+* Built the seven pages (Dashboard, Dataset Upload, Data Analysis, AI
+  Insights, Reports, Report History, Settings) plus a "page not found" page.
+* Created a fabricated sample dataset module. Every page that shows it carries
+  a "Demonstration data" notice.
+* Added browser-side CSV validation (file type, empty file, 5 MB limit) with
+  readable error messages.
+* Added data-security guidance to the Upload and Settings pages (the security
+  awareness campaign for portfolio section 1.4).
+* Planned how the lecturer can test the app from his device
+  (`docs/project-plan.md`, section 6).
+
+**Technical decisions**
+* React Router for page navigation with one shared layout (`AppLayout`).
+* Sample data kept in one file (`src/data/sampleData.js`) with KPIs derived
+  from it, so it can be swapped for API results in Stage 5.
+* Ranked horizontal bar charts instead of pie charts, because bar lengths are
+  easier to compare. Chart colours come from a colour-blind-checked palette,
+  and status badges use an icon and text as well as colour.
+* Hosting plan: a single Render web service serving both the API and the
+  built frontend.
+
+**Problems encountered and resolution**
+* Installing Vitest failed again with the same npm error as Stage 1. The npm
+  debug log showed the crash inside npm's own dependency resolver
+  (`@npmcli/arborist`, `#loadPeerSet`) while handling Vitest's optional peer
+  dependencies, which pointed to a bug in npm 10. Running the install with a
+  newer npm (`npx npm@11 install -D vitest`) worked. A clean `npm ci` with the
+  normal npm 10 then succeeded from the lock file, so anyone running the
+  project is not affected.
+* Rendering pages in tests produced Recharts warnings that the chart size was
+  0×0, because the test environment (jsdom) does not lay out pages. A test
+  setup file gives charts a fixed size, which removed the warnings.
+* The first dashboard screenshot caught the line chart mid-animation, with
+  points not yet joined. Screenshots were retaken after waiting for the
+  animation to finish.
+* A review of the sample insight text found "revenue rose in 5 of 6 months",
+  which was inaccurate (there are only 5 month-on-month changes and 4 were
+  rises). It was corrected to "4 of the 5 month-on-month changes".
+
+**Testing (actual results)**
+* `npm test` (frontend): 3 test files, 21 tests passed.
+* `python -m pytest -v` (backend): 2 passed.
+* `npm run build`: succeeded. Vite warned that the JavaScript bundle is over
+  500 kB, mostly because of the chart library. This is acceptable for now and
+  is recorded as a limitation.
+* `npx oxlint`: no problems.
+* Browser check of every page with Playwright: no console errors. At 390 px
+  (phone) width there is no horizontal page scrolling.
+
+**Evidence produced**: `docs/evidence/stage2/` (11 screenshots),
+`docs/stage-reports/stage-2.md`.
+
+**Remaining limitations**: all figures are sample data; upload does not reach
+the backend yet; download and report history are not functional yet.

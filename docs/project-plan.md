@@ -97,3 +97,25 @@ score (share of rows that passed validation).
 2. Jira backlog and board screenshots: done by Cristina (27 Oct).
 3. Scope decision (27 Oct): Stages 7 (AI) and 8 (Make.com) will be delivered
    as documented prototypes, clearly labelled as not live integrations.
+
+## 6. Access for the lecturer (added 27 Oct)
+
+Requirement: the lecturer must be able to test the application from his own
+device.
+
+**Recommended approach: one hosted service.** FastAPI serves the built React
+files as well as the `/api` endpoints, and the whole app is deployed as a
+single free web service on Render (render.com), connected to the GitHub
+repository so each push redeploys automatically.
+
+| Option | For | Against |
+| --- | --- | --- |
+| **One Render web service (recommended)** | One link to share; no CORS setup; one deployment to maintain | Free services sleep when idle, so the first visit can take about a minute to wake |
+| Frontend on Vercel or Netlify + backend on Render | Fast static frontend | Two deployments, two URLs, CORS and environment settings to keep in sync |
+| Local run only | No hosting account needed | The lecturer must install Python and Node.js |
+
+Plan: add the static-file serving and deployment config in Stage 5, once the
+frontend calls the real API, and deploy it then so there is time to fix
+hosting problems before 30 October. Cristina will need a free Render account
+signed in with GitHub. The README's local-run instructions stay as the
+fallback.
