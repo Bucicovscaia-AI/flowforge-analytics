@@ -338,6 +338,16 @@ FRONTEND_DIST_DIR=../frontend/dist uvicorn app.main:create_app --factory --host 
 
 The backend then serves the application at `/` and the API at `/api` from one process and one origin. Put it behind an HTTPS reverse proxy, set `PUBLIC_BASE_URL` if you use webhook links, keep `DATA_DIR` on persistent storage and back it up. `npm run preview` serves the build locally with the same API proxy as development.
 
+### Deploying online (Render, free)
+
+The repository includes a `Dockerfile` that builds the frontend and serves it from the backend, and a `render.yaml` Blueprint for [Render](https://render.com)'s free plan:
+
+1. Sign in to Render with GitHub and choose **New → Blueprint**.
+2. Select this repository and click **Apply**. Render builds the image and gives the service a public `https://….onrender.com` address.
+3. Optional: add `AI_API_KEY` or `MAKE_WEBHOOK_URL` under the service's **Environment** tab.
+
+On the free plan the service sleeps after about 15 minutes without traffic (the first visit afterwards takes up to a minute), and its disk is not persistent, so uploaded datasets and reports are cleared on every restart or redeploy. Anyone with the link can use the application, because it has no authentication. The same image runs on any Docker host: `docker build -t flowforge . && docker run -p 8000:8000 flowforge`.
+
 ## 20. Security considerations
 
 - **Secrets stay on the server.** AI keys, webhook URLs and signing secrets are read from the backend environment, excluded from logs and settings output, and never returned by the API (covered by a test). `.env` files are ignored by Git.
