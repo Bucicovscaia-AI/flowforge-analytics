@@ -45,8 +45,8 @@ KPIs → dashboard → downloadable report.** Everything else is optional.
 | 4 | Cleaning (missing values, duplicates, invalid numbers/dates) and KPI module, with pytest tests | MVP |
 | 5 | Replace sample data in the UI with real API results via the service layer | MVP |
 | 6 | Report generation (HTML report, printable to PDF) and download | MVP |
-| 7 | AI insights from an aggregated summary only (no raw rows) | Only if a key and time exist |
-| 8 | Make.com: backend posts the KPI summary to a webhook; documented prototype if no account | Documented prototype is acceptable |
+| 7 | AI insights from an aggregated summary only (no raw rows) | Documented prototype (agreed 27 Oct) |
+| 8 | Make.com: backend posts the KPI summary to a webhook | Documented prototype (agreed 27 Oct) |
 | 9 | End-to-end test, bug fixes, limitations | MVP |
 | 10 | README, architecture diagram, test evidence, development log | MVP |
 
@@ -94,8 +94,6 @@ score (share of rows that passed validation).
 
 1. Create an empty GitHub repository (for example `flowforge-analytics`) so the
    code can be pushed and Task 3 evidence collected.
-2. Create a Jira project and backlog (Task 1.3 needs screenshots of the
-   backlog and board). The stage table above can be used as the backlog.
-3. Decide whether Stage 7 (AI) and Stage 8 (Make.com) are in scope given the
-   deadline. Recommendation: Stage 8 as a documented webhook prototype, Stage 7
-   only if time remains.
+2. Jira backlog and board screenshots: done by Cristina (27 Oct).
+3. Scope decision (27 Oct): Stages 7 (AI) and 8 (Make.com) will be delivered
+   as documented prototypes, clearly labelled as not live integrations.
