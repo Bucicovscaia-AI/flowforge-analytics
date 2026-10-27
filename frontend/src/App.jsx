@@ -1,18 +1,35 @@
-import BackendStatus from './components/BackendStatus'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import AppLayout from './components/layout/AppLayout'
+import AnalysisPage from './pages/AnalysisPage'
+import DashboardPage from './pages/DashboardPage'
+import HistoryPage from './pages/HistoryPage'
+import InsightsPage from './pages/InsightsPage'
+import NotFoundPage from './pages/NotFoundPage'
+import ReportsPage from './pages/ReportsPage'
+import SettingsPage from './pages/SettingsPage'
+import UploadPage from './pages/UploadPage'
 
-// Stage 1 placeholder. Stage 2 replaces this with the full dashboard layout
-// (sidebar, top bar and the seven pages).
+export function AppRoutes() {
+  return (
+    <Routes>
+      <Route element={<AppLayout />}>
+        <Route index element={<DashboardPage />} />
+        <Route path="upload" element={<UploadPage />} />
+        <Route path="analysis" element={<AnalysisPage />} />
+        <Route path="insights" element={<InsightsPage />} />
+        <Route path="reports" element={<ReportsPage />} />
+        <Route path="history" element={<HistoryPage />} />
+        <Route path="settings" element={<SettingsPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+    </Routes>
+  )
+}
+
 export default function App() {
   return (
-    <main className="mx-auto flex min-h-screen max-w-3xl flex-col justify-center gap-6 px-4">
-      <p className="text-sm font-semibold uppercase tracking-wider text-indigo-600">Stage 1 scaffold</p>
-      <h1 className="text-4xl font-bold tracking-tight">FlowForge Analytics</h1>
-      <p className="text-lg text-slate-600">
-        An automation platform that turns a business CSV dataset into KPIs, charts and a downloadable report.
-      </p>
-      <div>
-        <BackendStatus />
-      </div>
-    </main>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   )
 }

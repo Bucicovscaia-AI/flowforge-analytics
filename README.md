@@ -5,7 +5,7 @@ checks, KPIs, charts and a downloadable report.
 
 Built as the mini-project for PFD200 Professional Development (FdSc Computing).
 
-> **Status:** Stage 1 of 10 (project scaffold). Features are added stage by
+> **Status:** Stage 2 of 10 (dashboard interface with labelled demonstration data). Features are added stage by
 > stage; see [docs/development-log.md](docs/development-log.md).
 
 ## Tech stack
@@ -14,7 +14,7 @@ Built as the mini-project for PFD200 Professional Development (FdSc Computing).
 | --- | --- |
 | Frontend | React 19, Vite, Tailwind CSS, Recharts |
 | Backend | Python 3, FastAPI, Pandas |
-| Tests | pytest (backend) |
+| Tests | pytest (backend), Vitest + Testing Library (frontend) |
 | Automation | Make.com webhook (planned, Stage 8) |
 
 ## Project structure
@@ -52,14 +52,29 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:5173. The status pill shows whether the backend is reachable.
+Open http://localhost:5173. The status pill in the top bar shows whether the backend is reachable.
 
 ## Tests
 
 ```bash
 cd backend
-python -m pytest -v
+python -m pytest -v      # backend tests
+
+cd frontend
+npm test                 # frontend tests
 ```
+
+## Testing on another device
+
+A hosted demo link is planned so the app can be opened from any browser
+without installing anything (see `docs/project-plan.md`, section 6). Until
+then, follow "Running locally" above.
+
+## Screenshots
+
+| Dashboard | Data Analysis |
+| --- | --- |
+| ![Dashboard](docs/evidence/stage2/desktop-dashboard.png) | ![Data Analysis](docs/evidence/stage2/desktop-analysis.png) |
 
 ## Data and privacy
 
