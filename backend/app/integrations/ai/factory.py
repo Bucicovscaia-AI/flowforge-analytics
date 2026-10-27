@@ -9,7 +9,7 @@ from app.integrations.ai.base import InsightProvider
 
 logger = logging.getLogger("flowforge.ai")
 
-SUPPORTED_PROVIDERS = {"anthropic": "Anthropic (Claude)"}
+SUPPORTED_PROVIDERS = {"anthropic": "Anthropic"}
 
 
 def provider_label(name: str) -> str:

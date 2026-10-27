@@ -95,7 +95,7 @@ Small teams often receive sales or operations data as spreadsheets exported from
 | --- | --- |
 | Frontend | React 19, TypeScript, Vite 8, Tailwind CSS 4, Recharts 3, React Router 7, lucide-react |
 | Frontend quality | ESLint with typescript-eslint, Vitest with Testing Library |
-| Backend | Python 3.11+, FastAPI, Pydantic 2, pandas, NumPy, ReportLab (PDF), httpx (webhooks), Anthropic Python SDK (optional AI) |
+| Backend | Python 3.11+, FastAPI, Pydantic 2, pandas, NumPy, ReportLab (PDF), httpx (webhooks), an AI provider SDK (optional) |
 | Backend quality | pytest, Ruff |
 | Storage | SQLite and files on local disk |
 | CI | GitHub Actions |
@@ -369,7 +369,7 @@ Deleting a dataset removes its files and cleaning history; reports generated fro
 - Dates in ambiguous formats are interpreted day-first (for example `03/04/2025` is 3 April) and the chosen format is shown.
 - Revenue is treated as a single currency; the currency symbol is only a display label.
 - Trends are straight-line fits over past periods and are not forecasts.
-- Only one AI provider (Anthropic) is implemented, and AI output is labelled but not automatically fact-checked.
+- Only one AI provider is implemented (see `AI_PROVIDER`), and AI output is labelled but not automatically fact-checked.
 - The Make.com integration has been tested against a mocked HTTP transport, not a live scenario.
 - No scheduled reports: reports are generated on request.
 
