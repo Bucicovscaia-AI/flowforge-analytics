@@ -179,6 +179,7 @@ def build_report_pdf(analysis: dict, title: str, insights: dict | None, generate
     if breakdowns.get("revenue_over_time"):
         story.append(Spacer(1, 6))
         story.append(_line_chart(breakdowns["revenue_over_time"]))
+        story.append(Spacer(1, 4))
         rows = [["Month", "Revenue", "Orders", "Units"]] + [
             [m["label"], _gbp(m["revenue"]), _num(m["orders"]), _num(m["units"])] for m in breakdowns["revenue_over_time"]
         ]
@@ -191,7 +192,7 @@ def build_report_pdf(analysis: dict, title: str, insights: dict | None, generate
         rows = [[label.split(" by ")[1].capitalize(), "Revenue", "Share", "Orders", "Avg order"]] + [
             [r["name"], _gbp(r["revenue"]), f"{r['share_pct']:.1f}%", _num(r["orders"]), _gbp(r["average_order_value"])] for r in data
         ]
-        story.append(KeepTogether([Spacer(1, 8), _bar_chart(label, data), _table(rows, [50 * mm, 35 * mm, 25 * mm, 25 * mm, 35 * mm])]))
+        story.append(KeepTogether([Spacer(1, 8), _bar_chart(label, data), Spacer(1, 6), _table(rows, [50 * mm, 35 * mm, 25 * mm, 25 * mm, 35 * mm])]))
 
     # 4. Observations and recommendations
     story.append(p("4. Analytical observations and recommendations", "h2"))

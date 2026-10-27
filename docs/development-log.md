@@ -111,3 +111,43 @@ pytest output, this log entry.
 
 **Remaining limitations**: all figures are sample data; upload does not reach
 the backend yet; download and report history are not functional yet.
+
+## 27 Oct 2026: Full application (backend pipeline, connected frontend, tests, CI)
+
+**What was built**
+* Backend: strict CSV validation (`services/csv_loader.py`), data-quality
+  profile and eight documented cleaning rules (`services/cleaning.py`), KPIs
+  with per-KPI column checks (`services/kpis.py`), rule-based observations,
+  optional AI insights through the Anthropic SDK with a labelled fallback,
+  PDF reports with ReportLab, report history, and a Make.com webhook.
+* Frontend: migrated to strict TypeScript. The hard-coded sample data was
+  removed; every page now reads from the API. Report download, history
+  delete and webhook test buttons work, and controls that need configuration
+  are disabled with an explanation.
+* Two seeded synthetic datasets with a generator script
+  (`sample-data/generate_sample_data.py`).
+* GitHub Actions workflow, Dockerfile, Playwright end-to-end script, README
+  screenshots and docs (`docs/architecture.md`, `api.md`,
+  `data-cleaning-rules.md`, `ai-insights.md`, `make-integration.md`,
+  `testing.md`).
+
+**Decisions**
+* CSV parsing uses Python's `csv` module in strict mode rather than
+  `pandas.read_csv`, because pandas silently accepted rows with extra fields.
+* Only aggregated figures are sent to the AI service and to Make.com.
+* Storage is JSON and PDF files on disk; a database was out of scope.
+* FastAPI serves the built frontend, so the app runs as one web service.
+
+**Problems found and fixed**: see `docs/testing.md`, "Problems found by
+testing and fixed".
+
+**Testing (actual results)**
+* `python -m pytest`: 80 passed.
+* `npm run lint`, `npm run typecheck`: no problems. `npm test`: 38 passed.
+  `npm run build`: succeeded with no warnings.
+* `node scripts/e2e-smoke.mjs`: 12 of 12 steps passed.
+* Not run: live Anthropic call and live Make.com delivery (no credentials;
+  covered by mocked tests), and a local Docker build (Docker Hub rate limit;
+  the CI job builds it).
+
+**Remaining limitations**: not deployed; single-user, file-based storage.
