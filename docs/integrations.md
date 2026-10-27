@@ -7,9 +7,9 @@ Both integrations are optional. Without them FlowForge still imports, cleans, an
 ### Configuration
 
 ```env
-AI_PROVIDER=anthropic          # the only provider implemented; defaults to this when a key is set
+AI_PROVIDER=anthropic          # the provider currently implemented; used by default when a key is set
 AI_API_KEY=your-api-key
-AI_MODEL=claude-opus-5-5       # any model id available to your key
+AI_MODEL=claude-opus-5-5       # any model id the provider offers to your key
 AI_TIMEOUT_SECONDS=45
 AI_MAX_OUTPUT_TOKENS=4000
 ```
