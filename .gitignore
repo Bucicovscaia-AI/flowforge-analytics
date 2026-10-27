@@ -7,6 +7,9 @@ __pycache__/
 *.pyc
 .pytest_cache/
 
+# Runtime data (analysis results and generated PDF reports)
+backend/data/
+
 # Node
 node_modules/
 dist/

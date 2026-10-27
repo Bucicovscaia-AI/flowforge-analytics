@@ -1,0 +1,1153 @@
+order_id,order_date,product,product_category,region,channel,customer_type,quantity,unit_price
+ORD-10001,2026-01-01,Wool Beanie,Clothing,North,Online,Returning,2,18.00
+ORD-10002,2026-01-01,Resistance Bands,Sports,North,Online,Returning,1,21.50
+ORD-10002,2026-01-01,LED Desk Lamp,Home & Garden,North,Online,Returning,1,34.99
+ORD-10003,2026-01-01,Ceramic Planter,Home & Garden,West,Online,Returning,3,24.00
+ORD-10003,2026-01-01,Smart Speaker,Electronics,West,Online,Returning,4,89.00
+ORD-10004,2026-01-01,Cotton Throw,Home & Garden,North,Online,New,1,29.50
+ORD-10005,2026-01-01,4K Monitor,Electronics,West,Online,Returning,5,179.00
+ORD-10006,2026-01-02,Merino Socks,Clothing,West,In-store,Returning,1,14.50
+ORD-10007,2026-01-02,Wireless Earbuds,Electronics,East,Phone,New,1,59.99
+ORD-10008,2026-01-02,Resistance Bands,Sports,East,Online,Returning,1,21.50
+ORD-10008,2026-01-02,LED Desk Lamp,Home & Garden,East,Online,Returning,4,34.99
+ORD-10009,2026-01-02,Canvas Trainers,Clothing,East,In-store,Business,6,49.99
+ORD-10009,2026-01-02,Water Bottle,Sports,East,In-store,Business,9,15.99
+ORD-10010,2026-01-02,Data Analysis Handbook,Books,North,Online,Returning,5,32.00
+ORD-10011,2026-01-02,Canvas Trainers,Clothing,North,Online,Returning,1,49.99
+ORD-10012,2026-01-03,Canvas Trainers,Clothing,North,Online,Returning,1,49.99
+ORD-10013,2026-01-03,Resistance Bands,Sports,West,In-store,Returning,1,21.50
+ORD-10013,2026-01-03,Travel Journal,Books,West,In-store,Returning,1,11.99
+ORD-10013,2026-01-03,Herb Seed Kit,Home & Garden,West,In-store,Returning,1,12.00
+ORD-10014,2026-01-03,4K Monitor,Electronics,East,Online,New,3,179.00
+ORD-10014,2026-01-03,Rain Jacket,Clothing,East,Online,New,1,74.00
+ORD-10015,2026-01-03,USB-C Charger,Electronics,North,In-store,New,1,19.50
+ORD-10016,2026-01-04,Ceramic Planter,Home & Garden,East,Online,Returning,1,24.00
+ORD-10017,2026-01-04,Merino Socks,Clothing,West,Phone,Returning,1,14.50
+ORD-10018,2026-01-04,Canvas Trainers,Clothing,North,In-store,New,1,49.99
+ORD-10019,2026-01-05,4K Monitor,Electronics,North,Online,,3,179.00
+ORD-10019,2026-01-05,LED Desk Lamp,Home & Garden,North,Online,Returning,2,34.99
+ORD-10019,2026-01-05,Ceramic Planter,Home & Garden,North,Online,Returning,1,24.00
+ORD-10020,2026-01-05,Rain Jacket,Clothing,West,Online,New,1,74.00
+ORD-10021,2026-01-05,USB-C Charger,Electronics,East,Online,Returning,3,19.50
+ORD-10022,2026-01-05,Canvas Trainers,Clothing,South,In-store,Business,8,49.99
+ORD-10023,2026-01-05,Water Bottle,Sports,North,Phone,Returning,1,15.99
+ORD-10024,2026-01-05,Resistance Bands,Sports,South,In-store,,9,21.50
+ORD-10025,2026-01-06,Wireless Earbuds,Electronics,West,Online,Business,3,59.99
+ORD-10025,2026-01-06,Smart Speaker,Electronics,West,Online,Business,6,89.00
+ORD-10026,2026-01-06,USB-C Charger,Electronics,North,Phone,Returning,1,19.50
+ORD-10027,2026-01-06,Rain Jacket,Clothing,North,Online,Returning,4,74.00
+ORD-10028,2026-01-06,Cotton Throw,Home & Garden,West,Online,Returning,1,29.50
+ORD-10029,2026-01-07,Water Bottle,Sports,South,In-store,New,1,15.99
+ORD-10030,2026-01-07,4K Monitor,Electronics,West,In-store,New,1,179.00
+ORD-10030,2026-01-07,Water Bottle,Sports,West,In-store,New,2,15.99
+ORD-10031,2026-01-07,Herb Seed Kit,Home & Garden,South,Online,Returning,3,12.00
+ORD-10032,2026-01-08,Cookbook Classics,Books,South,Online,New,1,22.50
+ORD-10032,2026-01-08,LED Desk Lamp,Home & Garden,South,Online,New,1,34.99
+ORD-10033,2026-01-08,Merino Socks,Clothing,North,In-store,Returning,4,14.50
+ORD-10034,2026-01-08,Merino Socks,Clothing,North,Online,Returning,1,14.50
+ORD-10035,2026-01-08,Travel Journal,Books,West,In-store,Returning,1,11.99
+ORD-10036,2026-01-08,Wool Beanie,Clothing,North,In-store,Returning,2,18.00
+ORD-10037,2026-01-09,Wool Beanie,Clothing,South,Phone,Returning,1,18.00
+ORD-10038,2026-01-09,Merino Socks,Clothing,North,Online,Returning,1,14.50
+ORD-10038,2026-01-09,Canvas Trainers,Clothing,North,Online,Returning,1,49.99
+ORD-10038,2026-01-09,Data Analysis Handbook,Books,North,Online,Returning,1,32.00
+ORD-10039,2026-01-09,Yoga Mat,Sports,East,Online,Returning,4,27.00
+ORD-10040,2026-01-09,Travel Journal,Books,North,Online,,3,11.99
+ORD-10772,2026-06-19,Herb Seed Kit,Home & Garden,North,Online,Returning,5,12.00
+ORD-10040,2026-01-09,Canvas Trainers,Clothing,North,Online,New,2,49.99
+ORD-10041,2026-01-10,Wool Beanie,Clothing,South,In-store,New,1,18.00
+ORD-10042,2026-01-10,Wireless Earbuds,Electronics,East,Online,New,1,59.99
+ORD-10043,2026-01-11,Merino Socks,Clothing,North,Online,Returning,1,14.50
+ORD-10043,2026-01-11,4K Monitor,Electronics,North,Online,Returning,3,179.00
+ORD-10043,2026-01-11,Herb Seed Kit,Home & Garden,North,Online,Returning,2,12.00
+ORD-10044,2026-01-11,Water Bottle,Sports,South,Online,New,2,15.99
+ORD-10045,2026-01-11,4K Monitor,Electronics,North,In-store,Returning,2,179.00
+ORD-10046,2026-01-11,LED Desk Lamp,Home & Garden,North,In-store,Returning,1,34.99
+ORD-10046,2026-01-11,4K Monitor,Electronics,North,In-store,Returning,1,179.00
+ORD-10047,2026-01-12,Data Analysis Handbook,Books,North,In-store,Returning,1,32.00
+ORD-10048,2026-01-12,Wool Beanie,Clothing,South,In-store,Returning,4,18.00
+ORD-10048,2026-01-12,Ceramic Planter,Home & Garden,South,In-store,Returning,1,24.00
+ORD-10048,2026-01-12,LED Desk Lamp,Home & Garden,South,In-store,Returning,1,34.99
+ORD-10049,2026-01-12,Rain Jacket,Clothing,East,Phone,New,2,74.00
+ORD-10049,2026-01-12,Data Analysis Handbook,Books,East,Phone,New,5,32.00
+ORD-10049,2026-01-12,USB-C Charger,Electronics,East,Phone,New,1,19.50
+ORD-10050,2026-01-12,Resistance Bands,Sports,East,In-store,New,3,21.50
+ORD-10051,2026-01-13,Smart Speaker,Electronics,South,In-store,Returning,3,89.00
+ORD-10051,2026-01-13,Wool Beanie,Clothing,South,In-store,Returning,1,18.00
+ORD-10052,2026-01-13,4K Monitor,Electronics,East,Online,Returning,1,179.00
+ORD-10053,2026-01-13,Water Bottle,Sports,East,In-store,New,1,15.99
+ORD-10054,2026-01-13,Smart Speaker,Electronics,West,In-store,Returning,1,89.00
+ORD-10562,2026-05-09,Wireless Earbuds,Electronics,East,In-store,Returning,2,59.99
+ORD-10055,2026-01-14,4K Monitor,Electronics,West,Online,New,1,179.00
+ORD-10056,2026-01-14,Rain Jacket,Clothing,West,Online,Returning,1,74.00
+ORD-10056,2026-01-14,Water Bottle,Sports,West,Online,Returning,1,15.99
+ORD-10056,2026-01-14,Data Analysis Handbook,Books,West,Online,Returning,1,32.00
+ORD-10057,2026-01-14,Wireless Earbuds,Electronics,East,In-store,New,1,59.99
+ORD-10058,2026-01-14,Ceramic Planter,Home & Garden,East,Online,Business,9,24.00
+ORD-10059,2026-01-15,Water Bottle,Sports,South,Online,New,2,15.99
+ORD-10060,2026-01-15,LED Desk Lamp,Home & Garden,South,Online,Returning,1,34.99
+ORD-10061,2026-01-15,LED Desk Lamp,Home & Garden,East,Online,Returning,3,34.99
+ORD-10062,2026-01-15,LED Desk Lamp,Home & Garden,East,Online,,1,34.99
+ORD-10063,2026-01-15,Wireless Earbuds,Electronics,West,Online,Returning,1,59.99
+ORD-10063,2026-01-15,Canvas Trainers,Clothing,West,Online,Returning,4,49.99
+ORD-10063,2026-01-15,Herb Seed Kit,Home & Garden,West,Online,Returning,1,12.00
+ORD-10064,2026-01-16,Travel Journal,Books,East,Online,Returning,1,11.99
+ORD-10065,2026-01-16,Rain Jacket,Clothing,West,In-store,Returning,1,74.00
+ORD-10066,2026-01-16,USB-C Charger,Electronics,North,Online,Returning,3,19.50
+ORD-10067,2026-01-16,Merino Socks,Clothing,East,Online,Returning,3,14.50
+ORD-10068,2026-01-17,Yoga Mat,Sports,East,Online,Returning,2,27.00
+ORD-10069,2026-01-17,Cookbook Classics,Books,West,Online,New,1,22.50
+ORD-10070,2026-01-17,Cotton Throw,Home & Garden,East,Online,Business,7,29.50
+ORD-10071,2026-01-17,Cotton Throw,Home & Garden,West,Online,Returning,1,29.50
+ORD-10071,2026-01-17,Data Analysis Handbook,Books,West,Online,Returning,2,32.00
+ORD-10072,2026-01-18,Wool Beanie,Clothing,East,Online,New,2,18.00
+ORD-10073,2026-01-18,Canvas Trainers,Clothing,East,In-store,Returning,1,49.99
+ORD-10073,2026-01-18,Water Bottle,Sports,East,In-store,Returning,1,15.99
+ORD-10074,2026-01-18,Cotton Throw,Home & Garden,East,In-store,Returning,1,29.50
+ORD-10075,2026-01-19,Wool Beanie,Clothing,North,In-store,New,1,18.00
+ORD-10075,2026-01-19,Cotton Throw,Home & Garden,North,In-store,New,1,29.50
+ORD-10075,2026-01-19,LED Desk Lamp,Home & Garden,North,In-store,New,2,34.99
+ORD-10076,2026-01-19,Yoga Mat,Sports,West,In-store,,1,27.00
+ORD-10077,2026-01-19,LED Desk Lamp,Home & Garden,North,Online,Returning,1,34.99
+ORD-10078,2026-01-19,Ceramic Planter,Home & Garden,East,Online,New,1,24.00
+ORD-10079,2026-01-19,Data Analysis Handbook,Books,West,Online,New,1,32.00
+ORD-10080,2026-01-19,Wireless Earbuds,Electronics,West,Online,New,2,59.99
+ORD-10081,2026-01-20,Travel Journal,Books,West,Online,Business,7,11.99
+ORD-10082,2026-01-20,Wool Beanie,Clothing,North,Online,Returning,1,18.00
+ORD-10082,2026-01-20,Smart Speaker,Electronics,North,Online,Returning,1,89.00
+ORD-10082,2026-01-20,LED Desk Lamp,Home & Garden,North,Online,Returning,1,34.99
+ORD-10083,2026-01-20,  Smart Speaker ,Electronics,South,In-store,Returning,1,89.00
+ORD-10084,2026-01-21,Rain Jacket,Clothing,West,Online,Returning,1,74.00
+ORD-10085,2026-01-21,Herb Seed Kit,Home & Garden,South,Online,New,1,12.00
+ORD-10086,2026-01-21,LED Desk Lamp,Home & Garden,East,Online,Returning,1,34.99
+ORD-10087,2026-01-21,USB-C Charger,Electronics,North,Online,Returning,2,19.50
+ORD-10088,2026-01-21,Water Bottle,Sports,South,Online,New,3,15.99
+ORD-10089,2026-01-22,Ceramic Planter,Home & Garden,West,Online,Returning,1,£24.00
+ORD-10090,2026-01-22,USB-C Charger,Electronics,East,Phone,New,5,19.50
+ORD-10090,2026-01-22,Ceramic Planter,Home & Garden,East,Phone,New,1,24.00
+ORD-10090,2026-01-22,LED Desk Lamp,Home & Garden,East,Phone,New,1,34.99
+ORD-10091,2026-01-22,Wireless Earbuds,Electronics,East,Online,Returning,4,59.99
+ORD-10091,2026-01-22,Canvas Trainers,Clothing,East,Online,Returning,1,49.99
+ORD-10091,2026-01-22,Ceramic Planter,Home & Garden,East,Online,Returning,1,24.00
+ORD-10092,2026-01-22,USB-C Charger,Electronics,South,In-store,New,1,19.50
+ORD-10093,2026-01-22,Rain Jacket,Clothing,South,Online,New,2,74.00
+ORD-10094,2026-01-23,Water Bottle,Sports,South,N/A,Returning,1,15.99
+ORD-10095,2026-01-23,Resistance Bands,Sports,South,Online,Returning,4,21.50
+ORD-10096,2026-01-23,Wool Beanie,Clothing,North,In-store,Returning,3,18.00
+ORD-10096,2026-01-23,Water Bottle,Sports,North,N/A,Returning,2,15.99
+ORD-10097,2026-01-23,4K Monitor,Electronics,North,In-store,New,1,179.00
+ORD-10098,2026-01-24,Canvas Trainers,Clothing,West,Phone,Returning,1,49.99
+ORD-10719,2026-06-09,Merino Socks,Clothing,East,Phone,Business,6,14.50
+ORD-10099,2026-01-24,Canvas Trainers,Clothing,North,In-store,Returning,1,49.99
+ORD-10100,2026-01-25,Smart Speaker,Electronics,West,Phone,New,5,89.00
+ORD-10101,2026-01-25,Merino Socks,Clothing,North,Online,Returning,1,14.50
+ORD-10102,2026-01-25,LED Desk Lamp,Home & Garden,South,In-store,Returning,1,34.99
+ORD-10102,2026-01-25,Wool Beanie,Clothing,South,In-store,Returning,1,18.00
+ORD-10103,2026-01-25,Resistance Bands,Sports,West,Phone,Returning,1,21.50
+ORD-10104,2026-01-26,Yoga Mat,Sports,South,Online,Returning,1,27.00
+ORD-10484,2026-04-21,Yoga Mat,Sports,West,Online,Business,5,27.00
+ORD-10105,2026-01-26,USB-C Charger,Electronics,West,Online,New,2,19.50
+ORD-10106,2026-01-26,Resistance Bands,Sports,East,Phone,Returning,1,21.50
+ORD-10107,2026-01-27,Ceramic Planter,Home & Garden,West,Online,Returning,1,24.00
+ORD-10108,2026-01-27,Resistance Bands,Sports,West,Online,New,1,21.50
+ORD-10109,2026-01-27,4K Monitor,Electronics,East,Phone,Returning,2,179.00
+ORD-10110,2026-01-27,Wireless Earbuds,Electronics,East,In-store,New,3,59.99
+ORD-10110,2026-01-27,Travel Journal,Books,East,In-store,New,1,11.99
+ORD-10111,2026-01-27,Canvas Trainers,Clothing,East,Online,New,3,49.99
+ORD-10112,2026-01-28,Water Bottle,Sports,West,Online,Business,8,15.99
+ORD-10113,2026-01-28,Travel Journal,Books,West,Online,New,2,11.99
+ORD-10113,2026-01-28,Canvas Trainers,Clothing,West,Online,New,1,49.99
+ORD-10113,2026-01-28,4K Monitor,Electronics,West,Online,New,2,179.00
+ORD-10114,2026-01-28,Merino Socks,Clothing,West,Online,New,1,14.50
+ORD-10114,2026-01-28,Rain Jacket,Clothing,west,Online,New,1,74.00
+ORD-10115,2026-01-28,Resistance Bands,Sports,West,Phone,New,1,21.50
+ORD-10116,2026-01-29,Canvas Trainers,Clothing,South,In-store,Returning,1,49.99
+ORD-10117,2026-01-29,Yoga Mat,Sports,South,Online,Returning,1,27.00
+ORD-10118,2026-01-29,Rain Jacket,Clothing,West,Online,Returning,2,74.00
+ORD-10119,2026-01-29,USB-C Charger,Electronics,North,Phone,New,4,19.50
+ORD-10120,2026-01-30,4K Monitor,Electronics,North,Online,New,1,179.00
+ORD-10121,2026-01-30,Water Bottle,Sports,East,In-store,Business,7,15.99
+ORD-10121,2026-01-30,Canvas Trainers,Clothing,East,In-store,Business,4,49.99
+ORD-10122,2026-01-30,Herb Seed Kit,Home & Garden,North,In-store,Returning,2,12.00
+ORD-10122,2026-01-30,Merino Socks,Clothing,North,In-store,Returning,1,14.50
+ORD-10123,2026-01-30,Resistance Bands,Sports,East,In-store,Returning,1,21.50
+ORD-10124,2026-01-30,Herb Seed Kit,Home & Garden,South,In-store,Returning,1,12.00
+ORD-10125,2026-01-31,Ceramic Planter,Home & Garden,South,Online,Returning,1,24.00
+ORD-10126,2026-01-31,Merino Socks,Clothing,North,Online,Returning,3,14.50
+ORD-10127,2026-01-31,Wireless Earbuds,Electronics,West,Online,Returning,3,59.99
+ORD-10128,2026-02-01,Wool Beanie,Clothing,North,Online,Returning,1,18.00
+ORD-10129,2026-02-01,Ceramic Planter,Home & Garden,West,Online,Returning,2,24.00
+ORD-10129,2026-02-01,Resistance Bands,Sports,West,Online,Returning,2,21.50
+ORD-10130,2026-02-01,USB-C Charger,Electronics,North,Online,Returning,5,19.50
+ORD-10131,2026-02-01,Canvas Trainers,Clothing,South,In-store,Returning,1,49.99
+ORD-10132,2026-02-02,USB-C Charger,Electronics,East,Online,New,1,19.50
+ORD-10133,2026-02-02,LED Desk Lamp,Home & Garden,East,Online,Returning,1,34.99
+ORD-10133,2026-02-02,Ceramic Planter,Home & Garden,East,Online,Returning,1,24.00
+ORD-10134,2026-02-02,Travel Journal,Books,North,Online,Returning,2,11.99
+ORD-10135,2026-02-02,Resistance Bands,Sports,East,Online,New,4,21.50
+ORD-10135,2026-02-02,4K Monitor,Electronics,East,Online,New,2,179.00
+ORD-10136,2026-02-02,Data Analysis Handbook,Books,North,Phone,Returning,3,32.00
+ORD-10136,2026-02-02,Resistance Bands,Sports,North,Phone,Returning,1,21.50
+ORD-10137,2026-02-03,Water Bottle,Sports,South,Online,Returning,1,15.99
+ORD-10138,2026-02-03,Merino Socks,Clothing,West,Online,Returning,1,14.50
+ORD-10139,2026-02-03,Herb Seed Kit,Home & Garden,East,Online,Returning,1,12.00
+ORD-10139,2026-02-03,USB-C Charger,Electronics,East,Online,Returning,1,19.50
+ORD-10140,2026-02-03,Data Analysis Handbook,Books,West,In-store,Returning,1,32.00
+ORD-10141,2026-02-04,Resistance Bands,Sports,West,Online,New,1,21.50
+ORD-10141,2026-02-04,Canvas Trainers,Clothing,West,Online,New,2,49.99
+ORD-10142,2026-02-04,Wireless Earbuds,Electronics,West,Phone,New,1,59.99
+ORD-10143,2026-02-04,Merino Socks,Clothing,South,Online,Returning,1,14.50
+ORD-10144,2026-02-04,Merino Socks,Clothing,West,Online,Business,9,14.50
+ORD-10145,2026-02-05,Travel Journal,Books,East,In-store,New,1,11.99
+ORD-10146,2026-02-05,Herb Seed Kit,Home & Garden,South,Phone,Returning,2,12.00
+ORD-10147,2026-02-06,4K Monitor,Electronics,South,Phone,Business,3,179.00
+ORD-10148,2026-02-06,Canvas Trainers,Clothing,South,Online,Returning,1,49.99
+ORD-10149,2026-02-06,Herb Seed Kit,Home & Garden,South,Online,Returning,3,12.00
+ORD-10150,2026-02-06,Rain Jacket,Clothing,West,Online,Returning,2,74.00
+ORD-10150,2026-02-06,Herb Seed Kit,Home & Garden,west,Online,Returning,1,12.00
+ORD-10151,2026-02-06,Water Bottle,Sports,East,Online,Returning,2,15.99
+ORD-10151,2026-02-06,Merino Socks,Clothing,East,Online,Returning,2,14.50
+ORD-10151,2026-02-06,Data Analysis Handbook,Books,East,Online,Returning,1,32.00
+ORD-10152,2026-02-07,LED Desk Lamp,Home & Garden,North,Online,Returning,3,34.99
+ORD-10153,2026-02-07,LED Desk Lamp,Home & Garden,West,Phone,Business,4,34.99
+ORD-10154,2026-02-08,Data Analysis Handbook,Books,East,In-store,New,3,32.00
+ORD-10155,2026-02-08,4K Monitor,Electronics,South,In-store,New,1,179.00
+ORD-10155,2026-02-08,Cotton Throw,Home & Garden,South,In-store,New,1,29.50
+ORD-10155,2026-02-08,LED Desk Lamp,Home & Garden,South,In-store,New,5,34.99
+ORD-10156,2026-02-08,Wireless Earbuds,Electronics,South,Phone,Returning,1,59.99
+ORD-10156,2026-02-08,Yoga Mat,Sports,South,Phone,Returning,3,27.00
+ORD-10156,2026-02-08,USB-C Charger,Electronics,South,Phone,Returning,2,19.50
+ORD-10157,2026-02-08,Water Bottle,Sports,South,Online,Returning,1,15.99
+ORD-10158,2026-02-08,Wireless Earbuds,Electronics,North,Online,New,2,59.99
+ORD-10158,2026-02-08,Travel Journal,Books,North,Online,New,1,11.99
+ORD-10159,2026-02-09,Data Analysis Handbook,Books,West,Online,Returning,1,32.00
+ORD-10160,2026-02-09,Resistance Bands,Sports,East,Online,Returning,4,21.50
+ORD-10161,2026-02-09,Merino Socks,Clothing,South,Online,New,1,14.50
+ORD-10162,2026-02-09,USB-C Charger,Electronics,West,Online,Business,7,19.50
+ORD-10163,2026-02-09,4K Monitor,Electronics,West,Phone,Returning,1,179.00
+ORD-10164,2026-02-10,Yoga Mat,Sports,West,In-store,Returning,1,27.00
+ORD-10164,2026-02-10,Cotton Throw,Home & Garden,West,In-store,Returning,1,29.50
+ORD-10164,2026-02-10,Ceramic Planter,Home & Garden,West,In-store,Returning,5,24.00
+ORD-10165,2026-02-10,LED Desk Lamp,Home & Garden,West,In-store,Returning,1,34.99
+ORD-10166,2026-02-10,Yoga Mat,Sports,West,Phone,Returning,1,27.00
+ORD-10167,2026-02-11,Smart Speaker,Electronics,East,Online,Returning,3,89.00
+ORD-10167,2026-02-11,Wireless Earbuds,Electronics,East,Online,Returning,4,59.99
+ORD-10168,2026-02-11,Water Bottle,Sports,North,Online,New,1,15.99
+ORD-10169,2026-02-11,Cookbook Classics,Books,West,Phone,Returning,1,22.50
+ORD-10170,2026-02-12,Merino Socks,Clothing,South,In-store,Returning,3,14.50
+ORD-10170,2026-02-12,Water Bottle,Sports,South,In-store,Returning,3,15.99
+ORD-10170,2026-02-12,Yoga Mat,Sports,South,In-store,Returning,2,27.00
+ORD-10171,2026-02-12,Yoga Mat,Sports,North,Online,New,1,27.00
+ORD-10627,2026-05-20,Rain Jacket,Clothing,North,Phone,Returning,1,74.00
+ORD-10172,2026-02-12,Resistance Bands,Sports,South,Online,Returning,1,21.50
+ORD-10173,2026-02-12,Smart Speaker,Electronics,West,In-store,New,2,89.00
+ORD-10174,2026-02-13,Data Analysis Handbook,Books,South,In-store,New,4,32.00
+ORD-10175,2026-02-13,4K Monitor,Electronics,West,Online,Returning,1,179.00
+ORD-10176,2026-02-13,Rain Jacket,Clothing,East,Online,Returning,1,74.00
+ORD-10177,2026-02-13,Cotton Throw,Home & Garden,North,Online,Returning,1,29.50
+ORD-10177,2026-02-13,LED Desk Lamp,Home & Garden,North,Online,Returning,3,34.99
+ORD-10178,2026-02-14,4K Monitor,Electronics,East,Online,Business,5,179.00
+ORD-10178,2026-02-14,Rain Jacket,Clothing,East,Online,Business,9,74.00
+ORD-10179,2026-02-14,Smart Speaker,Electronics,East,Online,New,2,89.00
+ORD-10180,2026-02-14,Smart Speaker,Electronics,North,Online,Returning,1,89.00
+ORD-10181,2026-02-14,Wireless Earbuds,Electronics,North,Online,,1,59.99
+ORD-10182,2026-02-14,Smart Speaker,Electronics,South,In-store,Returning,1,89.00
+ORD-10183,2026-02-15,Herb Seed Kit,Home & Garden,East,Online,Returning,1,12.00
+ORD-10184,2026-02-15,USB-C Charger,Electronics,West,In-store,New,3,19.50
+ORD-10185,2026-02-15,Wireless Earbuds,Electronics,East,Online,Business,4,59.99
+ORD-10185,2026-02-15,Travel Journal,Books,East,Online,Business,3,11.99
+ORD-10186,2026-02-15,USB-C Charger,Electronics,South,In-store,Returning,2,19.50
+ORD-10187,2026-02-15,Cookbook Classics,Books,North,Phone,Returning,2,22.50
+ORD-10187,2026-02-15,Yoga Mat,Sports,North,Phone,Returning,1,27.00
+ORD-10188,2026-02-16,USB-C Charger,Electronics,South,Online,Returning,2,19.50
+ORD-10188,31/13/2026,Merino Socks,Clothing,South,Online,Returning,1,14.50
+ORD-10189,2026-02-16,Wool Beanie,Clothing,North,Online,New,1,18.00
+ORD-10189,2026-02-16,Wireless Earbuds,Electronics,North,Online,New,4,59.99
+ORD-10190,2026-02-16,Merino Socks,Clothing,West,Online,Business,7,14.50
+ORD-10191,2026-02-16,USB-C Charger,Electronics,East,Online,Returning,2,19.50
+ORD-10192,2026-02-16,Ceramic Planter,Home & Garden,West,Online,Returning,1,24.00
+ORD-10192,2026-02-16,Data Analysis Handbook,Books,West,Online,Returning,1,32.00
+ORD-10193,2026-02-17,Wireless Earbuds,Electronics,East,Online,Returning,1,59.99
+ORD-10194,2026-02-17,Data Analysis Handbook,Books,West,In-store,New,1,32.00
+ORD-10194,2026-02-17,Yoga Mat,Sports,West,In-store,New,1,27.00
+ORD-10195,2026-02-17,LED Desk Lamp,Home & Garden,West,Online,Returning,4,34.99
+ORD-10195,2026-02-17,USB-C Charger,Electronics,West,Online,Returning,2,19.50
+ORD-10195,2026-02-17,Wool Beanie,Clothing,West,Online,Returning,1,18.00
+ORD-10196,2026-02-18,Travel Journal,Books,West,Online,New,3,11.99
+ORD-10197,2026-02-18,Herb Seed Kit,Home & Garden,West,Online,New,3,12.00
+ORD-10198,2026-02-18,Wireless Earbuds,Electronics,North,Online,New,1,59.99
+ORD-10198,2026-02-18,Water Bottle,Sports,North,Online,New,1,15.99
+ORD-10199,2026-02-18,Water Bottle,Sports,West,Online,Returning,1,15.99
+ORD-10200,2026-02-18,4K Monitor,Electronics,East,Phone,Returning,1,179.00
+ORD-10201,2026-02-19,4K Monitor,Electronics,South,Online,Returning,1,179.00
+ORD-10202,2026-02-19,Rain Jacket,Clothing,East,Online,Returning,1,74.00
+ORD-10202,2026-02-19,Yoga Mat,Sports,East,Online,Returning,1,27.00
+ORD-10203,2026-02-19,Canvas Trainers,Clothing,West,Online,New,5,49.99
+ORD-10204,2026-02-19,Herb Seed Kit,Home & Garden,North,Online,Returning,5,12.00
+ORD-10204,2026-02-19,Travel Journal,Books,North,Online,Returning,1,11.99
+ORD-10205,2026-02-19,Yoga Mat,Sports,North,Phone,Returning,2,27.00
+ORD-10206,2026-02-19,Water Bottle,Sports,West,Online,Returning,1,15.99
+ORD-10207,2026-02-20,Cotton Throw,Home & Garden,East,In-store,New,1,29.50
+ORD-10207,2026-02-20,4K Monitor,Electronics,East,In-store,New,1,179.00
+ORD-10208,2026-02-20,4K Monitor,Electronics,West,Phone,Returning,1,179.00
+ORD-10208,2026-02-20,Ceramic Planter,Home & Garden,West,Phone,Returning,2,24.00
+ORD-10209,2026-02-20,Resistance Bands,Sports,West,Online,Business,6,21.50
+ORD-10209,2026-02-20,4K Monitor,Electronics,West,Online,Business,9,179.00
+ORD-10210,2026-02-20,Smart Speaker,Electronics,South,Online,Returning,2,89.00
+ORD-10210,2026-02-20,Yoga Mat,Sports,South,Online,Returning,1,27.00
+ORD-10211,2026-02-20,Wireless Earbuds,Electronics,East,Online,Returning,1,59.99
+ORD-10212,2026-02-21,Water Bottle,Sports,North,In-store,Returning,1,15.99
+ORD-10213,2026-02-21,Wireless Earbuds,Electronics,South,Phone,Returning,1,59.99
+ORD-10214,2026-02-21,Herb Seed Kit,Home & Garden,South,In-store,Returning,2,12.00
+ORD-10215,2026-02-22,Data Analysis Handbook,Books,north,In-store,Returning,1,32.00
+ORD-10215,2026-02-22,Rain Jacket,Clothing,North,In-store,Returning,1,74.00
+ORD-10215,2026-02-22,Wireless Earbuds,Electronics,North,In-store,Returning,1,59.99
+ORD-10216,2026-02-22,Travel Journal,Books,East,In-store,Business,8,11.99
+ORD-10217,2026-02-22,Rain Jacket,Clothing,South,In-store,Returning,2,74.00
+ORD-10218,2026-02-22,Cookbook Classics,Books,South,In-store,Returning,1,22.50
+ORD-10219,2026-02-23,Rain Jacket,Clothing,North,Online,Returning,2,74.00
+ORD-10220,2026-02-23,Canvas Trainers,Clothing,North,Online,Returning,1,49.99
+ORD-10221,2026-02-24,Data Analysis Handbook,Books,East,Online,Business,8,32.00
+ORD-10221,2026-02-24,LED Desk Lamp,Home & Garden,East,Online,Business,5,34.99
+ORD-10221,2026-02-24,Yoga Mat,Sports,East,Online,Business,4,27.00
+ORD-10222,2026-02-24,Herb Seed Kit,Home & Garden,North,Online,New,2,12.00
+ORD-10223,2026-02-24,Water Bottle,Sports,South,Online,Returning,3,15.99
+ORD-10224,2026-02-24,Data Analysis Handbook,Books,East,Online,Business,9,32.00
+ORD-10225,2026-02-24,Cotton Throw,Home & Garden,East,Online,Returning,1,29.50
+ORD-10225,2026-02-24,Cookbook Classics,Books,East,Online,Returning,1,22.50
+ORD-10226,2026-02-25,Cotton Throw,Home & Garden,East,Online,Returning,1,29.50
+ORD-10227,2026-02-25,Cotton Throw,Home & Garden,West,Phone,Returning,2,29.50
+ORD-10228,2026-02-25,Resistance Bands,Sports,West,Online,Returning,2,21.50
+ORD-10228,2026-02-25,Herb Seed Kit,Home & Garden,West,Online,Returning,1,12.00
+ORD-10229,2026-02-26,Travel Journal,Books,West,In-store,New,1,11.99
+ORD-10229,2026-02-26,Wool Beanie,Clothing,West,In-store,New,1,18.00
+ORD-10230,2026-02-26,4K Monitor,Electronics,East,Online,Returning,1,179.00
+ORD-10231,2026-02-26,USB-C Charger,Electronics,South,In-store,Returning,2,19.50
+ORD-10231,2026-02-26,Smart Speaker,Electronics,South,In-store,Returning,2,89.00
+ORD-10232,2026-02-27,Ceramic Planter,Home & Garden,West,In-store,Returning,1,24.00
+ORD-10233,2026-02-27,Water Bottle,Sports,North,Online,Business,5,
+ORD-10234,2026-02-27,Merino Socks,Clothing,North,Online,New,2,14.50
+ORD-10235,2026-02-27,Merino Socks,Clothing,West,In-store,Returning,2,14.50
+ORD-10236,2026-02-27,Cookbook Classics,Books,North,Online,Returning,1,22.50
+ORD-10237,2026-02-28,Cotton Throw,Home & Garden,South,Online,Returning,2,29.50
+ORD-10238,2026-02-28,Data Analysis Handbook,Books,North,In-store,Business,10,32.00
+ORD-10239,2026-02-28,Wool Beanie,Clothing,East,Online,Returning,2,18.00
+ORD-10240,2026-02-28,USB-C Charger,Electronics,East,Phone,New,1,19.50
+ORD-10240,2026-02-28,Smart Speaker,Electronics,East,Phone,New,1,89.00
+ORD-10241,2026-02-28,Yoga Mat,Sports,North,In-store,New,2,27.00
+ORD-10242,2026-03-01,Cotton Throw,Home & Garden,West,Online,Business,9,29.50
+ORD-10243,2026-03-01,Herb Seed Kit,Home & Garden,South,Phone,Business,7,12.00
+ORD-10244,2026-03-01,Herb Seed Kit,Home & Garden,South,Online,Returning,1,12.00
+ORD-10245,2026-03-01,Smart Speaker,Electronics,South,Online,Business,7,89.00
+ORD-10246,2026-03-01,LED Desk Lamp,Home & Garden,North,Online,Business,8,34.99
+ORD-10247,2026-03-01,Wireless Earbuds,Electronics,North,Online,Returning,4,59.99
+ORD-10248,2026-03-02,Yoga Mat,Sports,East,Online,New,1,27.00
+ORD-10249,2026-03-02,Resistance Bands,Sports,South,In-store,New,2,21.50
+ORD-10250,2026-03-02,Wool Beanie,Clothing,South,Online,Business,6,18.00
+ORD-10250,2026-03-02,Resistance Bands,Sports,South,Online,Business,5,21.50
+ORD-10250,2026-03-02,4K Monitor,Electronics,South,Online,Business,13,179.00
+ORD-10251,2026-03-02,Resistance Bands,Sports,North,In-store,Returning,1,21.50
+ORD-10252,2026-03-02,Travel Journal,Books,East,Online,Returning,3,11.99
+ORD-10253,2026-03-03,4K Monitor,Electronics,North,Online,Returning,1,179.00
+ORD-10253,2026-03-03,Ceramic Planter,Home & Garden,North,Online,Returning,1,24.00
+ORD-10254,2026-03-03,Ceramic Planter,Home & Garden,North,In-store,Returning,3,24.00
+ORD-10255,2026-03-03,LED Desk Lamp,Home & Garden,West,Online,New,1,34.99
+ORD-10256,2026-03-03,Ceramic Planter,Home & Garden,East,In-store,Returning,3,24.00
+ORD-10257,2026-03-03,Data Analysis Handbook,Books,North,Online,Returning,2,32.00
+ORD-10258,2026-03-04,Herb Seed Kit,Home & Garden,North,Online,Returning,1,12.00
+ORD-10259,2026-03-04,Wireless Earbuds,Electronics,South,Phone,Business,8,59.99
+ORD-10260,2026-03-04,Herb Seed Kit,Home & Garden,West,Phone,New,1,12.00
+ORD-10261,2026-03-04,Herb Seed Kit,Home & Garden,West,In-store,New,2,12.00
+ORD-10262,2026-03-05,Travel Journal,Books,North,In-store,Returning,1,11.99
+ORD-10262,2026-03-05,Cotton Throw,Home & Garden,North,In-store,Returning,5,29.50
+ORD-10263,2026-03-05,Herb Seed Kit,Home & Garden,North,Online,Returning,2,12.00
+ORD-10263,2026-03-05,Wireless Earbuds,Electronics,North,Online,Returning,1,59.99
+ORD-10264,2026-03-05,LED Desk Lamp,Home & Garden,West,Online,New,1,34.99
+ORD-10265,2026-03-05,Cookbook Classics,Books,West,Online,Returning,1,22.50
+ORD-10266,2026-03-06,USB-C Charger,Electronics,North,In-store,Returning,1,19.50
+ORD-10267,2026-03-06,Water Bottle,Sports,East,Online,Returning,5,15.99
+ORD-10268,2026-03-06,Wireless Earbuds,Electronics,North,Phone,Returning,1,59.99
+ORD-10269,2026-03-07,LED Desk Lamp,Home & Garden,North,Phone,New,1,34.99
+ORD-10270,2026-03-07,Merino Socks,Clothing,east,Online,New,1,14.50
+ORD-10271,2026-03-07,Travel Journal,Books,East,Online,New,1,11.99
+ORD-10271,2026-03-07,Cotton Throw,Home & Garden,East,Online,New,1,29.50
+ORD-10272,2026-03-07,Merino Socks,Clothing,East,Online,New,1,14.50
+ORD-10273,2026-03-07,Water Bottle,Sports,South,Online,New,2,15.99
+ORD-10274,2026-03-07,Yoga Mat,Sports,East,Online,Returning,1,27.00
+ORD-10275,2026-03-07,Rain Jacket,Clothing,North,Phone,Returning,3,74.00
+ORD-10276,2026-03-08,Cotton Throw,Home & Garden,West,Online,New,1,29.50
+ORD-10277,2026-03-08,Yoga Mat,Sports,South,Online,Returning,2,27.00
+ORD-10278,2026-03-09,  Water Bottle ,Sports,West,Online,New,1,15.99
+ORD-10279,2026-03-09,Wireless Earbuds,Electronics,West,Online,New,1,59.99
+ORD-10280,2026-03-09,LED Desk Lamp,Home & Garden,South,Online,Returning,5,34.99
+ORD-10281,2026-03-09,Resistance Bands,Sports,West,Online,Returning,1,21.50
+ORD-10281,2026-03-09,USB-C Charger,Electronics,West,Online,Returning,2,19.50
+ORD-10281,2026-03-09,4K Monitor,Electronics,West,Online,Returning,1,179.00
+ORD-10282,2026-03-09,Wireless Earbuds,Electronics,South,Online,New,2,59.99
+ORD-10282,2026-03-09,USB-C Charger,Electronics,South,Online,New,1,19.50
+ORD-10283,2026-03-10,Yoga Mat,Sports,East,Online,New,3,27.00
+ORD-10283,2026-03-10,Rain Jacket,Clothing,East,Online,New,1,74.00
+ORD-10284,2026-03-10,4K Monitor,Electronics,North,Online,New,1,179.00
+ORD-10285,2026-03-10,Smart Speaker,Electronics,West,Phone,Business,6,89.00
+ORD-10286,2026-03-10,Herb Seed Kit,Home & Garden,West,Phone,Business,8,12.00
+ORD-10287,2026-03-11,Cotton Throw,Home & Garden,East,Online,New,2,29.50
+ORD-10287,2026-03-11,Ceramic Planter,Home & Garden,East,Online,New,2,24.00
+ORD-10288,2026-03-11,Herb Seed Kit,Home & Garden,North,Online,Returning,1,12.00
+ORD-10289,2026-03-11,Wireless Earbuds,Electronics,North,Online,Returning,1,59.99
+ORD-10290,2026-03-11,Ceramic Planter,Home & Garden,North,Online,New,1,24.00
+ORD-10291,2026-03-11,Ceramic Planter,Home & Garden,East,Online,New,1,24.00
+ORD-10292,2026-03-12,Herb Seed Kit,Home & Garden,North,Online,New,1,12.00
+ORD-10293,2026-03-12,4K Monitor,Electronics,West,In-store,New,1,179.00
+ORD-10293,2026-03-12,Cookbook Classics,Books,West,In-store,New,1,22.50
+ORD-10293,2026-03-12,Merino Socks,Clothing,West,In-store,New,1,14.50
+ORD-10294,2026-03-12,Data Analysis Handbook,Books,North,In-store,New,1,32.00
+ORD-10294,2026-03-12,Merino Socks,Clothing,North,In-store,New,2,14.50
+ORD-10295,2026-03-12,4K Monitor,Electronics,West,In-store,Business,10,179.00
+ORD-10296,2026-03-12,Cotton Throw,Home & Garden,North,In-store,Returning,1,29.50
+ORD-10297,2026-03-13,Data Analysis Handbook,Books,East,In-store,Returning,3,32.00
+ORD-10298,2026-03-13,4K Monitor,Electronics,West,Online,Returning,2,179.00
+ORD-10299,2026-03-13,Water Bottle,Sports,West,In-store,New,1,15.99
+ORD-10300,2026-03-13,Ceramic Planter,Home & Garden,South,Online,Returning,1,24.00
+ORD-10301,2026-03-14,Data Analysis Handbook,Books,North,In-store,New,1,32.00
+ORD-10302,2026-03-14,Resistance Bands,Sports,South,Online,Returning,1,21.50
+ORD-10302,2026-03-14,LED Desk Lamp,Home & Garden,South,Online,Returning,1,34.99
+ORD-10302,2026-03-14,Herb Seed Kit,Home & Garden,South,Online,Returning,1,12.00
+ORD-10303,2026-03-14,Data Analysis Handbook,Books,West,Online,New,1,32.00
+ORD-10304,2026-03-14,4K Monitor,Electronics,North,In-store,New,2,179.00
+ORD-10305,2026-03-15,Ceramic Planter,Home & Garden,West,Phone,Returning,2,24.00
+ORD-10305,2026-03-15,Herb Seed Kit,Home & Garden,West,Phone,Returning,1,12.00
+ORD-10306,2026-03-15,4K Monitor,Electronics,East,Phone,New,3,179.00
+ORD-10307,TBC,Cookbook Classics,Books,North,In-store,New,1,22.50
+ORD-10302,2026-03-14,Herb Seed Kit,Home & Garden,South,Online,Returning,1,12.00
+ORD-10308,2026-03-15,4K Monitor,Electronics,North,Online,Returning,2,179.00
+ORD-10309,2026-03-16,Yoga Mat,Sports,South,Online,New,1,27.00
+ORD-10309,2026-03-16,Water Bottle,Sports,South,Online,New,1,15.99
+ORD-10310,2026-03-16,Water Bottle,Sports,West,Online,New,1,15.99
+ORD-10310,2026-03-16,Travel Journal,Books,West,Online,New,1,11.99
+ORD-10310,2026-03-16,Merino Socks,Clothing,West,Online,New,2,14.50
+ORD-10311,2026-03-16,Yoga Mat,Sports,North,Online,Business,5,27.00
+ORD-10210,2026-02-20,Yoga Mat,Sports,South,Online,Returning,1,27.00
+ORD-10019,2026-01-05,4K Monitor,Electronics,North,Online,,3,179.00
+ORD-10311,2026-03-16,Water Bottle,Sports,North,Online,Business,8,15.99
+ORD-10311,2026-03-16,Travel Journal,Books,North,Online,Business,4,11.99
+ORD-10312,2026-03-16,Canvas Trainers,Clothing,West,N/A,Returning,1,49.99
+ORD-10312,2026-03-16,Data Analysis Handbook,Books,West,Online,Returning,1,32.00
+ORD-10313,2026-03-16,Herb Seed Kit,Home & Garden,East,In-store,,3,12.00
+ORD-10314,2026-03-17,Rain Jacket,Clothing,West,Phone,Business,5,74.00
+ORD-10315,2026-03-17,Wool Beanie,Clothing,North,In-store,Returning,1,18.00
+ORD-10316,2026-03-17,Cotton Throw,Home & Garden,West,Online,Returning,1,29.50
+ORD-10317,2026-03-18,Data Analysis Handbook,Books,North,Online,New,1,32.00
+ORD-10318,2026-03-18,Ceramic Planter,Home & Garden,North,In-store,Business,8,24.00
+ORD-10319,2026-03-18,Merino Socks,Clothing,South,Phone,New,2,14.50
+ORD-10320,2026-03-18,Wireless Earbuds,Electronics,West,Online,,1,59.99
+ORD-10320,2026-03-18,Wool Beanie,Clothing,West,Online,New,2,18.00
+ORD-10321,2026-03-18,Merino Socks,Clothing,South,Phone,Returning,1,14.50
+ORD-10322,2026-03-19,Ceramic Planter,Home & Garden,East,Online,Returning,1,24.00
+ORD-10323,2026-03-19,Yoga Mat,Sports,South,Online,Returning,1,27.00
+ORD-10324,2026-03-19,Smart Speaker,Electronics,South,Online,Returning,1,89.00
+ORD-10325,2026-03-19,Yoga Mat,Sports,East,Online,Business,7,27.00
+ORD-10326,2026-03-19,USB-C Charger,Electronics,South,In-store,Returning,1,19.50
+ORD-10327,2026-03-20,Wool Beanie,Clothing,North,Online,Returning,2,18.00
+ORD-10328,2026-03-20,Rain Jacket,Clothing,North,Online,Returning,1,74.00
+ORD-10329,2026-03-20,Wireless Earbuds,Electronics,South,Phone,New,1,59.99
+ORD-10329,2026-03-20,Water Bottle,Sports,South,Phone,New,1,15.99
+ORD-10329,2026-03-20,Yoga Mat,Sports,South,Phone,New,2,27.00
+ORD-10330,2026-03-20,Canvas Trainers,Clothing,West,Online,New,2,49.99
+ORD-10331,2026-03-20,Smart Speaker,Electronics,East,Online,Returning,1,89.00
+ORD-10332,2026-03-20,Smart Speaker,Electronics,North,In-store,New,1,89.00
+ORD-10333,2026-03-20,Merino Socks,Clothing,West,Phone,Returning,1,14.50
+ORD-10334,2026-03-20,Cookbook Classics,Books,North,Online,Returning,1,22.50
+ORD-10334,2026-03-20,Water Bottle,Sports,North,Online,Returning,2,15.99
+ORD-10335,2026-03-21,Ceramic Planter,Home & Garden,North,Phone,New,2,24.00
+ORD-10336,2026-03-21,Smart Speaker,Electronics,North,In-store,Returning,1,89.00
+ORD-10337,2026-03-21,Wireless Earbuds,Electronics,West,In-store,Returning,2,59.99
+ORD-10338,2026-03-21,LED Desk Lamp,Home & Garden,North,Online,New,1,34.99
+ORD-10339,2026-03-21,Canvas Trainers,Clothing,South,Online,Returning,1,49.99
+ORD-10339,2026-03-21,Wool Beanie,Clothing,South,Online,Returning,5,18.00
+ORD-10340,2026-03-22,Canvas Trainers,Clothing,North,Online,Returning,1,49.99
+ORD-10341,2026-03-22,Yoga Mat,Sports,West,Online,New,2,27.00
+ORD-10342,2026-03-22,Merino Socks,Clothing,West,In-store,,7,14.50
+ORD-10343,2026-03-22,Cookbook Classics,Books,North,In-store,Returning,1,22.50
+ORD-10343,2026-03-22,Water Bottle,Sports,North,In-store,Returning,1,15.99
+ORD-10344,2026-03-22,Merino Socks,Clothing,East,In-store,New,2,14.50
+ORD-10345,2026-03-23,Travel Journal,Books,North,Online,New,2,11.99
+ORD-10346,2026-03-23,Herb Seed Kit,Home & Garden,North,Phone,Returning,1,12.00
+ORD-10347,2026-03-23,USB-C Charger,Electronics,West,Online,New,3,£19.50
+ORD-10348,2026-03-23,Water Bottle,Sports,South,Online,New,2,15.99
+ORD-10348,2026-03-23,Data Analysis Handbook,Books,South,Online,New,1,32.00
+ORD-10349,2026-03-24,Wireless Earbuds,Electronics,South,Online,Returning,4,59.99
+ORD-10349,2026-03-24,Travel Journal,Books,South,Online,Returning,1,11.99
+ORD-10349,2026-03-24,Resistance Bands,Sports,South,Online,Returning,1,21.50
+ORD-10350,2026-03-24,Canvas Trainers,Clothing,North,In-store,New,2,49.99
+ORD-10351,2026-03-24,Merino Socks,Clothing,East,Online,New,-2,14.50
+ORD-10352,2026-03-24,Ceramic Planter,Home & Garden,West,In-store,New,4,24.00
+ORD-10353,2026-03-24,Rain Jacket,Clothing,East,Online,Returning,3,74.00
+ORD-10354,2026-03-24,LED Desk Lamp,Home & Garden,South,Online,Returning,3,34.99
+ORD-10355,2026-03-25,Smart Speaker,Electronics,South,Phone,Returning,1,89.00
+ORD-10356,2026-03-25,Cookbook Classics,Books,North,Phone,Returning,1,22.50
+ORD-10357,2026-03-25,Rain Jacket,Clothing,East,Phone,Returning,1,74.00
+ORD-10358,2026-03-25,Ceramic Planter,Home & Garden,West,Online,Returning,2,24.00
+ORD-10359,2026-03-26,Data Analysis Handbook,Books,South,Online,Returning,1,32.00
+ORD-10360,2026-03-26,Herb Seed Kit,Home & Garden,North,Online,Returning,4,12.00
+ORD-10361,2026-03-26,Cookbook Classics,Books,West,Online,Business,9,22.50
+ORD-10362,2026-03-27,Resistance Bands,Sports,East,Online,New,3,21.50
+ORD-10363,2026-03-27,Water Bottle,Sports,North,Online,Returning,1,15.99
+ORD-10364,2026-03-27,Smart Speaker,Electronics,East,Online,Returning,1,89.00
+ORD-10364,2026-03-27,LED Desk Lamp,Home & Garden,East,Online,Returning,1,34.99
+ORD-10365,2026-03-27,Herb Seed Kit,Home & Garden,West,Online,Returning,1,12.00
+ORD-10365,2026-03-27,4K Monitor,Electronics,West,Online,Returning,1,179.00
+ORD-10366,2026-03-28,USB-C Charger,Electronics,East,Online,New,1,19.50
+ORD-10367,2026-03-28,Cotton Throw,Home & Garden,West,In-store,New,1,29.50
+ORD-10368,2026-03-28,Travel Journal,Books,North,In-store,Returning,1,11.99
+ORD-10368,2026-03-28,Water Bottle,Sports,North,In-store,Returning,4,15.99
+ORD-10369,2026-03-28,Smart Speaker,Electronics,East,Online,Returning,5,89.00
+ORD-10369,2026-03-28,Wool Beanie,Clothing,East,Online,,1,18.00
+ORD-10370,2026-03-28,Wool Beanie,Clothing,North,Online,Returning,1,18.00
+ORD-10370,2026-03-28,Herb Seed Kit,Home & Garden,North,Online,Returning,2,12.00
+ORD-10371,2026-03-28,Data Analysis Handbook,Books,East,In-store,New,1,32.00
+ORD-10371,2026-03-28,Cotton Throw,Home & Garden,East,In-store,New,2,29.50
+ORD-10372,2026-03-28,Smart Speaker,Electronics,North,Phone,Returning,1,89.00
+ORD-10373,2026-03-28,Yoga Mat,Sports,South,Online,Returning,1,27.00
+ORD-10373,2026-03-28,Resistance Bands,Sports,South,Online,Returning,1,21.50
+ORD-10374,2026-03-29,Cookbook Classics,Books,North,Online,Returning,1,22.50
+ORD-10375,2026-03-29,Travel Journal,Books,South,Online,Returning,2,11.99
+ORD-10376,2026-03-29,Cookbook Classics,Books,West,Online,New,3,22.50
+ORD-10377,2026-03-30,Cotton Throw,Home & Garden,South,In-store,Returning,1,29.50
+ORD-10378,2026-03-30,LED Desk Lamp,Home & Garden,North,Online,New,1,34.99
+ORD-10378,2026-03-30,Merino Socks,Clothing,North,Online,New,3,14.50
+ORD-10379,2026-03-30,Rain Jacket,Clothing,West,In-store,New,1,74.00
+ORD-10380,2026-03-31,Ceramic Planter,Home & Garden,South,Online,New,1,24.00
+ORD-10381,2026-03-31,Yoga Mat,Sports,South,In-store,Returning,1,27.00
+ORD-10382,2026-03-31,Wireless Earbuds,Electronics,South,Online,New,1,59.99
+ORD-10382,2026-03-31,Water Bottle,Sports,South,Online,New,1,15.99
+ORD-10383,2026-03-31,Cotton Throw,Home & Garden,South,In-store,Returning,1,29.50
+ORD-10384,2026-03-31,Rain Jacket,Clothing,North,Online,New,1,74.00
+ORD-10385,2026-04-01,USB-C Charger,Electronics,West,Online,Returning,1,£19.50
+ORD-10386,2026-04-01,Data Analysis Handbook,Books,North,In-store,Business,7,32.00
+ORD-10387,2026-04-01,Wireless Earbuds,Electronics,East,Online,Returning,3,59.99
+ORD-10388,2026-04-01,Water Bottle,Sports,West,Phone,Returning,4,15.99
+ORD-10389,2026-04-01,Herb Seed Kit,Home & Garden,South,Online,Returning,1,12.00
+ORD-10390,2026-04-01,Travel Journal,Books,West,Phone,Returning,4,11.99
+ORD-10391,2026-04-02,Rain Jacket,Clothing,West,Online,Returning,1,74.00
+ORD-10392,2026-04-02,Cotton Throw,Home & Garden,East,Online,New,1,29.50
+ORD-10392,2026-04-02,Ceramic Planter,Home & Garden,East,Online,New,3,24.00
+ORD-10393,2026-04-02,Smart Speaker,Electronics,North,In-store,Returning,3,89.00
+ORD-10393,2026-04-02,Canvas Trainers,Clothing,North,In-store,Returning,5,49.99
+ORD-10394,2026-04-03,4K Monitor,Electronics,North,In-store,Returning,1,179.00
+ORD-10395,2026-04-03,Merino Socks,Clothing,North,Online,Returning,1,14.50
+ORD-10395,2026-04-03,Yoga Mat,Sports,North,Online,Returning,1,27.00
+ORD-10396,2026-04-03,Wool Beanie,Clothing,South,Online,New,3,18.00
+ORD-10396,2026-04-03,LED Desk Lamp,Home & Garden,South,Online,New,2,34.99
+ORD-10396,2026-04-03,Resistance Bands,Sports,South,Online,New,1,21.50
+ORD-10397,2026-04-03,Resistance Bands,Sports,North,Online,New,1,21.50
+ORD-10398,2026-04-03,USB-C Charger,Electronics,East,In-store,New,1,19.50
+ORD-10399,2026-04-03,Data Analysis Handbook,Books,West,Online,Returning,1,32.00
+ORD-10400,2026-04-04,Cotton Throw,Home & Garden,North,Online,Business,3,29.50
+ORD-10401,2026-04-04,Wireless Earbuds,Electronics,East,In-store,New,1,59.99
+ORD-10401,2026-04-04,Smart Speaker,Electronics,East,In-store,New,3,89.00
+ORD-10402,2026-04-04,4K Monitor,Electronics,East,Online,New,1,179.00
+ORD-10403,2026-04-04,Rain Jacket,Clothing,East,Phone,Returning,2,74.00
+ORD-10404,2026-04-04,Smart Speaker,Electronics,East,Online,New,1,89.00
+ORD-10405,2026-04-04,Canvas Trainers,Clothing,West,Online,Business,11,49.99
+ORD-10405,2026-04-04,Resistance Bands,Sports,West,Online,Business,6,21.50
+ORD-10406,2026-04-04,USB-C Charger,Electronics,South,Phone,Returning,3,19.50
+ORD-10407,2026-04-05,LED Desk Lamp,Home & Garden,North,Online,Returning,1,34.99
+ORD-10408,2026-04-05,Smart Speaker,Electronics,East,Online,New,1,89.00
+ORD-10409,2026-04-05,Rain Jacket,Clothing,West,Phone,Returning,2,74.00
+ORD-10410,2026-04-06,Water Bottle,Sports,West,Online,New,2,15.99
+ORD-10411,2026-04-06,Smart Speaker,Electronics,East,In-store,New,1,89.00
+ORD-10412,2026-04-06,Wool Beanie,Clothing,North,In-store,Returning,1,18.00
+ORD-10413,2026-04-06,Yoga Mat,Sports,West,In-store,Returning,1,27.00
+ORD-10414,2026-04-06,Wireless Earbuds,Electronics,West,Online,Returning,1,59.99
+ORD-10415,2026-04-06,Canvas Trainers,Clothing,West,Online,Returning,1,49.99
+ORD-10416,2026-04-07,Water Bottle,Sports,North,In-store,New,2,15.99
+ORD-10417,2026-04-07,Ceramic Planter,Home & Garden,South,Online,Business,4,24.00
+ORD-10418,2026-04-07,Cookbook Classics,Books,south,In-store,Business,3,22.50
+ORD-10418,2026-04-07,Yoga Mat,Sports,South,In-store,Business,9,27.00
+ORD-10419,2026-04-07,4K Monitor,Electronics,East,Online,New,1,179.00
+ORD-10419,2026-04-07,Water Bottle,Sports,East,Online,New,1,15.99
+ORD-10420,2026-04-08,Merino Socks,Clothing,south,Online,New,2,14.50
+ORD-10420,2026-04-08,LED Desk Lamp,Home & Garden,South,Online,New,1,34.99
+ORD-10421,2026-04-08,LED Desk Lamp,Home & Garden,North,Online,Business,4,34.99
+ORD-10421,2026-04-08,Rain Jacket,Clothing,North,Online,Business,5,74.00
+ORD-10422,2026-04-08,Resistance Bands,Sports,West,Online,New,1,
+ORD-10423,2026-04-09,Water Bottle,Sports,West,Online,Returning,1,15.99
+ORD-10424,2026-04-09,Wireless Earbuds,Electronics,North,Online,New,3,59.99
+ORD-10425,2026-04-09,Herb Seed Kit,Home & Garden,East,In-store,Business,8,12.00
+ORD-10336,2026-03-21,Smart Speaker,Electronics,North,In-store,Returning,1,89.00
+ORD-10426,2026-04-09,Smart Speaker,Electronics,North,Online,Returning,1,89.00
+ORD-10427,2026-04-09,Merino Socks,Clothing,South,Online,Returning,2,14.50
+ORD-10427,2026-04-09,Herb Seed Kit,Home & Garden,South,Online,Returning,3,12.00
+ORD-10428,2026-04-10,Cookbook Classics,Books,West,Online,Returning,2,22.50
+ORD-10429,2026-04-10,Wool Beanie,Clothing,West,Online,New,1,18.00
+ORD-10430,2026-04-10,Water Bottle,Sports,North,Online,Returning,1,15.99
+ORD-10431,2026-04-10,Cookbook Classics,Books,West,In-store,Returning,3,22.50
+ORD-10432,2026-04-11,Herb Seed Kit,Home & Garden,North,Online,Returning,3,12.00
+ORD-10432,2026-04-11,Cookbook Classics,Books,North,Online,Returning,3,22.50
+ORD-10433,2026-04-11,Yoga Mat,Sports,East,Online,New,2,27.00
+ORD-10433,2026-04-11,Data Analysis Handbook,Books,East,Online,New,1,32.00
+ORD-10434,2026-04-11,4K Monitor,Electronics,South,In-store,Business,4,179.00
+ORD-10435,2026-04-12,Merino Socks,Clothing,North,Online,Returning,2,14.50
+ORD-10436,2026-04-12,LED Desk Lamp,Home & Garden,South,Phone,Returning,1,34.99
+ORD-10437,2026-04-12,  Water Bottle ,Sports,West,In-store,Returning,2,15.99
+ORD-10438,2026-04-12,Herb Seed Kit,Home & Garden,West,Online,New,1,12.00
+ORD-10439,2026-04-12,Resistance Bands,Sports,North,Online,Returning,1,21.50
+ORD-10439,2026-04-12,Canvas Trainers,Clothing,North,Online,Returning,3,49.99
+ORD-10440,2026-04-12,4K Monitor,Electronics,North,Phone,New,1,179.00
+ORD-10441,2026-04-13,Canvas Trainers,Clothing,North,Phone,Returning,1,49.99
+ORD-10442,2026-04-13,Canvas Trainers,Clothing,North,Online,Returning,1,49.99
+ORD-10443,2026-04-13,Canvas Trainers,Clothing,West,In-store,Returning,1,49.99
+ORD-10444,2026-04-13,Cotton Throw,Home & Garden,South,Online,Returning,1,29.50
+ORD-10444,2026-04-13,Yoga Mat,Sports,South,Online,Returning,2,27.00
+ORD-10445,2026-04-13,Cotton Throw,Home & Garden,East,Online,Business,6,29.50
+ORD-10445,2026-04-13,Canvas Trainers,Clothing,East,Online,Business,5,49.99
+ORD-10445,2026-04-13,Smart Speaker,Electronics,East,Online,Business,7,89.00
+ORD-10446,2026-04-14,Wool Beanie,Clothing,North,In-store,Returning,4,18.00
+ORD-10446,2026-04-14,Data Analysis Handbook,Books,North,In-store,Returning,2,32.00
+ORD-10446,2026-04-14,Canvas Trainers,Clothing,North,In-store,Returning,3,49.99
+ORD-10447,2026-04-14,Water Bottle,Sports,North,In-store,New,2,15.99
+ORD-10448,2026-04-14,Data Analysis Handbook,Books,North,Online,Returning,1,32.00
+ORD-10449,2026-04-14,Wool Beanie,Clothing,West,Online,Returning,1,18.00
+ORD-10450,2026-04-14,Data Analysis Handbook,Books,South,Online,Business,3,32.00
+ORD-10450,2026-04-14,4K Monitor,Electronics,South,Online,Business,4,179.00
+ORD-10451,2026-04-15,  Ceramic Planter ,Home & Garden,South,In-store,Returning,2,24.00
+ORD-10452,2026-04-15,4K Monitor,Electronics,North,Phone,Returning,4,179.00
+ORD-10452,2026-04-15,USB-C Charger,Electronics,North,Phone,Returning,2,19.50
+ORD-10355,2026-03-25,Smart Speaker,Electronics,South,Phone,Returning,1,89.00
+ORD-10228,2026-02-25,Herb Seed Kit,Home & Garden,West,Online,Returning,1,12.00
+ORD-10452,2026-04-15,Wool Beanie,Clothing,North,Phone,Returning,2,18.00
+ORD-10453,2026-04-15,Herb Seed Kit,Home & Garden,West,Online,Returning,2,12.00
+ORD-10454,2026-04-15,Herb Seed Kit,Home & Garden,West,In-store,Returning,2,12.00
+ORD-10455,2026-04-15,4K Monitor,Electronics,West,Online,New,1,179.00
+ORD-10456,2026-04-15,LED Desk Lamp,Home & Garden,West,Phone,Returning,2,34.99
+ORD-10457,2026-04-15,Merino Socks,Clothing,East,Online,Returning,4,14.50
+ORD-10457,2026-04-15,Ceramic Planter,Home & Garden,East,Online,Returning,1,24.00
+ORD-10458,2026-04-16,Rain Jacket,Clothing,West,In-store,New,5,74.00
+ORD-10459,2026-04-16,Water Bottle,Sports,North,Phone,Returning,1,15.99
+ORD-10460,2026-04-16,Herb Seed Kit,Home & Garden,South,Online,Returning,1,12.00
+ORD-10461,2026-04-16,Wireless Earbuds,Electronics,North,In-store,Returning,2,59.99
+ORD-10462,2026-04-17,4K Monitor,Electronics,South,Phone,New,1,179.00
+ORD-10463,2026-04-17,LED Desk Lamp,Home & Garden,West,Online,Business,4,34.99
+ORD-10463,2026-04-17,Water Bottle,Sports,West,Online,Business,3,15.99
+ORD-10464,2026-04-17,LED Desk Lamp,Home & Garden,East,Online,New,1,34.99
+ORD-10464,2026-04-17,Data Analysis Handbook,Books,East,N/A,New,1,32.00
+ORD-10465,2026-04-17,Ceramic Planter,Home & Garden,East,Phone,New,2,24.00
+ORD-10465,2026-04-17,Wireless Earbuds,Electronics,East,Phone,New,1,59.99
+ORD-10466,2026-04-17,Yoga Mat,Sports,North,Online,Returning,1,27.00
+ORD-10466,2026-04-17,Rain Jacket,Clothing,North,Online,Returning,1,74.00
+ORD-10467,2026-04-18,4K Monitor,Electronics,West,Online,Returning,1,179.00
+ORD-10468,2026-04-18,Herb Seed Kit,Home & Garden,South,In-store,Returning,2,12.00
+ORD-10468,2026-04-18,Data Analysis Handbook,Books,South,In-store,Returning,2,32.00
+ORD-10468,2026-04-18,LED Desk Lamp,Home & Garden,South,In-store,Returning,3,34.99
+ORD-10469,2026-04-18,LED Desk Lamp,Home & Garden,North,Online,New,1,34.99
+ORD-10470,2026-04-18,Ceramic Planter,Home & Garden,North,In-store,New,1,24.00
+ORD-10471,2026-04-18,USB-C Charger,Electronics,East,In-store,Returning,1,19.50
+ORD-10472,2026-04-19,USB-C Charger,Electronics,West,In-store,Returning,1,19.50
+ORD-10472,2026-04-19,Merino Socks,Clothing,West,In-store,Returning,1,14.50
+ORD-10473,2026-04-19,Ceramic Planter,Home & Garden,North,Online,Returning,2,24.00
+ORD-10473,2026-04-19,Cookbook Classics,Books,North,Online,Returning,1,22.50
+ORD-10473,2026-04-19,Rain Jacket,Clothing,North,Online,Returning,3,74.00
+ORD-10474,2026-04-19,Merino Socks,Clothing,West,Phone,New,2,14.50
+ORD-10475,2026-04-19,Rain Jacket,Clothing,West,Phone,Returning,2,74.00
+ORD-10476,2026-04-19,Wireless Earbuds,Electronics,East,Online,New,4,59.99
+ORD-10477,2026-04-19,Wool Beanie,Clothing,East,In-store,Returning,1,18.00
+ORD-10478,2026-04-20,Yoga Mat,Sports,South,In-store,Returning,1,27.00
+ORD-10478,2026-04-20,LED Desk Lamp,Home & Garden,South,In-store,Returning,4,34.99
+ORD-10478,2026-04-20,Wool Beanie,Clothing,South,In-store,Returning,1,18.00
+ORD-10479,2026-04-20,Cotton Throw,Home & Garden,West,Online,Returning,1,29.50
+ORD-10480,2026-04-20,Canvas Trainers,Clothing,North,In-store,New,1,49.99
+ORD-10481,2026-04-20,LED Desk Lamp,Home & Garden,North,Online,Returning,1,34.99
+ORD-10482,2026-04-20,Resistance Bands,Sports,South,Online,Returning,2,21.50
+ORD-10482,2026-04-20,Canvas Trainers,Clothing,South,Online,Returning,1,49.99
+ORD-10483,2026-04-21,Canvas Trainers,Clothing,North,In-store,Returning,2,49.99
+ORD-10484,2026-04-21,Yoga Mat,Sports,West,Online,Business,5,27.00
+ORD-10484,2026-04-21,Rain Jacket,Clothing,West,Online,Business,6,74.00
+ORD-10485,2026-04-21,Herb Seed Kit,Home & Garden,North,Online,Returning,4,12.00
+ORD-10486,2026-04-21,USB-C Charger,Electronics,East,Online,Returning,2,19.50
+ORD-10486,2026-04-21,Yoga Mat,Sports,East,Online,Returning,1,27.00
+ORD-10487,2026-04-21,Cookbook Classics,Books,South,Online,New,1,22.50
+ORD-10487,2026-04-21,Merino Socks,Clothing,South,Online,New,2,14.50
+ORD-10487,2026-04-21,Herb Seed Kit,Home & Garden,South,Online,New,1,12.00
+ORD-10488,2026-04-21,Ceramic Planter,Home & Garden,North,Online,Returning,2,24.00
+ORD-10489,2026-04-22,4K Monitor,Electronics,South,In-store,Returning,2,179.00
+ORD-10489,2026-04-22,Herb Seed Kit,Home & Garden,South,In-store,Returning,1,12.00
+ORD-10490,2026-04-23,Water Bottle,Sports,North,Online,Returning,1,15.99
+ORD-10491,2026-04-23,Wool Beanie,Clothing,East,Online,Returning,2,18.00
+ORD-10491,2026-04-23,Data Analysis Handbook,Books,East,Online,Returning,1,32.00
+ORD-10491,2026-04-23,USB-C Charger,Electronics,East,Online,Returning,2,19.50
+ORD-10492,2026-04-23,Ceramic Planter,Home & Garden,North,Online,Business,7,24.00
+ORD-10493,2026-04-23,Smart Speaker,Electronics,South,Online,Returning,1,89.00
+ORD-10494,2026-04-23,Wireless Earbuds,Electronics,South,Phone,Returning,1,59.99
+ORD-10495,2026-04-24,Rain Jacket,Clothing,South,Online,Returning,4,74.00
+ORD-10496,2026-04-24,Rain Jacket,Clothing,North,In-store,Returning,1,74.00
+ORD-10497,2026-04-25,Merino Socks,Clothing,South,In-store,New,1,14.50
+ORD-10498,2026-04-25,Yoga Mat,Sports,South,Online,Returning,3,27.00
+ORD-10499,2026-04-25,Cotton Throw,Home & Garden,West,Online,Returning,1,29.50
+ORD-10500,2026-04-25,Cotton Throw,Home & Garden,South,In-store,Returning,2,29.50
+ORD-10500,2026-04-25,Data Analysis Handbook,Books,South,In-store,Returning,1,32.00
+ORD-10501,2026-04-26,Cookbook Classics,Books,East,In-store,Returning,4,22.50
+ORD-10502,2026-04-26,USB-C Charger,Electronics,West,Phone,Returning,1,19.50
+ORD-10503,2026-04-26,Ceramic Planter,Home & Garden,North,Online,New,1,24.00
+ORD-10504,2026-04-26,Data Analysis Handbook,Books,South,Online,Returning,1,32.00
+ORD-10505,2026-13-01,Rain Jacket,Clothing,East,Online,Returning,3,74.00
+ORD-10506,2026-04-26,4K Monitor,Electronics,South,In-store,Returning,2,179.00
+ORD-10507,2026-04-26,Cookbook Classics,Books,East,Online,Returning,4,22.50
+ORD-10508,2026-04-26,Cotton Throw,Home & Garden,South,Online,New,1,29.50
+ORD-10509,2026-04-27,USB-C Charger,Electronics,South,In-store,Returning,1,19.50
+ORD-10509,2026-04-27,Herb Seed Kit,Home & Garden,South,In-store,Returning,1,12.00
+ORD-10510,2026-04-27,Rain Jacket,Clothing,South,Online,Returning,2,74.00
+ORD-10511,2026-04-27,USB-C Charger,Electronics,West,Online,Business,4,19.50
+ORD-10512,2026-04-27,Ceramic Planter,Home & Garden,North,Online,Returning,2,24.00
+ORD-10513,2026-04-27,LED Desk Lamp,Home & Garden,West,Online,Business,6,34.99
+ORD-10513,2026-04-27,Wool Beanie,Clothing,West,Online,Business,11,18.00
+ORD-10514,2026-04-27,Data Analysis Handbook,Books,South,Online,Returning,3,32.00
+ORD-10515,2026-04-28,Travel Journal,Books,North,Phone,Returning,1,11.99
+ORD-10516,2026-04-28,USB-C Charger,Electronics,North,Online,Returning,4,19.50
+ORD-10517,2026-04-28,Yoga Mat,Sports,West,Online,New,5,27.00
+ORD-10518,2026-04-29,Resistance Bands,Sports,West,In-store,Returning,2,21.50
+ORD-10519,2026-04-29,  Wool Beanie ,Clothing,East,In-store,Returning,3,18.00
+ORD-10519,2026-04-29,Canvas Trainers,Clothing,East,In-store,Returning,2,49.99
+ORD-10520,2026-04-29,Cotton Throw,Home & Garden,East,Online,Returning,4,29.50
+ORD-10521,2026-04-30,Canvas Trainers,Clothing,East,Online,New,2,49.99
+ORD-10522,2026-04-30,Water Bottle,Sports,North,In-store,Returning,1,15.99
+ORD-10522,2026-04-30,Ceramic Planter,Home & Garden,North,In-store,Returning,5,24.00
+ORD-10522,2026-04-30,Canvas Trainers,Clothing,North,In-store,Returning,1,49.99
+ORD-10523,2026-04-30,Water Bottle,Sports,South,Online,Returning,1,15.99
+ORD-10523,2026-04-30,Cookbook Classics,Books,South,Online,Returning,3,22.50
+ORD-10523,2026-04-30,Cotton Throw,Home & Garden,South,Online,Returning,1,29.50
+ORD-10524,2026-04-30,LED Desk Lamp,Home & Garden,North,Online,Business,8,34.99
+ORD-10525,2026-04-30,Merino Socks,Clothing,South,Online,Returning,4,14.50
+ORD-10526,2026-05-01,Wireless Earbuds,Electronics,West,Online,Returning,1,59.99
+ORD-10527,2026-05-01,Canvas Trainers,Clothing,East,Online,Returning,1,49.99
+ORD-10528,2026-05-01,Travel Journal,Books,West,Phone,Returning,1,£11.99
+ORD-10529,2026-05-01,Yoga Mat,Sports,West,In-store,New,2,27.00
+ORD-10530,2026-05-01,Rain Jacket,Clothing,West,Online,Business,11,74.00
+ORD-10531,2026-05-02,4K Monitor,Electronics,West,In-store,Returning,1,179.00
+ORD-10532,2026-05-02,Smart Speaker,Electronics,South,Online,New,1,89.00
+ORD-10533,2026-05-02,Travel Journal,Books,West,Online,Returning,2,11.99
+ORD-10534,2026-05-02,Travel Journal,Books,South,In-store,New,1,11.99
+ORD-10535,2026-05-02,Wool Beanie,Clothing,East,Online,New,2,18.00
+ORD-10535,2026-05-02,Cotton Throw,Home & Garden,East,Online,New,3,29.50
+ORD-10536,2026-05-03,Travel Journal,Books,South,N/A,Returning,2,11.99
+ORD-10537,2026-05-03,Cookbook Classics,Books,West,Online,Returning,1,22.50
+ORD-10538,2026-05-04,4K Monitor,Electronics,East,Online,Returning,1,179.00
+ORD-10538,2026-05-04,Merino Socks,Clothing,East,Online,Returning,1,14.50
+ORD-10538,2026-05-04,USB-C Charger,Electronics,East,Online,Returning,1,19.50
+ORD-10539,2026-05-04,Herb Seed Kit,Home & Garden,North,Online,Returning,-4,12.00
+ORD-10539,2026-05-04,Yoga Mat,Sports,North,Online,Returning,1,27.00
+ORD-10539,2026-05-04,Smart Speaker,Electronics,North,Online,Returning,1,89.00
+ORD-10540,2026-05-04,Water Bottle,Sports,North,In-store,Returning,1,15.99
+ORD-10540,2026-05-04,Wool Beanie,Clothing,North,In-store,Returning,2,18.00
+ORD-10541,2026-05-04,Water Bottle,Sports,North,In-store,New,1,15.99
+ORD-10542,2026-05-04,Wool Beanie,Clothing,North,Phone,New,1,18.00
+ORD-10542,2026-05-04,Rain Jacket,Clothing,North,Phone,New,1,74.00
+ORD-10543,2026-05-05,Cotton Throw,Home & Garden,West,Online,New,1,29.50
+ORD-10544,2026-05-05,Canvas Trainers,Clothing,East,Online,Returning,1,49.99
+ORD-10544,2026-05-05,Resistance Bands,Sports,East,Online,Returning,3,21.50
+ORD-10544,2026-05-05,Cookbook Classics,Books,East,Online,Returning,1,22.50
+ORD-10545,2026-05-05,Herb Seed Kit,Home & Garden,North,Online,Returning,1,12.00
+ORD-10545,2026-05-05,Merino Socks,Clothing,North,Online,Returning,3,14.50
+ORD-10546,2026-05-05,Rain Jacket,Clothing,West,In-store,Returning,1,74.00
+ORD-10547,2026-05-05,Wool Beanie,Clothing,East,Online,Returning,1,18.00
+ORD-10548,2026-05-06,Smart Speaker,Electronics,West,Online,Returning,1,89.00
+ORD-10548,2026-05-06,Travel Journal,Books,West,Online,Returning,5,11.99
+ORD-10548,2026-05-06,Wireless Earbuds,Electronics,West,Online,Returning,2,59.99
+ORD-10549,2026-05-06,Cotton Throw,Home & Garden,South,In-store,New,1,29.50
+ORD-10550,2026-05-06,4K Monitor,Electronics,North,Online,New,1,179.00
+ORD-10551,2026-05-06,4K Monitor,Electronics,South,Online,New,1,179.00
+ORD-10551,2026-05-06,LED Desk Lamp,Home & Garden,South,Online,New,1,34.99
+ORD-10551,2026-05-06,Water Bottle,Sports,South,Online,New,1,15.99
+ORD-10552,2026-05-07,Cotton Throw,Home & Garden,South,Phone,Returning,1,29.50
+ORD-10553,2026-05-07,USB-C Charger,Electronics,North,In-store,New,1,19.50
+ORD-10554,2026-05-07,Water Bottle,Sports,West,Online,New,1,15.99
+ORD-10555,2026-05-07,Resistance Bands,Sports,East,Online,New,4,21.50
+ORD-10556,2026-05-07,Wool Beanie,Clothing,West,Online,,1,18.00
+ORD-10556,2026-05-07,Data Analysis Handbook,Books,West,Online,Returning,1,32.00
+ORD-10557,2026-05-08,Water Bottle,Sports,South,In-store,Returning,1,15.99
+ORD-10558,2026-05-08,Water Bottle,Sports,North,Online,Returning,2,15.99
+ORD-10559,2026-05-08,Rain Jacket,Clothing,South,Online,Returning,4,74.00
+ORD-10560,2026-05-08,Wool Beanie,Clothing,North,In-store,New,1,18.00
+ORD-10560,2026-05-08,Travel Journal,Books,North,In-store,New,2,11.99
+ORD-10561,2026-05-08,LED Desk Lamp,Home & Garden,West,In-store,Returning,1,34.99
+ORD-10562,2026-05-09,Canvas Trainers,Clothing,East,In-store,Returning,3,49.99
+ORD-10562,2026-05-09,Water Bottle,Sports,East,In-store,Returning,1,15.99
+ORD-10562,2026-05-09,Wireless Earbuds,Electronics,East,In-store,Returning,2,59.99
+ORD-10563,2026-05-09,LED Desk Lamp,Home & Garden,West,Phone,Returning,3,34.99
+ORD-10563,2026-05-09,Resistance Bands,Sports,West,Phone,Returning,1,21.50
+ORD-10564,2026-05-09,Herb Seed Kit,Home & Garden,West,Online,Returning,4,12.00
+ORD-10565,2026-05-09,Herb Seed Kit,Home & Garden,West,Online,New,1,12.00
+ORD-10566,2026-05-09,Smart Speaker,Electronics,West,Online,Returning,3,89.00
+ORD-10566,2026-05-09,Canvas Trainers,Clothing,West,Online,Returning,2,49.99
+ORD-10567,2026-05-09,Herb Seed Kit,Home & Garden,South,Online,New,4,12.00
+ORD-10568,2026-05-10,Smart Speaker,Electronics,West,Phone,Returning,1,89.00
+ORD-10568,2026-05-10,Wireless Earbuds,Electronics,West,Phone,Returning,1,59.99
+ORD-10569,2026-05-10,Cotton Throw,Home & Garden,South,In-store,Returning,3,29.50
+ORD-10570,2026-05-10,Cotton Throw,Home & Garden,North,In-store,Returning,1,29.50
+ORD-10570,2026-05-10,Rain Jacket,Clothing,North,In-store,Returning,3,74.00
+ORD-10571,2026-05-10,USB-C Charger,Electronics,West,In-store,Returning,1,19.50
+ORD-10572,2026-05-10,Smart Speaker,Electronics,North,Online,New,1,89.00
+ORD-10573,2026-05-10,Yoga Mat,Sports,West,Online,Business,9,27.00
+ORD-10574,2026-05-10,Herb Seed Kit,Home & Garden,South,Online,New,1,12.00
+ORD-10575,2026-05-11,4K Monitor,Electronics,South,Online,Business,9,179.00
+ORD-10576,2026-05-11,Canvas Trainers,Clothing,South,Online,Returning,2,49.99
+ORD-10577,2026-05-11,Water Bottle,Sports,North,In-store,New,1,15.99
+ORD-10577,2026-05-11,4K Monitor,Electronics,North,In-store,New,4,179.00
+ORD-10578,2026-05-12,4K Monitor,Electronics,West,Online,Returning,3,179.00
+ORD-10579,2026-05-12,Travel Journal,Books,West,Online,Business,8,11.99
+ORD-10579,2026-05-12,Ceramic Planter,Home & Garden,West,Online,Business,-3,24.00
+ORD-10580,2026-05-12,Merino Socks,Clothing,East,In-store,Returning,4,£14.50
+ORD-10581,2026-05-12,4K Monitor,Electronics,North,Online,New,1,179.00
+ORD-10582,2026-05-12,Rain Jacket,Clothing,East,In-store,New,4,74.00
+ORD-10582,2026-05-12,Yoga Mat,Sports,East,In-store,New,1,27.00
+ORD-10583,2026-05-12,Yoga Mat,Sports,North,In-store,Business,11,27.00
+ORD-10584,2026-05-12,Resistance Bands,Sports,West,Online,Returning,1,21.50
+ORD-10584,2026-05-12,Cookbook Classics,Books,West,Online,Returning,2,22.50
+ORD-10584,2026-05-12,Smart Speaker,Electronics,West,Online,Returning,2,89.00
+ORD-10585,2026-05-13,Rain Jacket,Clothing,East,Online,Business,3,74.00
+ORD-10586,2026-05-13,Smart Speaker,Electronics,East,In-store,Returning,1,89.00
+ORD-10586,2026-05-13,Travel Journal,Books,East,In-store,Returning,1,11.99
+ORD-10587,2026-05-13,Wool Beanie,Clothing,South,In-store,New,1,18.00
+ORD-10588,2026-05-13,Water Bottle,Sports,East,In-store,Business,5,15.99
+ORD-10589,2026-05-14,Merino Socks,Clothing,North,Online,Returning,2,14.50
+ORD-10589,2026-05-14,4K Monitor,Electronics,North,Online,Returning,2,179.00
+ORD-10589,2026-05-14,Travel Journal,Books,North,Online,Returning,1,11.99
+ORD-10590,2026-05-14,Canvas Trainers,Clothing,South,In-store,Business,3,49.99
+ORD-10590,2026-05-14,USB-C Charger,Electronics,South,In-store,Business,8,19.50
+ORD-10590,2026-05-14,LED Desk Lamp,Home & Garden,South,In-store,Business,3,34.99
+ORD-10591,2026-05-14,Merino Socks,Clothing,North,In-store,Returning,3,14.50
+ORD-10592,2026-05-14,Resistance Bands,Sports,North,Online,New,1,21.50
+ORD-10593,2026-05-14,Data Analysis Handbook,Books,West,Online,Business,5,32.00
+ORD-10593,2026-05-14,Resistance Bands,Sports,West,Online,Business,7,21.50
+ORD-10594,2026-05-14,Rain Jacket,Clothing,West,Online,New,1,74.00
+ORD-10595,2026-05-14,Herb Seed Kit,Home & Garden,North,Online,Returning,2,12.00
+ORD-10596,2026-05-15,Smart Speaker,Electronics,North,N/A,Returning,1,89.00
+ORD-10597,2026-05-15,Herb Seed Kit,Home & Garden,West,In-store,Business,7,12.00
+ORD-10598,2026-05-15,LED Desk Lamp,Home & Garden,North,Online,Returning,5,34.99
+ORD-10599,2026-05-15,4K Monitor,Electronics,East,Online,Returning,1,179.00
+ORD-10600,2026-05-15,Water Bottle,Sports,East,Online,Returning,5,15.99
+ORD-10601,2026-05-15,Cotton Throw,Home & Garden,East,Online,Returning,1,29.50
+ORD-10601,2026-05-15,Resistance Bands,Sports,East,Online,Returning,2,21.50
+ORD-10602,not recorded,Water Bottle,Sports,North,Online,Returning,2,15.99
+ORD-10603,2026-05-16,Cotton Throw,Home & Garden,North,In-store,Business,3,29.50
+ORD-10603,2026-05-16,Canvas Trainers,Clothing,North,In-store,Business,10,49.99
+ORD-10604,2026-05-16,LED Desk Lamp,Home & Garden,West,Online,Returning,5,34.99
+ORD-10604,2026-05-16,Cotton Throw,Home & Garden,West,Online,Returning,2,29.50
+ORD-10605,2026-05-16,Rain Jacket,Clothing,West,In-store,New,1,74.00
+ORD-10606,2026-05-16,LED Desk Lamp,Home & Garden,North,In-store,Returning,1,34.99
+ORD-10607,2026-05-16,Wool Beanie,Clothing,South,Phone,Returning,2,18.00
+ORD-10607,2026-05-16,Water Bottle,Sports,South,Phone,Returning,3,15.99
+ORD-10608,2026-02-30,4K Monitor,Electronics,North,Phone,New,1,179.00
+ORD-10609,2026-05-17,Cotton Throw,Home & Garden,West,In-store,Returning,1,29.50
+ORD-10610,2026-05-17,Herb Seed Kit,Home & Garden,North,In-store,Returning,4,12.00
+ORD-10611,2026-05-17,Wool Beanie,Clothing,East,Online,Returning,3,18.00
+ORD-10612,2026-05-17,Wireless Earbuds,Electronics,North,In-store,New,1,59.99
+ORD-10613,2026-05-18,Water Bottle,Sports,West,Online,Returning,4,15.99
+ORD-10614,2026-05-18,Water Bottle,Sports,South,In-store,Returning,2,15.99
+ORD-10283,2026-03-10,Yoga Mat,Sports,East,Online,New,3,27.00
+ORD-10615,2026-05-18,Resistance Bands,Sports,East,Online,Returning,3,21.50
+ORD-10616,2026-05-18,Rain Jacket,Clothing,West,In-store,Returning,4,74.00
+ORD-10617,2026-05-19,Canvas Trainers,Clothing,North,Online,New,1,49.99
+ORD-10618,2026-05-19,Wireless Earbuds,Electronics,West,Online,Returning,1,59.99
+ORD-10619,2026-05-19,Cotton Throw,Home & Garden,West,Online,Returning,1,29.50
+ORD-10620,2026-05-19,Smart Speaker,Electronics,North,In-store,Returning,1,89.00
+ORD-10621,2026-05-19,4K Monitor,Electronics,East,In-store,New,2,179.00
+ORD-10622,2026-05-19,Cotton Throw,Home & Garden,North,Online,Returning,1,29.50
+ORD-10623,2026-05-19,Cookbook Classics,Books,North,In-store,Returning,5,22.50
+ORD-10623,2026-05-19,USB-C Charger,Electronics,North,In-store,Returning,2,19.50
+ORD-10624,2026-05-20,Cotton Throw,Home & Garden,North,Online,Returning,5,29.50
+ORD-10624,2026-05-20,Cookbook Classics,Books,North,Online,Returning,1,22.50
+ORD-10625,2026-05-20,4K Monitor,Electronics,North,Online,Returning,1,179.00
+ORD-10626,2026-05-20,Wireless Earbuds,Electronics,South,Online,Returning,2,59.99
+ORD-10627,2026-05-20,Travel Journal,Books,North,Phone,Returning,4,11.99
+ORD-10627,2026-05-20,4K Monitor,Electronics,North,Phone,Returning,1,179.00
+ORD-10627,2026-05-20,Rain Jacket,Clothing,North,Phone,Returning,1,74.00
+ORD-10628,2026-05-20,4K Monitor,Electronics,West,Online,Returning,1,179.00
+ORD-10628,2026-05-20,Wool Beanie,Clothing,West,Online,Returning,2,18.00
+ORD-10629,2026-05-21,Ceramic Planter,Home & Garden,West,In-store,New,1,24.00
+ORD-10629,2026-05-21,Resistance Bands,Sports,West,In-store,New,1,21.50
+ORD-10630,2026-05-21,USB-C Charger,Electronics,East,In-store,Returning,3,19.50
+ORD-10630,2026-05-21,Smart Speaker,Electronics,East,In-store,Returning,2,£89.00
+ORD-10631,2026-05-22,Resistance Bands,Sports,West,Online,New,2,21.50
+ORD-10632,2026-05-22,Water Bottle,Sports,West,In-store,Returning,2,15.99
+ORD-10633,2026-05-22,Data Analysis Handbook,Books,South,Phone,Returning,1,32.00
+ORD-10634,2026-05-22,Smart Speaker,Electronics,North,Online,New,3,89.00
+ORD-10635,2026-05-22,Resistance Bands,Sports,West,In-store,New,1,21.50
+ORD-10636,2026-05-23,Ceramic Planter,Home & Garden,East,In-store,Returning,1,24.00
+ORD-10636,2026-05-23,USB-C Charger,Electronics,East,In-store,Returning,1,19.50
+ORD-10637,2026-05-23,LED Desk Lamp,Home & Garden,North,Online,Returning,1,34.99
+ORD-10637,2026-05-23,Rain Jacket,Clothing,North,Online,Returning,1,74.00
+ORD-10638,2026-05-23,Data Analysis Handbook,Books,West,Online,New,1,32.00
+ORD-10639,2026-05-24,Cotton Throw,Home & Garden,East,Online,Returning,1,29.50
+ORD-10639,2026-05-24,LED Desk Lamp,Home & Garden,East,Online,Returning,1,34.99
+ORD-10640,2026-05-24,USB-C Charger,Electronics,West,Online,New,1,19.50
+ORD-10641,2026-05-24,Ceramic Planter,Home & Garden,West,Online,Returning,2,24.00
+ORD-10642,2026-05-25,USB-C Charger,Electronics,North,Online,Returning,2,£19.50
+ORD-10643,2026-05-25,Data Analysis Handbook,Books,North,In-store,Business,5,32.00
+ORD-10644,2026-05-25,Cookbook Classics,Books,North,In-store,Returning,1,22.50
+ORD-10645,2026-05-25,Herb Seed Kit,Home & Garden,North,Online,Returning,2,12.00
+ORD-10646,2026-05-25,Water Bottle,Sports,West,Online,New,3,15.99
+ORD-10646,2026-05-25,Data Analysis Handbook,Books,West,Online,New,1,32.00
+ORD-10647,2026-05-26,Cookbook Classics,Books,North,Online,Returning,1,22.50
+ORD-10647,2026-05-26,Cotton Throw,Home & Garden,North,Online,Returning,1,29.50
+ORD-10648,2026-05-26,Yoga Mat,Sports,West,Online,New,1,27.00
+ORD-10649,2026-05-26,Data Analysis Handbook,Books,North,Online,Returning,1,32.00
+ORD-10650,2026-05-26,Ceramic Planter,Home & Garden,West,Online,New,2,24.00
+ORD-10651,2026-05-26,Yoga Mat,Sports,North,In-store,New,2,27.00
+ORD-10652,2026-05-27,LED Desk Lamp,Home & Garden,South,In-store,Returning,1,34.99
+ORD-10653,2026-05-27,LED Desk Lamp,Home & Garden,East,Online,Business,3,34.99
+ORD-10654,2026-05-27,Travel Journal,Books,South,Phone,New,2,11.99
+ORD-10655,2026-05-28,USB-C Charger,Electronics,West,Online,Returning,2,19.50
+ORD-10656,2026-05-28,Yoga Mat,Sports,North,Online,New,2,27.00
+ORD-10657,2026-05-28,Yoga Mat,Sports,North,Phone,New,2,27.00
+ORD-10658,2026-05-28,Merino Socks,Clothing,East,Online,New,1,14.50
+ORD-10658,2026-05-28,Cookbook Classics,Books,East,Online,New,1,22.50
+ORD-10658,2026-05-28,Water Bottle,Sports,East,Online,New,1,15.99
+ORD-10659,2026-05-28,Herb Seed Kit,Home & Garden,North,In-store,Returning,1,12.00
+ORD-10660,2026-05-29,Rain Jacket,Clothing,South,Online,Returning,1,74.00
+ORD-10661,2026-05-29,Travel Journal,Books,South,In-store,Returning,3,11.99
+ORD-10027,2026-01-06,Rain Jacket,Clothing,North,Online,Returning,4,74.00
+ORD-10662,2026-05-29,Cotton Throw,Home & Garden,South,Online,Returning,3,29.50
+ORD-10663,2026-05-30,Rain Jacket,Clothing,South,Online,Returning,2,74.00
+ORD-10664,2026-05-30,USB-C Charger,Electronics,North,Phone,New,1,19.50
+ORD-10664,2026-05-30,Cotton Throw,Home & Garden,North,Phone,New,4,29.50
+ORD-10664,2026-05-30,Cookbook Classics,Books,north,Phone,New,1,22.50
+ORD-10665,2026-05-30,LED Desk Lamp,Home & Garden,South,Phone,Returning,1,34.99
+ORD-10666,2026-05-30,Smart Speaker,Electronics,South,Online,Returning,2,89.00
+ORD-10667,2026-05-30,Wool Beanie,Clothing,North,Online,Returning,1,18.00
+ORD-10668,2026-05-30,Merino Socks,Clothing,North,Online,New,1,14.50
+ORD-10668,2026-05-30,Rain Jacket,Clothing,North,Online,New,1,74.00
+ORD-10669,2026-05-31,Resistance Bands,Sports,east,Phone,Returning,1,21.50
+ORD-10670,2026-05-31,Travel Journal,Books,West,In-store,New,1,11.99
+ORD-10670,2026-05-31,Smart Speaker,Electronics,West,In-store,New,1,89.00
+ORD-10670,2026-05-31,Wool Beanie,Clothing,West,In-store,New,2,18.00
+ORD-10671,2026-05-31,Resistance Bands,Sports,North,Online,New,1,21.50
+ORD-10672,2026-05-31,Ceramic Planter,Home & Garden,North,Online,New,1,24.00
+ORD-10673,2026-05-31,4K Monitor,Electronics,South,In-store,Returning,1,179.00
+ORD-10673,2026-05-31,Ceramic Planter,Home & Garden,South,In-store,Returning,-2,24.00
+ORD-10674,2026-05-31,Data Analysis Handbook,Books,South,In-store,Returning,1,32.00
+ORD-10674,2026-05-31,Herb Seed Kit,Home & Garden,South,In-store,Returning,1,12.00
+ORD-10675,2026-05-31,Wool Beanie,Clothing,East,In-store,Returning,1,18.00
+ORD-10676,2026-06-01,Yoga Mat,Sports,East,Phone,Returning,2,27.00
+ORD-10677,2026-06-01,Wireless Earbuds,Electronics,North,Online,Returning,3,59.99
+ORD-10678,2026-06-01,Wireless Earbuds,Electronics,West,Online,Business,4,59.99
+ORD-10678,2026-06-01,Smart Speaker,Electronics,West,Online,Business,8,89.00
+ORD-10679,2026-06-01,Merino Socks,Clothing,West,In-store,Returning,1,14.50
+ORD-10680,2026-06-01,Rain Jacket,Clothing,North,Online,Business,7,74.00
+ORD-10681,2026-06-01,Herb Seed Kit,Home & Garden,North,Online,New,1,£12.00
+ORD-10682,2026-06-02,Herb Seed Kit,Home & Garden,South,Online,Returning,1,12.00
+ORD-10683,2026-06-02,LED Desk Lamp,Home & Garden,West,Online,Returning,5,34.99
+ORD-10684,2026-06-02,Smart Speaker,Electronics,West,Online,Returning,2,89.00
+ORD-10685,2026-06-02,Wool Beanie,Clothing,South,In-store,Returning,2,18.00
+ORD-10686,2026-06-02,Canvas Trainers,Clothing,South,In-store,Returning,3,49.99
+ORD-10686,2026-06-02,Wireless Earbuds,Electronics,South,In-store,Returning,4,59.99
+ORD-10686,2026-06-02,Herb Seed Kit,Home & Garden,South,In-store,Returning,1,12.00
+ORD-10687,2026-06-02,Wireless Earbuds,Electronics,North,In-store,Returning,1,59.99
+ORD-10688,2026-06-02,Herb Seed Kit,Home & Garden,South,Phone,New,2,12.00
+ORD-10689,2026-06-02,Wool Beanie,Clothing,East,Online,Returning,1,18.00
+ORD-10690,2026-06-03,Resistance Bands,Sports,East,Online,New,2,21.50
+ORD-10691,2026-06-03,4K Monitor,Electronics,South,In-store,Returning,3,179.00
+ORD-10692,2026-06-03,USB-C Charger,Electronics,North,Online,New,4,19.50
+ORD-10693,2026-06-03,Ceramic Planter,Home & Garden,South,Phone,New,2,24.00
+ORD-10694,2026-06-03,Wireless Earbuds,Electronics,East,In-store,Returning,3,59.99
+ORD-10695,2026-06-04,Herb Seed Kit,Home & Garden,West,In-store,Returning,1,12.00
+ORD-10696,2026-06-04,4K Monitor,Electronics,West,Online,New,1,179.00
+ORD-10697,2026-06-04,Rain Jacket,Clothing,West,In-store,Returning,1,74.00
+ORD-10698,2026-06-04,LED Desk Lamp,Home & Garden,South,Phone,New,1,34.99
+ORD-10699,2026-06-04,Herb Seed Kit,Home & Garden,East,Online,Business,3,12.00
+ORD-10700,2026-06-05,Data Analysis Handbook,Books,South,Online,Returning,3,32.00
+ORD-10700,2026-06-05,Travel Journal,Books,South,Online,Returning,2,11.99
+ORD-10700,2026-06-05,Water Bottle,Sports,South,Online,Returning,2,15.99
+ORD-10701,2026-06-05,Rain Jacket,Clothing,North,In-store,Returning,1,74.00
+ORD-10701,2026-06-05,Herb Seed Kit,Home & Garden,North,In-store,Returning,3,12.00
+ORD-10701,2026-06-05,Merino Socks,Clothing,North,In-store,Returning,2,14.50
+ORD-10702,2026-06-05,Water Bottle,Sports,East,Online,Business,3,15.99
+ORD-10703,2026-06-05,Cotton Throw,Home & Garden,North,Online,New,2,29.50
+ORD-10704,2026-06-05,Water Bottle,Sports,East,In-store,New,4,15.99
+ORD-10705,2026-06-06,4K Monitor,Electronics,East,In-store,New,1,179.00
+ORD-10706,2026-06-06,Ceramic Planter,Home & Garden,South,Online,New,1,24.00
+ORD-10707,2026-06-06,Smart Speaker,Electronics,West,In-store,New,1,89.00
+ORD-10707,2026-06-06,Yoga Mat,Sports,West,In-store,New,2,27.00
+ORD-10708,2026-06-07,Resistance Bands,Sports,North,Online,Returning,2,21.50
+ORD-10709,2026-06-07,Canvas Trainers,Clothing,South,In-store,New,1,49.99
+ORD-10709,2026-06-07,USB-C Charger,Electronics,South,In-store,New,2,19.50
+ORD-10710,2026-06-07,Canvas Trainers,Clothing,South,In-store,New,1,49.99
+ORD-10711,2026-06-07,Resistance Bands,Sports,West,Online,Returning,4,21.50
+ORD-10711,2026-06-07,Wireless Earbuds,Electronics,West,Online,Returning,1,59.99
+ORD-10712,2026-06-08,Ceramic Planter,Home & Garden,South,Online,Returning,1,24.00
+ORD-10713,2026-06-08,Wool Beanie,Clothing,North,Online,New,1,18.00
+ORD-10714,2026-06-08,USB-C Charger,Electronics,South,Online,Returning,4,19.50
+ORD-10715,2026-06-08,LED Desk Lamp,Home & Garden,East,In-store,Returning,1,34.99
+ORD-10716,2026-06-08,4K Monitor,Electronics,East,In-store,New,1,179.00
+ORD-10716,2026-06-08,Travel Journal,Books,East,In-store,New,2,11.99
+ORD-10717,2026-06-08,4K Monitor,Electronics,North,In-store,New,1,179.00
+ORD-10718,2026-06-08,Canvas Trainers,Clothing,West,Online,New,5,£49.99
+ORD-10718,2026-06-08,Cotton Throw,Home & Garden,West,Online,New,1,29.50
+ORD-10719,2026-06-09,Merino Socks,Clothing,East,Phone,Business,6,14.50
+ORD-10720,2026-06-09,  Travel Journal ,Books,West,Online,Returning,1,11.99
+ORD-10720,2026-06-09,Water Bottle,Sports,West,Online,Returning,1,15.99
+ORD-10721,2026-06-09,Smart Speaker,Electronics,East,Online,New,1,89.00
+ORD-10722,2026-06-09,Ceramic Planter,Home & Garden,North,Phone,New,1,24.00
+ORD-10723,2026-06-09,Wool Beanie,Clothing,South,In-store,Returning,1,18.00
+ORD-10724,2026-06-09,Resistance Bands,Sports,West,Online,Returning,1,21.50
+ORD-10725,2026-06-09,Resistance Bands,Sports,East,In-store,Returning,3,21.50
+ORD-10726,2026-06-10,LED Desk Lamp,Home & Garden,North,Online,Returning,2,34.99
+ORD-10727,2026-06-10,Wool Beanie,Clothing,East,In-store,Returning,1,18.00
+ORD-10728,2026-06-10,Rain Jacket,Clothing,West,Online,Returning,1,74.00
+ORD-10729,2026-06-10,Resistance Bands,Sports,North,Online,Returning,1,21.50
+ORD-10729,2026-06-10,Data Analysis Handbook,Books,North,Online,Returning,1,32.00
+ORD-10729,2026-06-10,LED Desk Lamp,Home & Garden,North,Online,Returning,4,34.99
+ORD-10730,2026-06-10,Data Analysis Handbook,Books,North,Online,Returning,1,32.00
+ORD-10731,2026-06-11,Resistance Bands,Sports,East,In-store,Returning,2,21.50
+ORD-10732,2026-06-11,Wool Beanie,Clothing,West,In-store,New,1,18.00
+ORD-10581,2026-05-12,4K Monitor,Electronics,North,Online,New,1,179.00
+ORD-10733,2026-06-11,Travel Journal,Books,East,Online,,3,11.99
+ORD-10734,2026-06-11,USB-C Charger,Electronics,West,Online,New,1,19.50
+ORD-10683,2026-06-02,LED Desk Lamp,Home & Garden,West,Online,Returning,5,34.99
+ORD-10734,2026-06-11,Rain Jacket,Clothing,West,Online,New,2,74.00
+ORD-10735,2026-06-11,Rain Jacket,Clothing,West,Phone,New,2,74.00
+ORD-10736,2026-06-11,  Cotton Throw ,Home & Garden,East,In-store,Returning,2,29.50
+ORD-10737,2026-06-12,LED Desk Lamp,Home & Garden,South,Online,Returning,3,34.99
+ORD-10738,2026-06-12,Wireless Earbuds,Electronics,West,Online,New,1,59.99
+ORD-10738,2026-06-12,Yoga Mat,Sports,West,Online,New,1,27.00
+ORD-10739,2026-06-12,Water Bottle,Sports,West,In-store,New,1,15.99
+ORD-10740,2026-06-12,Rain Jacket,Clothing,North,Online,Returning,1,74.00
+ORD-10740,2026-06-12,Ceramic Planter,Home & Garden,North,Online,Returning,2,24.00
+ORD-10741,2026-06-12,Water Bottle,Sports,South,Phone,Returning,1,15.99
+ORD-10742,2026-06-13,Cotton Throw,Home & Garden,North,Online,Returning,2,29.50
+ORD-10743,2026-06-13,Ceramic Planter,Home & Garden,East,Online,New,5,24.00
+ORD-10744,2026-06-13,Ceramic Planter,Home & Garden,West,Online,Returning,1,24.00
+ORD-10744,2026-06-13,Resistance Bands,Sports,West,Online,Returning,3,21.50
+ORD-10745,2026-06-13,Data Analysis Handbook,Books,North,Online,New,1,32.00
+ORD-10746,2026-06-13,Travel Journal,Books,East,Online,Returning,2,11.99
+ORD-10747,2026-06-13,Resistance Bands,Sports,North,In-store,New,1,21.50
+ORD-10748,2026-06-14,Data Analysis Handbook,Books,North,Online,Returning,2,32.00
+ORD-10749,2026-06-14,Travel Journal,Books,East,Online,Returning,3,11.99
+ORD-10749,2026-06-14,Canvas Trainers,Clothing,East,Online,Returning,1,49.99
+ORD-10750,2026-06-14,Cotton Throw,Home & Garden,South,Online,Returning,3,29.50
+ORD-10750,2026-06-14,Rain Jacket,Clothing,South,Online,Returning,2,74.00
+ORD-10750,2026-06-14,Wireless Earbuds,Electronics,South,Online,Returning,1,59.99
+ORD-10751,2026-06-14,Smart Speaker,Electronics,North,Online,New,2,89.00
+ORD-10752,2026-06-14,LED Desk Lamp,Home & Garden,east,In-store,Returning,1,34.99
+ORD-10753,2026-06-14,Water Bottle,Sports,East,Online,New,3,15.99
+ORD-10754,2026-06-15,Herb Seed Kit,Home & Garden,South,Online,New,3,12.00
+ORD-10755,2026-06-15,USB-C Charger,Electronics,West,Online,Returning,4,19.50
+ORD-10756,2026-06-15,Ceramic Planter,Home & Garden,West,Online,Returning,1,24.00
+ORD-10757,2026-06-15,Wool Beanie,Clothing,North,Online,New,5,18.00
+ORD-10758,2026-06-16,4K Monitor,Electronics,East,Online,Returning,3,179.00
+ORD-10759,2026-06-16,Rain Jacket,Clothing,West,Online,Returning,2,74.00
+ORD-10759,2026-06-16,Water Bottle,Sports,West,Online,Returning,1,15.99
+ORD-10760,2026-06-16,Cookbook Classics,Books,South,Online,Returning,1,22.50
+ORD-10761,2026-06-16,Rain Jacket,Clothing,North,Online,Business,4,74.00
+ORD-10762,2026-06-16,Merino Socks,Clothing,East,Phone,Business,5,14.50
+ORD-10763,2026-06-16,Data Analysis Handbook,Books,East,Online,Business,4,32.00
+ORD-10763,2026-06-16,Travel Journal,Books,East,Online,Business,10,11.99
+ORD-10763,2026-06-16,Yoga Mat,Sports,East,Online,Business,8,27.00
+ORD-10764,2026-06-17,LED Desk Lamp,Home & Garden,North,Online,Returning,5,34.99
+ORD-10765,2026-06-17,Merino Socks,Clothing,East,Online,Returning,2,14.50
+ORD-10766,2026-06-18,Cotton Throw,Home & Garden,West,In-store,New,2,29.50
+ORD-10767,2026-06-18,Herb Seed Kit,Home & Garden,West,In-store,New,5,12.00
+ORD-10768,2026-06-18,Resistance Bands,Sports,South,Online,New,2,21.50
+ORD-10769,2026-06-18,Wireless Earbuds,Electronics,South,Online,New,1,
+ORD-10769,2026-06-18,Rain Jacket,Clothing,South,Online,New,3,74.00
+ORD-10770,2026-06-18,Yoga Mat,Sports,East,Online,Returning,1,27.00
+ORD-10770,2026-06-18,Cotton Throw,Home & Garden,East,Online,Returning,1,29.50
+ORD-10771,2026-06-18,Wool Beanie,Clothing,North,Phone,New,2,18.00
+ORD-10772,2026-06-19,Herb Seed Kit,Home & Garden,North,Online,Returning,5,12.00
+ORD-10773,2026-06-19,Yoga Mat,Sports,East,Phone,Business,6,27.00
+ORD-10774,2026-06-20,  Cotton Throw ,Home & Garden,North,Online,Returning,1,29.50
+ORD-10775,2026-06-20,Water Bottle,Sports,North,Online,New,1,15.99
+ORD-10775,2026-06-20,Cotton Throw,Home & Garden,North,Online,New,1,29.50
+ORD-10776,2026-06-20,Data Analysis Handbook,Books,East,Online,Business,11,32.00
+ORD-10777,2026-06-20,Wool Beanie,Clothing,South,Online,Business,8,18.00
+ORD-10778,2026-06-20,Herb Seed Kit,Home & Garden,West,In-store,New,1,12.00
+ORD-10779,2026-06-20,Rain Jacket,Clothing,East,Online,New,1,74.00
+ORD-10779,2026-06-20,Smart Speaker,Electronics,East,Online,New,3,89.00
+ORD-10780,2026-06-20,4K Monitor,Electronics,East,Online,New,3,179.00
+ORD-10780,2026-06-20,LED Desk Lamp,Home & Garden,East,Online,New,1,34.99
+ORD-10781,2026-06-20,Canvas Trainers,Clothing,North,In-store,Returning,1,49.99
+ORD-10782,2026-06-21,Wool Beanie,Clothing,South,Phone,Returning,2,18.00
+ORD-10782,2026-06-21,4K Monitor,Electronics,South,Phone,Returning,2,179.00
+ORD-10783,2026-06-21,Wool Beanie,Clothing,North,Online,Returning,1,18.00
+ORD-10783,2026-06-21,Merino Socks,Clothing,North,Online,Returning,2,14.50
+ORD-10783,2026-06-21,4K Monitor,Electronics,North,Online,Returning,2,179.00
+ORD-10784,2026-06-21,Ceramic Planter,Home & Garden,South,Phone,Returning,2,24.00
+ORD-10784,2026-06-21,USB-C Charger,Electronics,South,Phone,Returning,1,19.50
+ORD-10785,2026-06-21,Travel Journal,Books,North,In-store,New,3,11.99
+ORD-10785,2026-06-21,Wool Beanie,Clothing,North,In-store,New,4,18.00
+ORD-10785,2026-06-21,Water Bottle,Sports,North,In-store,New,1,15.99
+ORD-10786,2026-06-21,Resistance Bands,Sports,West,Phone,Returning,1,21.50
+ORD-10787,2026-06-21,4K Monitor,Electronics,North,Phone,Returning,3,179.00
+ORD-10788,2026-06-21,Canvas Trainers,Clothing,South,N/A,Returning,3,49.99
+ORD-10789,2026-06-22,Water Bottle,Sports,North,Online,Returning,2,15.99
+ORD-10790,2026-06-22,LED Desk Lamp,Home & Garden,West,In-store,New,1,34.99
+ORD-10791,2026-06-22,Cookbook Classics,Books,North,Online,Business,8,22.50
+ORD-10792,2026-06-22,Cookbook Classics,Books,North,Online,Returning,2,22.50
+ORD-10792,2026-06-22,Ceramic Planter,Home & Garden,North,Online,Returning,2,24.00
+ORD-10793,2026-06-22,Herb Seed Kit,Home & Garden,North,In-store,New,1,12.00
+ORD-10793,2026-06-22,Merino Socks,Clothing,North,In-store,New,1,14.50
+ORD-10794,2026-06-23,4K Monitor,Electronics,North,Phone,Returning,1,179.00
+ORD-10795,2026-06-23,Cotton Throw,Home & Garden,South,Online,Returning,5,29.50
+ORD-10796,2026-06-23,LED Desk Lamp,Home & Garden,East,Online,Business,11,34.99
+ORD-10796,2026-06-23,Wool Beanie,Clothing,East,Online,Business,6,18.00
+ORD-10797,2026-06-23,Rain Jacket,Clothing,North,Online,Returning,1,74.00
+ORD-10797,2026-06-23,Ceramic Planter,Home & Garden,North,Online,Returning,1,24.00
+ORD-10798,2026-06-23,Water Bottle,Sports,West,Online,Business,9,15.99
+ORD-10799,2026-06-23,Wool Beanie,Clothing,West,In-store,Returning,2,18.00
+ORD-10800,2026-06-23,Merino Socks,Clothing,North,In-store,New,1,14.50
+ORD-10801,2026-06-24,Canvas Trainers,Clothing,East,Online,Returning,1,49.99
+ORD-10802,2026-06-24,Wireless Earbuds,Electronics,North,Online,New,5,59.99
+ORD-10803,2026-06-24,Resistance Bands,Sports,West,In-store,Returning,1,21.50
+ORD-10803,2026-06-24,Smart Speaker,Electronics,West,In-store,Returning,1,89.00
+ORD-10804,2026-06-24,LED Desk Lamp,Home & Garden,East,Online,New,1,34.99
+ORD-10805,2026-06-25,Wireless Earbuds,Electronics,East,Online,Returning,2,59.99
+ORD-10806,2026-06-25,Rain Jacket,Clothing,North,Online,New,1,74.00
+ORD-10807,2026-06-25,4K Monitor,Electronics,South,In-store,New,4,179.00
+ORD-10808,2026-06-25,Ceramic Planter,Home & Garden,West,Online,New,1,24.00
+ORD-10809,2026-06-25,LED Desk Lamp,Home & Garden,North,In-store,Business,10,34.99
+ORD-10809,2026-06-25,Data Analysis Handbook,Books,North,In-store,Business,7,32.00
+ORD-10810,2026-06-25,Canvas Trainers,Clothing,North,In-store,Returning,1,49.99
+ORD-10811,2026-06-26,Herb Seed Kit,Home & Garden,North,Online,Returning,1,12.00
+ORD-10812,2026-06-26,Cookbook Classics,Books,North,In-store,Returning,5,22.50
+ORD-10813,2026-06-26,Wool Beanie,Clothing,West,Online,Returning,2,18.00
+ORD-10813,2026-06-26,Canvas Trainers,Clothing,West,Online,Returning,1,49.99
+ORD-10814,2026-06-26,Cotton Throw,Home & Garden,West,Online,New,1,29.50
+ORD-10815,2026-06-26,Wireless Earbuds,Electronics,North,In-store,New,4,59.99
+ORD-10816,2026-06-26,Canvas Trainers,Clothing,South,In-store,New,1,49.99
+ORD-10816,2026-06-26,Rain Jacket,Clothing,South,In-store,New,5,74.00
+ORD-10817,2026-06-26,Resistance Bands,Sports,West,Phone,Returning,2,21.50
+ORD-10818,2026-06-26,Canvas Trainers,Clothing,West,Phone,Returning,1,49.99
+ORD-10819,2026-06-27,Rain Jacket,Clothing,West,In-store,Returning,3,£74.00
+ORD-10820,2026-06-27,4K Monitor,Electronics,North,Online,Returning,1,179.00
+ORD-10821,2026-06-27,Wireless Earbuds,Electronics,East,Online,Returning,1,59.99
+ORD-10822,2026-06-27,Canvas Trainers,Clothing,East,In-store,Business,3,49.99
+ORD-10823,2026-06-27,Water Bottle,Sports,East,Online,New,1,15.99
+ORD-10824,2026-06-28,Ceramic Planter,Home & Garden,East,Online,Returning,1,24.00
+ORD-10824,2026-06-28,Wool Beanie,Clothing,East,Online,Returning,2,18.00
+ORD-10825,2026-06-28,USB-C Charger,Electronics,East,Online,Returning,5,19.50
+ORD-10826,2026-06-28,Rain Jacket,Clothing,North,Online,Returning,1,74.00
+ORD-10826,2026-06-28,USB-C Charger,Electronics,North,Online,Returning,1,19.50
+ORD-10827,2026-06-28,Rain Jacket,Clothing,West,Online,New,1,74.00
+ORD-10827,2026-06-28,Wool Beanie,Clothing,West,Online,New,3,18.00
+ORD-10827,2026-06-28,LED Desk Lamp,Home & Garden,West,Online,New,1,34.99
+ORD-10828,2026-06-28,Wool Beanie,Clothing,South,Online,Returning,2,18.00
+ORD-10828,2026-06-28,Ceramic Planter,Home & Garden,South,Online,Returning,1,24.00
+ORD-10829,2026-06-29,Cookbook Classics,Books,East,In-store,Returning,1,22.50
+ORD-10830,2026-06-29,Smart Speaker,Electronics,north,Online,Returning,1,89.00
+ORD-10830,2026-06-29,4K Monitor,Electronics,North,Online,Returning,1,179.00
+ORD-10831,2026-06-29,  Water Bottle ,Sports,East,Online,New,3,15.99
+ORD-10832,2026-06-29,Wool Beanie,Clothing,North,Phone,Returning,1,18.00
+ORD-10833,2026-06-29,Merino Socks,Clothing,South,In-store,Business,7,14.50
+ORD-10833,2026-06-29,Cotton Throw,Home & Garden,South,In-store,Business,6,29.50
+ORD-10834,2026-06-29,Canvas Trainers,Clothing,North,Online,Returning,3,49.99
+ORD-10834,2026-06-29,4K Monitor,Electronics,North,Online,Returning,2,179.00
+ORD-10835,2026-06-30,Data Analysis Handbook,Books,North,Phone,New,1,32.00
+ORD-10835,2026-06-30,Wireless Earbuds,Electronics,North,Phone,New,1,59.99
+ORD-10836,2026-06-30,LED Desk Lamp,Home & Garden,West,Online,New,4,34.99
+ORD-10837,2026-06-30,Herb Seed Kit,Home & Garden,North,Online,New,1,12.00
+ORD-10837,2026-06-30,LED Desk Lamp,Home & Garden,North,Online,New,1,34.99
+ORD-10838,2026-06-30,Wool Beanie,Clothing,West,In-store,Returning,2,18.00
+ORD-10839,2026-06-30,Yoga Mat,Sports,South,Online,Returning,1,27.00
+ORD-10839,2026-06-30,Cookbook Classics,Books,South,Online,Returning,1,22.50
+ORD-10840,2026-06-30,Rain Jacket,Clothing,North,In-store,Returning,2,74.00
+ORD-10841,2026-06-30,USB-C Charger,Electronics,East,Online,Business,6,19.50
+ORD-10841,2026-06-30,Canvas Trainers,Clothing,East,Online,Business,6,49.99
