@@ -1,0 +1,28 @@
+[project]
+name = "flowforge-analytics-backend"
+version = "1.0.0"
+description = "FlowForge Analytics API: CSV ingestion, data quality, analytics, insights, reports and automation."
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+filterwarnings = ["error::pandas.errors.PerformanceWarning"]
+
+[tool.ruff]
+line-length = 130
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "SIM"]
+ignore = [
+    "E501",  # line length is handled by the formatter; long user-facing strings are kept intact
+    "S101",  # assert is expected in tests
+    "B008",  # FastAPI dependency defaults
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S105", "S106"]
+
+[tool.ruff.format]
+quote-style = "double"
