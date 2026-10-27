@@ -45,3 +45,15 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
+
+  docker:
+    name: Docker image (build and smoke test)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t flowforge .
+      - run: |
+          docker run -d --name flowforge -e PORT=10000 -p 10000:10000 flowforge
+          for i in $(seq 1 30); do curl -sf http://localhost:10000/api/health && break; sleep 1; done
+          curl -sf http://localhost:10000/api/health
+          curl -sf http://localhost:10000/ | grep -q '<div id="root">'
