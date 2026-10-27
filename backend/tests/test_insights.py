@@ -99,3 +99,32 @@ def test_ai_api_errors_fall_back_with_reason(client, settings):
         result = generate_insights(analysis, settings, client=fake_client(error=error))
         assert result["source"] == "rule-based"
         assert reason in result["notice"]
+
+
+def test_real_sdk_request_shape_with_mocked_http(client, settings):
+    """Runs the real Anthropic SDK against a mocked HTTP endpoint, checking
+    the structured-output request and the parsing of the reply."""
+    import json
+
+    analysis = make_analysis(client)
+    seen = {}
+
+    def handler(request):
+        seen["body"] = json.loads(request.content)
+        reply = {"summary": "Revenue grew.", "insights": [{"title": "T", "evidence": "E", "recommendation": "R", "kind": "trend"}], "caveats": ["Synthetic"]}
+        return httpx2.Response(
+            200,
+            json={
+                "id": "msg_1", "type": "message", "role": "assistant", "model": "claude-opus-5-5",
+                "content": [{"type": "text", "text": json.dumps(reply)}],
+                "stop_reason": "end_turn", "stop_sequence": None, "usage": {"input_tokens": 1, "output_tokens": 1},
+            },
+        )
+
+    sdk = anthropic.Anthropic(api_key="test", http_client=httpx2.Client(transport=httpx2.MockTransport(handler)))
+    result = generate_insights(analysis, replace(settings, ai_api_key="test"), client=sdk)
+    assert result["source"] == "ai" and result["caveats"] == ["Synthetic"]
+    body = seen["body"]
+    assert body["model"] == settings.ai_model
+    assert body["output_config"]["format"]["type"] == "json_schema"
+    assert "preview" not in body["messages"][0]["content"]

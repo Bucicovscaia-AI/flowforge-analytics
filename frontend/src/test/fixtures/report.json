@@ -1,0 +1,14 @@
+{
+ "id": "rpt_c4d72dea7dd8",
+ "analysis_id": "ana_d5e2d57f12f2",
+ "title": "Q1 review",
+ "dataset": "orders.csv",
+ "synthetic": true,
+ "created_at": "2026-10-27T16:05:28.576852+00:00",
+ "size_bytes": 8237,
+ "insight_source": "rule-based",
+ "total_revenue": 205.0,
+ "webhook": {
+  "status": "not_configured"
+ }
+}

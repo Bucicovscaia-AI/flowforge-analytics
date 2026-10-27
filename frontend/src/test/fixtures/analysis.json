@@ -1,0 +1,527 @@
+{
+ "id": "ana_d5e2d57f12f2",
+ "created_at": "2026-10-27T16:05:28.557415+00:00",
+ "dataset": {
+  "file_name": "orders.csv",
+  "size_bytes": 358,
+  "encoding": "UTF-8",
+  "columns": [
+   "order_id",
+   "order_date",
+   "product",
+   "product_category",
+   "region",
+   "channel",
+   "customer_type",
+   "quantity",
+   "unit_price"
+  ],
+  "original_columns": [
+   "order_id",
+   "order_date",
+   "product",
+   "product_category",
+   "region",
+   "channel",
+   "customer_type",
+   "quantity",
+   "unit_price"
+  ],
+  "renamed_columns": {},
+  "synthetic": true,
+  "sample_id": null
+ },
+ "profile": {
+  "rows": 5,
+  "columns": 9,
+  "column_names": [
+   "order_id",
+   "order_date",
+   "product",
+   "product_category",
+   "region",
+   "channel",
+   "customer_type",
+   "quantity",
+   "unit_price"
+  ],
+  "duplicate_rows": 0,
+  "missing_cells": 1,
+  "completeness_pct": 97.78,
+  "column_profile": [
+   {
+    "name": "order_id",
+    "type": "category",
+    "role": "required",
+    "missing": 0,
+    "missing_pct": 0.0,
+    "invalid": 0,
+    "unique": 4,
+    "examples": [
+     "A1",
+     "A2",
+     "A3"
+    ]
+   },
+   {
+    "name": "order_date",
+    "type": "date",
+    "role": "required",
+    "missing": 0,
+    "missing_pct": 0.0,
+    "invalid": 0,
+    "unique": 4,
+    "examples": [
+     "2026-01-05",
+     "2026-01-20",
+     "2026-02-03"
+    ]
+   },
+   {
+    "name": "product",
+    "type": "category",
+    "role": "optional",
+    "missing": 0,
+    "missing_pct": 0.0,
+    "invalid": 0,
+    "unique": 3,
+    "examples": [
+     "Lamp",
+     "Mug",
+     "Jacket"
+    ]
+   },
+   {
+    "name": "product_category",
+    "type": "category",
+    "role": "optional",
+    "missing": 0,
+    "missing_pct": 0.0,
+    "invalid": 0,
+    "unique": 2,
+    "examples": [
+     "Home",
+     "Clothing"
+    ]
+   },
+   {
+    "name": "region",
+    "type": "category",
+    "role": "optional",
+    "missing": 0,
+    "missing_pct": 0.0,
+    "invalid": 0,
+    "unique": 3,
+    "examples": [
+     "North",
+     "South",
+     "north"
+    ]
+   },
+   {
+    "name": "channel",
+    "type": "category",
+    "role": "optional",
+    "missing": 0,
+    "missing_pct": 0.0,
+    "invalid": 0,
+    "unique": 3,
+    "examples": [
+     "Online",
+     "In-store",
+     "Phone"
+    ]
+   },
+   {
+    "name": "customer_type",
+    "type": "category",
+    "role": "optional",
+    "missing": 1,
+    "missing_pct": 20.0,
+    "invalid": 0,
+    "unique": 3,
+    "examples": [
+     "New",
+     "Returning",
+     "Business"
+    ]
+   },
+   {
+    "name": "quantity",
+    "type": "number",
+    "role": "required",
+    "missing": 0,
+    "missing_pct": 0.0,
+    "invalid": 0,
+    "unique": 3,
+    "examples": [
+     "2",
+     "1",
+     "3"
+    ]
+   },
+   {
+    "name": "unit_price",
+    "type": "number",
+    "role": "required",
+    "missing": 0,
+    "missing_pct": 0.0,
+    "invalid": 0,
+    "unique": 3,
+    "examples": [
+     "10.00",
+     "5.00",
+     "50.00"
+    ]
+   }
+  ]
+ },
+ "quality": {
+  "rows_received": 5,
+  "rows_analysed": 5,
+  "rows_removed": 0,
+  "duplicate_rows": 0,
+  "missing_cells": 1,
+  "completeness_pct": 97.78,
+  "quality_score": 100.0
+ },
+ "cleaning_steps": [
+  {
+   "rule": "C1",
+   "description": "Trim spaces and treat placeholder text (N/A, null, -) as missing",
+   "rows_removed": 0,
+   "cells_changed": 1,
+   "detail": ""
+  },
+  {
+   "rule": "C2",
+   "description": "Remove exact duplicate rows (first copy kept)",
+   "rows_removed": 0,
+   "cells_changed": 0,
+   "detail": ""
+  },
+  {
+   "rule": "C3",
+   "description": "Remove rows missing a required value (order_id, order_date, quantity, unit_price)",
+   "rows_removed": 0,
+   "cells_changed": 0,
+   "detail": ""
+  },
+  {
+   "rule": "C4",
+   "description": "Remove rows with an unreadable or impossible order_date",
+   "rows_removed": 0,
+   "cells_changed": 0,
+   "detail": ""
+  },
+  {
+   "rule": "C5",
+   "description": "Remove rows where quantity is not a whole number above zero",
+   "rows_removed": 0,
+   "cells_changed": 0,
+   "detail": ""
+  },
+  {
+   "rule": "C6",
+   "description": "Remove rows where unit_price is not a number or is negative",
+   "rows_removed": 0,
+   "cells_changed": 0,
+   "detail": ""
+  },
+  {
+   "rule": "C7",
+   "description": "Make category spellings consistent (most common spelling kept)",
+   "rows_removed": 0,
+   "cells_changed": 1,
+   "detail": ""
+  },
+  {
+   "rule": "C8",
+   "description": "Fill missing optional text values with \"Unknown\"",
+   "rows_removed": 0,
+   "cells_changed": 1,
+   "detail": ""
+  }
+ ],
+ "kpis": {
+  "summary": {
+   "total_revenue": 205.0,
+   "order_count": 4,
+   "units_sold": 9,
+   "average_order_value": 51.25,
+   "order_lines": 5,
+   "average_units_per_order": 2.25,
+   "currency": "GBP",
+   "date_from": "2026-01-05",
+   "date_to": "2026-02-14"
+  },
+  "breakdowns": {
+   "revenue_over_time": [
+    {
+     "period": "2026-01",
+     "label": "Jan 2026",
+     "revenue": 75.0,
+     "units": 4,
+     "orders": 2
+    },
+    {
+     "period": "2026-02",
+     "label": "Feb 2026",
+     "revenue": 130.0,
+     "units": 5,
+     "orders": 2
+    }
+   ],
+   "revenue_by_category": [
+    {
+     "name": "Clothing",
+     "revenue": 150.0,
+     "orders": 2,
+     "units": 3,
+     "share_pct": 73.17,
+     "average_order_value": 75.0
+    },
+    {
+     "name": "Home",
+     "revenue": 55.0,
+     "orders": 2,
+     "units": 6,
+     "share_pct": 26.83,
+     "average_order_value": 27.5
+    }
+   ],
+   "revenue_by_region": [
+    {
+     "name": "South",
+     "revenue": 150.0,
+     "orders": 2,
+     "units": 3,
+     "share_pct": 73.17,
+     "average_order_value": 75.0
+    },
+    {
+     "name": "North",
+     "revenue": 55.0,
+     "orders": 2,
+     "units": 6,
+     "share_pct": 26.83,
+     "average_order_value": 27.5
+    }
+   ],
+   "revenue_by_channel": [
+    {
+     "name": "Phone",
+     "revenue": 100.0,
+     "orders": 1,
+     "units": 2,
+     "share_pct": 48.78,
+     "average_order_value": 100.0
+    },
+    {
+     "name": "Online",
+     "revenue": 55.0,
+     "orders": 2,
+     "units": 6,
+     "share_pct": 26.83,
+     "average_order_value": 27.5
+    },
+    {
+     "name": "In-store",
+     "revenue": 50.0,
+     "orders": 1,
+     "units": 1,
+     "share_pct": 24.39,
+     "average_order_value": 50.0
+    }
+   ],
+   "revenue_by_customer_type": [
+    {
+     "name": "Business",
+     "revenue": 100.0,
+     "orders": 1,
+     "units": 2,
+     "share_pct": 48.78,
+     "average_order_value": 100.0
+    },
+    {
+     "name": "Returning",
+     "revenue": 50.0,
+     "orders": 1,
+     "units": 1,
+     "share_pct": 24.39,
+     "average_order_value": 50.0
+    },
+    {
+     "name": "Unknown",
+     "revenue": 30.0,
+     "orders": 1,
+     "units": 3,
+     "share_pct": 14.63,
+     "average_order_value": 30.0
+    },
+    {
+     "name": "New",
+     "revenue": 25.0,
+     "orders": 1,
+     "units": 3,
+     "share_pct": 12.2,
+     "average_order_value": 25.0
+    }
+   ],
+   "top_products": [
+    {
+     "name": "Jacket",
+     "revenue": 150.0,
+     "orders": 2,
+     "units": 3,
+     "share_pct": 73.17,
+     "average_order_value": 75.0
+    },
+    {
+     "name": "Lamp",
+     "revenue": 50.0,
+     "orders": 2,
+     "units": 5,
+     "share_pct": 24.39,
+     "average_order_value": 25.0
+    },
+    {
+     "name": "Mug",
+     "revenue": 5.0,
+     "orders": 1,
+     "units": 1,
+     "share_pct": 2.44,
+     "average_order_value": 5.0
+    }
+   ]
+  },
+  "unavailable": []
+ },
+ "observations": [
+  {
+   "kind": "trend",
+   "title": "Monthly revenue grew over the period",
+   "evidence": "Revenue went from \u00a375.00 in Jan 2026 to \u00a3130 in Feb 2026 (+73.3%). Revenue rose in 1 of the 1 month-on-month changes.",
+   "recommendation": "Compare the same months in another year before treating this as a lasting trend."
+  },
+  {
+   "kind": "data",
+   "title": "Feb 2026 may be a partial month",
+   "evidence": "The latest order is dated 2026-02-14, before the end of the month.",
+   "recommendation": "Exclude or annualise the last month before comparing it with full months."
+  },
+  {
+   "kind": "concentration",
+   "title": "Clothing is the largest category",
+   "evidence": "Clothing produced \u00a3150 (73.2% of revenue); Home is smallest at 26.8%.",
+   "recommendation": "Revenue depends heavily on one category; review the risk if it under-performs."
+  },
+  {
+   "kind": "concentration",
+   "title": "South is the largest region",
+   "evidence": "South produced \u00a3150 (73.2% of revenue); North is smallest at 26.8%.",
+   "recommendation": "Revenue depends heavily on one region; review the risk if it under-performs."
+  },
+  {
+   "kind": "concentration",
+   "title": "Phone is the largest channel",
+   "evidence": "Phone produced \u00a3100 (48.8% of revenue); In-store is smallest at 24.4%.",
+   "recommendation": "Revenue depends heavily on one channel; review the risk if it under-performs."
+  },
+  {
+   "kind": "opportunity",
+   "title": "Average order value differs by region",
+   "evidence": "South averages \u00a375.00 per order against \u00a327.50 in North.",
+   "recommendation": "Test bundles or upselling in North to close part of the gap."
+  },
+  {
+   "kind": "mix",
+   "title": "Jacket is the best-selling product by revenue",
+   "evidence": "Jacket generated \u00a3150 from 3 units (73.2% of revenue).",
+   "recommendation": "Keep stock cover for this product under review."
+  },
+  {
+   "kind": "data",
+   "title": "Data quality is good",
+   "evidence": "0 of 5 rows (0.0%) were removed by the cleaning rules; 0 were exact duplicates.",
+   "recommendation": "No action needed."
+  }
+ ],
+ "preview": {
+  "columns": [
+   "order_id",
+   "order_date",
+   "product",
+   "product_category",
+   "region",
+   "channel",
+   "customer_type",
+   "quantity",
+   "unit_price",
+   "revenue"
+  ],
+  "rows": [
+   {
+    "order_id": "A1",
+    "order_date": "2026-01-05",
+    "product": "Lamp",
+    "product_category": "Home",
+    "region": "North",
+    "channel": "Online",
+    "customer_type": "New",
+    "quantity": 2,
+    "unit_price": 10.0,
+    "revenue": 20.0
+   },
+   {
+    "order_id": "A1",
+    "order_date": "2026-01-05",
+    "product": "Mug",
+    "product_category": "Home",
+    "region": "North",
+    "channel": "Online",
+    "customer_type": "New",
+    "quantity": 1,
+    "unit_price": 5.0,
+    "revenue": 5.0
+   },
+   {
+    "order_id": "A2",
+    "order_date": "2026-01-20",
+    "product": "Jacket",
+    "product_category": "Clothing",
+    "region": "South",
+    "channel": "In-store",
+    "customer_type": "Returning",
+    "quantity": 1,
+    "unit_price": 50.0,
+    "revenue": 50.0
+   },
+   {
+    "order_id": "A3",
+    "order_date": "2026-02-03",
+    "product": "Lamp",
+    "product_category": "Home",
+    "region": "North",
+    "channel": "Online",
+    "customer_type": "Unknown",
+    "quantity": 3,
+    "unit_price": 10.0,
+    "revenue": 30.0
+   },
+   {
+    "order_id": "A4",
+    "order_date": "2026-02-14",
+    "product": "Jacket",
+    "product_category": "Clothing",
+    "region": "South",
+    "channel": "Phone",
+    "customer_type": "Business",
+    "quantity": 2,
+    "unit_price": 50.0,
+    "revenue": 100.0
+   }
+  ]
+ },
+ "insights": null
+}

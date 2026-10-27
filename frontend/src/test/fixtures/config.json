@@ -1,0 +1,61 @@
+{
+ "version": "1.0.0",
+ "max_upload_mb": 5,
+ "max_rows": 100000,
+ "required_columns": [
+  "order_id",
+  "order_date",
+  "quantity",
+  "unit_price"
+ ],
+ "optional_columns": [
+  "product",
+  "product_category",
+  "region",
+  "channel",
+  "customer_type"
+ ],
+ "cleaning_rules": [
+  {
+   "rule": "C1",
+   "description": "Trim spaces and treat placeholder text (N/A, null, -) as missing"
+  },
+  {
+   "rule": "C2",
+   "description": "Remove exact duplicate rows (first copy kept)"
+  },
+  {
+   "rule": "C3",
+   "description": "Remove rows missing a required value (order_id, order_date, quantity, unit_price)"
+  },
+  {
+   "rule": "C4",
+   "description": "Remove rows with an unreadable or impossible order_date"
+  },
+  {
+   "rule": "C5",
+   "description": "Remove rows where quantity is not a whole number above zero"
+  },
+  {
+   "rule": "C6",
+   "description": "Remove rows where unit_price is not a number or is negative"
+  },
+  {
+   "rule": "C7",
+   "description": "Make category spellings consistent (most common spelling kept)"
+  },
+  {
+   "rule": "C8",
+   "description": "Fill missing optional text values with \"Unknown\""
+  }
+ ],
+ "ai": {
+  "configured": false,
+  "model": null
+ },
+ "webhook": {
+  "configured": false,
+  "target_host": null,
+  "api_key_set": false
+ }
+}
