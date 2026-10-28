@@ -47,45 +47,66 @@ Implement the `InsightProvider` protocol in `backend/app/integrations/ai/base.py
 
 ## Make.com automation
 
-### Setting up a scenario
+FlowForge sends events to a Make.com **Custom webhook**. The main use is report delivery: a `report.generated` event carries the report's KPIs and a temporary signed link to its PDF, so a scenario can download the PDF, email it as a Gmail attachment, and tell FlowForge whether the email was sent.
 
-1. In Make.com, create a scenario whose first module is **Webhooks › Custom webhook**, and copy the webhook address.
-2. Add it to the backend environment and restart:
+```
+FlowForge ──POST event──▶ Make.com webhook
+                              │
+                              ├─ HTTP: GET report.pdf (signed link, expires)  ──▶ FlowForge
+                              ├─ Gmail: send email with the PDF attached
+                              └─ HTTP: POST confirmation (signed link)        ──▶ FlowForge
+```
 
-   ```env
-   MAKE_WEBHOOK_URL=https://hook.eu1.make.com/your-webhook-id
-   MAKE_WEBHOOK_SECRET=a-long-random-string    # optional
-   MAKE_TIMEOUT_SECONDS=10
-   PUBLIC_BASE_URL=https://flowforge.example.com  # optional, adds report download links
-   ```
+### Why a signed link instead of the PDF in the payload
 
-3. Open **Automation**, choose **automation.test** and press **Send to Make.com**. Make.com uses the first request it receives to learn the data structure.
-4. Add the modules you need after the webhook (email, Slack, Google Sheets and so on) and map fields from the payload.
+| Option | Verdict |
+| --- | --- |
+| A. PDF as base64 inside the webhook body | Works for small reports (Make.com accepts webhook bodies up to a few MB), but every event grows by a third of the PDF size, the PDF is stored in FlowForge's delivery history and in Make.com's execution logs, and HMAC signing and retries have to handle the whole file. |
+| **B. Metadata plus a short-lived signed PDF link (chosen)** | The event stays small, the scenario downloads the file with a standard **HTTP › Get a file** module, and the link only works for one event and expires (60 minutes by default). Make.com needs no login because the link's signature is the credential. |
+| C. Upload the PDF to object storage (S3, Google Drive) and send that link | Survives restarts, but needs new paid or credentialed infrastructure. Not needed while Make.com downloads the PDF seconds after the event. |
 
-The URL must use HTTPS. Redirects are not followed.
+### Configuration
+
+Set these in the backend environment (`backend/.env`, or the service's **Environment** tab on Render) and restart:
+
+```env
+MAKE_WEBHOOK_URL=https://hook.eu1.make.com/your-webhook-id   # required, HTTPS
+MAKE_WEBHOOK_SECRET=a-long-random-string                     # optional, signs each request
+MAKE_TIMEOUT_SECONDS=10
+AUTOMATION_TRIGGER_ON_REPORT=false                           # true = send every new report automatically
+
+PUBLIC_BASE_URL=https://flowforge.example.com   # address Make.com uses to reach FlowForge
+REPORT_LINK_SECRET=another-long-random-string   # optional, keeps links valid across restarts
+REPORT_LINK_TTL_MINUTES=60                      # 5 minutes to 7 days
+```
+
+- `PUBLIC_BASE_URL` is needed for links. On Render it can be left empty: Render sets `RENDER_EXTERNAL_URL` for every web service and FlowForge uses it. It must use HTTPS (plain HTTP is allowed only for `localhost`).
+- Without `REPORT_LINK_SECRET`, a random key is created at start-up and links stop working after a restart. On hosts without a persistent disk (such as Render's free plan) the report files are deleted on restart anyway, so the secret only matters when `DATA_DIR` is persistent.
+
+The **Automation** page shows whether the webhook is configured, whether PDF links are available (and why not), and how long they stay valid.
 
 ### When events are sent
 
-- **Manually:** the **Send to Make.com** button on the Automation page or after generating a report.
-- **By rule:** only if `AUTOMATION_TRIGGER_ON_REPORT=true`, in which case every newly generated report (other than a failed one) is sent once. The Automation page shows whether the rule is on.
+- **Manually:** **Send to Make.com** on the Automation page or after generating a report.
+- **By rule:** only if `AUTOMATION_TRIGGER_ON_REPORT=true`, in which case every newly generated report (other than a failed one) is sent once.
 
-Nothing else sends events. Every attempt, successful or not, is recorded in the delivery history with the payload, HTTP status, duration and a readable message.
+Sending the same report a second time asks for confirmation (the API returns HTTP 409 `already_sent` unless `resend` is true), unless the earlier attempt was not accepted or the scenario reported a failure. FlowForge does not retry automatically, so a webhook timeout never produces a duplicate email. Every event has a unique `event_id`; a scenario that needs strict de-duplication can store it in a Make.com data store and skip IDs it has seen.
 
-### Payload
+### Payload (schema version 2)
 
-Use **Preview payload** on the Automation page to see the exact body for any event without sending it. A `report.generated` event looks like this (generated from the sample dataset):
+Use **Preview payload** on the Automation page to see the exact body for any event; link signatures are replaced by `added-when-sent` in previews and by `redacted` in the delivery history. A `report.generated` event for the sample dataset:
 
 ```json
 {
   "event": "report.generated",
-  "event_id": "6beccfa52edc4a8f8a597ddd89e7a3c0",
-  "occurred_at": "2026-10-27T21:04:20+00:00",
+  "event_id": "ce7e462e7f4f433dafad253c626c9b85",
+  "occurred_at": "2026-10-28T10:39:47+00:00",
   "source": "flowforge-analytics",
-  "schema_version": 1,
+  "schema_version": 2,
   "trigger": "manual",
   "status": "completed",
   "dataset": {
-    "id": "e6e7ad2ed9a74e40acd5b67d37aa5c03",
+    "id": "56a23ce1c13d4e9bb3ab517d8f1b8298",
     "name": "Retail orders (synthetic sample)",
     "is_sample": true,
     "record_count": 1198,
@@ -93,13 +114,20 @@ Use **Preview payload** on the Automation page to see the exact body for any eve
     "quality_score": 99.7
   },
   "report": {
-    "id": "42a6f9825ac1425b81deb0d4db324ea3",
+    "id": "111146153af54a7197ab3dd4bb8bb8d8",
     "title": "Monthly review",
-    "created_at": "2026-10-27T21:04:20+00:00",
+    "created_at": "2026-10-28T10:39:47+00:00",
     "status": "completed",
     "insight_mode": "rule_based",
     "formats": ["json", "html", "csv", "pdf"],
-    "download_url": "https://flowforge.example.com/api/reports/42a6f9825ac1425b81deb0d4db324ea3/download?format=html"
+    "pdf": {
+      "available": true,
+      "filename": "monthly-review.pdf",
+      "content_type": "application/pdf",
+      "size_bytes": 15194,
+      "download_url": "https://flowforge.example.com/api/automation/runs/ce7e462e7f4f433dafad253c626c9b85/report.pdf?expires=1793187587&signature=…",
+      "expires_at": "2026-10-28T11:39:47+00:00"
+    }
   },
   "summary": {
     "records": 1198,
@@ -112,13 +140,81 @@ Use **Preview payload** on the Automation page to see the exact body for any eve
     "products": 20,
     "regions": 11,
     "date_range": { "start": "2025-01-01", "end": "2025-12-31" }
+  },
+  "kpis": [
+    { "key": "records", "label": "Total records", "format": "integer", "display": "1,198", "value": 1198 },
+    { "key": "total_revenue", "label": "Total revenue", "format": "currency", "display": "111,516.87", "value": 111516.87 },
+    { "key": "date_range", "label": "Date range", "format": "date_range", "display": "2025-01-01 to 2025-12-31", "value": null, "start": "2025-01-01", "end": "2025-12-31" }
+  ],
+  "kpi_summary_html": "<ul><li><strong>Total records:</strong> 1,198</li>…</ul>",
+  "delivery": {
+    "confirmation_url": "https://flowforge.example.com/api/automation/runs/ce7e462e7f4f433dafad253c626c9b85/confirmation?expires=1793187587&signature=…",
+    "expires_at": "2026-10-28T11:39:47+00:00"
   }
 }
 ```
 
-`download_url` is only present when `PUBLIC_BASE_URL` is set. `dataset.analysed` events carry `dataset` and `summary`; `automation.test` events carry only a message. No raw rows are included in any event.
+(`kpis` is shortened here; it lists every metric in `summary`.)
 
-### Verifying the signature
+Field notes:
+
+- `summary` holds the KPIs as numbers. Keys appear only when the analysis can calculate them: `records` and `columns` are always present; `total_revenue`, `average_transaction_value` and `median_transaction_value` need a revenue column (or quantity and unit price); `total_quantity` needs a quantity column; `categories`, `products` and `regions` are counts of distinct values; `date_range` needs a date column. Currency values have no currency symbol, because the dataset does not record one. Map KPI fields in Make.com with an `ifempty()` fallback.
+- `kpis` has the same values with a label and display text, in report order. `kpi_summary_html` is that list as HTML, ready for an email body. Labels are HTML-escaped.
+- For `report.generated`, `dataset` and the KPIs come from the report snapshot, so they match the PDF even if the dataset was cleaned or deleted afterwards. For `dataset.analysed`, they are calculated from the current data.
+- `report.pdf.available` is `false`, with a `reason`, when the report has no PDF, the file is no longer stored, the PDF is over 20 MB, or no public address is configured.
+- `delivery` is `null` when no public address is configured. `automation.test` events contain only the event fields, a message and `delivery`; no dataset or report data.
+
+Changes from schema version 1: `schema_version` is 2; `report.download_url` (a permanent, unsigned HTML link that was only sent when `PUBLIC_BASE_URL` was set) is replaced by `report.pdf`; `kpis`, `kpi_summary_html` and `delivery` are new. All other fields are unchanged. After deploying, open the scenario's webhook module, choose **Redetermine data structure** and send an event so Make.com learns the new fields.
+
+### Signed links
+
+| Link | Method | Purpose |
+| --- | --- | --- |
+| `report.pdf.download_url` | `GET` | Returns the PDF (`application/pdf`, `Content-Disposition: attachment`, `Cache-Control: no-store`) |
+| `delivery.confirmation_url` | `POST` | Records the scenario's outcome. JSON body: `{"status": "sent" \| "failed", "message": "optional, up to 300 characters"}` |
+
+Each link is signed with HMAC-SHA256 over its purpose, the event ID and the expiry time. A link for one event cannot be used for another, a PDF link cannot be used as a confirmation link, and changing the expiry breaks the signature. Responses: `403 link_invalid` for a wrong signature, `410 link_expired` after expiry, `404` if the report or its PDF has been deleted. The first PDF download is recorded and shown in the delivery history.
+
+### Make.com scenario: email the report PDF
+
+Modules, in order:
+
+1. **Webhooks › Custom webhook** (the existing one). After deploying this version, click **Redetermine data structure**, then send a report from FlowForge (use a report from the built-in sample dataset).
+2. **Filter** between modules 1 and 2: `event` *Equal to* `report.generated` **and** `report.pdf.available` *Equal to (boolean)* `true`. Add a second route from module 1 if you also want to handle other events.
+3. **HTTP › Get a file** (called **Download a file** in newer versions of the HTTP app)
+   - URL: `{{1.report.pdf.download_url}}`
+   - Evaluate all states as errors: **Yes**
+   - No authentication: the link itself is the credential.
+4. **Gmail › Send an email**
+   - To: the recipient address (fixed in the scenario; FlowForge never sends addresses)
+   - Subject: `FlowForge report: {{1.report.title}}`
+   - Content (HTML):
+
+     ```html
+     <p>Hello,</p>
+     <p>The report <strong>{{1.report.title}}</strong> for the dataset <strong>{{1.dataset.name}}</strong> is attached.</p>
+     {{1.kpi_summary_html}}
+     <p>Records analysed: {{1.dataset.record_count}} · Data quality score: {{1.dataset.quality_score}}/100</p>
+     <p>Generated {{formatDate(1.report.created_at; "D MMM YYYY HH:mm")}} by FlowForge Analytics.</p>
+     ```
+
+     To pick individual figures instead, map for example `{{ifempty(1.summary.total_revenue; "n/a")}}`.
+   - Attachments › Add item: File name `{{3.fileName}}` (or `{{1.report.pdf.filename}}`), Data `{{3.data}}`.
+5. **HTTP › Make a request** (confirmation)
+   - URL: `{{1.delivery.confirmation_url}}`, Method: `POST`, Body type: Raw, Content type: JSON
+   - Request content: `{"status": "sent", "message": "Emailed to the finance team"}`
+6. Error handling: right-click module 3 and module 4 › **Add error handler** › **HTTP › Make a request** to `{{1.delivery.confirmation_url}}` with body `{"status": "failed", "message": "PDF download failed"}` (or `"Email could not be sent"`), followed by the **Ignore** directive (or **Break** if you want Make.com to keep the execution for a manual retry within the link lifetime).
+
+Optional logging: add **Google Sheets › Add a row** after module 4 with columns such as `{{1.event_id}}`, `{{1.occurred_at}}`, `{{1.dataset.name}}`, `{{1.report.title}}`, `{{1.summary.total_revenue}}`, `{{1.summary.records}}`, `{{1.dataset.quality_score}}`.
+
+The delivery history on the Automation page then shows each step: **Accepted, not confirmed** (the webhook took the event), *PDF downloaded*, and **Confirmed by Make.com** or **Scenario failed** with the scenario's message. FlowForge never reports an email as delivered on the strength of the webhook's HTTP 200 alone.
+
+### Testing without private data
+
+- `automation.test` contains no dataset or report data. Its `delivery.confirmation_url` lets you check the confirmation step on its own.
+- To test the full PDF email, load the built-in synthetic sample dataset (**Data Upload › Load sample dataset**), generate a report from it and send that report.
+
+### Verifying the request signature
 
 When `MAKE_WEBHOOK_SECRET` is set, each request has the header
 
@@ -130,4 +226,10 @@ Compute the same HMAC over the received body and compare before trusting the req
 
 ### Failure behaviour
 
-Timeouts, connection errors and non-2xx responses are recorded as failed runs with an explanation and shown to the user. A failed automation never fails report generation. If the webhook is not configured, the send endpoint returns HTTP 409 with `automation_not_configured` and nothing is recorded.
+Timeouts, connection errors and non-2xx responses are recorded as failed runs with an explanation and shown to the user. A failed or misconfigured automation never fails report generation. If the webhook is not configured, the send endpoint returns HTTP 409 with `automation_not_configured` and nothing is recorded. Server logs record the event type, event ID and outcome, never the webhook URL, link signatures or report content.
+
+### Security notes and limitations
+
+- FlowForge has no user accounts: anyone who can open the application can also download reports through the normal download endpoint. The signed links add no new exposure, and they keep working for Make.com if a login is added later.
+- Signed links are stored with their signature removed, so the delivery history (which is visible to anyone using the app) cannot be used to download PDFs.
+- On hosts without persistent storage, reports, links and delivery history disappear when the server restarts. Make.com downloads the PDF within seconds of the event, so this only affects scenarios that run much later (for example scheduled or retried executions). Use a persistent disk if that matters.

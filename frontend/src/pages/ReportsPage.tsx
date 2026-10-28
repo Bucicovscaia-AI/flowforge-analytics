@@ -16,6 +16,7 @@ import { TableContainer, Td, Th, Tr } from '../components/ui/Table'
 import { useApp } from '../context/AppContext'
 import { useToast } from '../context/ToastContext'
 import { useApi } from '../hooks/useApi'
+import { useAutomationSender } from '../hooks/useAutomationSender'
 import { formatDateTime, formatNumber } from '../lib/format'
 
 const CONTENTS = [
@@ -30,27 +31,11 @@ const CONTENTS = [
 
 function GeneratedReport({ report, onSent }: { report: ReportCreated; onSent: () => void }) {
   const { system } = useApp()
-  const { notify } = useToast()
-  const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(report.automation_run?.status === 'delivered')
-
-  const send = async () => {
-    setSending(true)
-    try {
-      const run = await api.triggerAutomation('report.generated', undefined, report.id)
-      if (run.status === 'delivered') {
-        setSent(true)
-        notify('success', 'Sent to Make.com', run.message)
-      } else {
-        notify('error', 'Make.com delivery failed', run.message)
-      }
-      onSent()
-    } catch (error) {
-      notify('error', 'Could not send to Make.com', errorMessage(error))
-    } finally {
-      setSending(false)
-    }
-  }
+  const sender = useAutomationSender((run) => {
+    if (run.status === 'delivered') setSent(true)
+    onSent()
+  })
 
   return (
     <Card>
@@ -63,16 +48,26 @@ function GeneratedReport({ report, onSent }: { report: ReportCreated; onSent: ()
         {report.status === 'partial' && report.error && <Alert tone="warning" title="Some outputs could not be produced">{report.error}</Alert>}
         {report.automation_run && (
           <Alert tone={report.automation_run.status === 'delivered' ? 'success' : 'warning'} title="Automation rule">
-            The configured rule sent this report to Make.com: {report.automation_run.message}
+            The configured rule sent this report to Make.com: {report.automation_run.message} The Automation page shows whether the scenario
+            confirms the email.
           </Alert>
         )}
         <ReportDownloads report={report} />
         {system?.automation_configured && (
           <div className="flex flex-wrap items-center gap-3 border-t border-slate-100 pt-4">
-            <Button variant="secondary" icon={sent ? CheckCircle2 : Send} loading={sending} disabled={sent} onClick={() => void send()}>
-              {sent ? 'Sent to Make.com' : 'Send to Make.com'}
+            <Button
+              variant="secondary"
+              icon={sent ? CheckCircle2 : Send}
+              loading={sender.sending}
+              disabled={sent}
+              onClick={() => void sender.send('report.generated', undefined, report.id)}
+            >
+              {sent ? 'Accepted by Make.com' : 'Send to Make.com'}
             </Button>
-            <p className="text-xs text-slate-500">Sends a summary of this report and its download links to your Make.com scenario.</p>
+            <p className="text-xs text-slate-500">
+              Sends the report's KPIs and a temporary link to its PDF to your Make.com scenario, which can email it as an attachment.
+            </p>
+            {sender.dialog}
           </div>
         )}
       </CardBody>

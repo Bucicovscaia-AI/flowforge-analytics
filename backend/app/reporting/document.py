@@ -7,6 +7,7 @@ the same numbers.
 
 from __future__ import annotations
 
+import re
 from datetime import UTC, datetime
 
 STANDARD_LIMITATIONS = [
@@ -67,6 +68,11 @@ def build_report_document(
         },
         "limitations": limitations,
     }
+
+
+def safe_download_name(title: str, extension: str) -> str:
+    slug = re.sub(r"[^A-Za-z0-9]+", "-", title).strip("-").lower()[:60] or "report"
+    return f"{slug}.{extension}"
 
 
 def format_value(value, fmt: str) -> str:

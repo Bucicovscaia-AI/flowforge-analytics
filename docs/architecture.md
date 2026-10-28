@@ -28,7 +28,7 @@ Services ──────── app/services/*.py        orchestrate a use cas
 | `DatasetService` | Import, profiling, column mapping, preview, quality, cleaning, analysis, chart data, exports |
 | `InsightService` | Rule-based insights, optional AI insights, aggregated AI summary |
 | `ReportService` | Builds a report snapshot and renders it to every format, report history |
-| `AutomationService` | Builds webhook payloads, sends them on request or by rule, delivery history |
+| `AutomationService` | Builds webhook payloads, sends them on request or by rule, delivery history, signed PDF and confirmation links |
 
 **Engine** (`app/engine`) is independent of FastAPI and storage, so it can be tested directly:
 

@@ -8,6 +8,7 @@ from app.config import Settings
 from app.integrations.ai.base import InsightProvider
 from app.integrations.ai.factory import build_insight_provider
 from app.integrations.make_webhook import MakeWebhookClient
+from app.integrations.signed_links import LinkSigner
 from app.services.automation import AutomationService
 from app.services.datasets import DatasetService
 from app.services.insights import InsightService
@@ -39,8 +40,10 @@ def build_services(
     client = webhook_client or MakeWebhookClient(
         settings.make_webhook_url, settings.make_webhook_secret, settings.make_timeout_seconds
     )
-    automation = AutomationService(settings, client, datasets, report_repository, AutomationRepository(database), activity)
-    reports = ReportService(
-        settings, datasets, insights, automation, report_repository, ReportFileStore(settings.reports_dir), activity
+    report_files = ReportFileStore(settings.reports_dir)
+    signer = LinkSigner(settings.public_base_url, settings.report_link_secret, settings.report_link_ttl_minutes * 60)
+    automation = AutomationService(
+        settings, client, datasets, report_repository, report_files, AutomationRepository(database), activity, signer
     )
+    reports = ReportService(settings, datasets, insights, automation, report_repository, report_files, activity)
     return Services(settings, datasets, insights, reports, automation, activity)

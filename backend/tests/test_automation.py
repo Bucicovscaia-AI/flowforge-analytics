@@ -90,8 +90,14 @@ def test_report_event_and_payload_preview(make_client):
     dataset_id = upload(client, KNOWN_CSV).json()["id"]
     report_id = client.post("/api/reports", json={"dataset_id": dataset_id}).json()["id"]
     preview = client.post("/api/automation/preview", json={"event_type": "report.generated", "report_id": report_id}).json()
+    assert preview["schema_version"] == 2
     assert preview["report"]["id"] == report_id
-    assert preview["report"]["download_url"].startswith("https://flowforge.example.com/api/reports/")
+    pdf = preview["report"]["pdf"]
+    assert pdf["available"] is True
+    assert pdf["download_url"].startswith("https://flowforge.example.com/api/automation/runs/")
+    assert pdf["download_url"].endswith("signature=added-when-sent")
+    assert preview["delivery"]["confirmation_url"].endswith("signature=added-when-sent")
+    assert "download_url" not in preview["report"]  # the permanent, unsigned link from schema 1 is gone
     assert client.get("/api/automation/runs").json() == []  # preview does not send
 
     missing = client.post("/api/automation/trigger", json={"event_type": "report.generated"})
