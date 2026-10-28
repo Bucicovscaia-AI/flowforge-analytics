@@ -64,3 +64,18 @@ def test_serves_built_frontend_with_client_side_routes(make_client, tmp_path):
     assert missing.json()["error"]["code"] == "endpoint_not_found"
     # Path traversal outside the build folder falls back to the application page.
     assert "FlowForge" in client.get("/..%2F..%2Fetc%2Fpasswd").text
+
+
+def test_temporary_storage_is_reported(make_client):
+    storage = make_client(storage_persistent=False).get("/api/system/status").json()["storage"]
+    assert storage["persistent"] is False
+    assert "deleted whenever it restarts" in storage["description"]
+
+
+def test_sample_is_loaded_at_start_up_only_into_an_empty_store(make_client):
+    client = make_client(load_sample_on_startup=True)
+    datasets = client.get("/api/datasets").json()
+    assert len(datasets) == 1 and datasets[0]["is_sample"] is True
+    again = make_client(load_sample_on_startup=True)  # same data directory, already has a dataset
+    assert len(again.get("/api/datasets").json()) == 1
+    assert make_client().get("/api/datasets").json() == datasets
