@@ -1,7 +1,7 @@
-import { BookOpen, Bot, Database, Gauge, HardDrive, Workflow } from 'lucide-react'
+import { Bot, Database, HardDrive, ShieldCheck, Workflow } from 'lucide-react'
 import type { ReactNode } from 'react'
 
-import { API_BASE } from '../api/client'
+import { BEFORE_YOU_UPLOAD_ID } from '../components/BeforeYouUploadCard'
 import { LinkButton } from '../components/ui/Button'
 import { Badge } from '../components/ui/Badge'
 import { Card, CardBody, CardHeader } from '../components/ui/Card'
@@ -58,15 +58,17 @@ export function SettingsPage() {
               actions={system.ai.configured ? <Badge tone="success">Configured</Badge> : <Badge tone="neutral">Rule-based only</Badge>}
             />
             <CardBody>
-              <dl className="text-sm">
-                <Row label="Provider">{system.ai.provider ?? 'None'}</Row>
-                <Row label="Model">{system.ai.model ?? '–'}</Row>
-              </dl>
-              <p className="mt-3 flex gap-2 text-xs text-slate-500">
+              {system.ai.configured && (
+                <dl className="mb-3 text-sm">
+                  <Row label="Provider">{system.ai.provider}</Row>
+                  <Row label="Model">{system.ai.model}</Row>
+                </dl>
+              )}
+              <p className="flex gap-2 text-xs text-slate-500">
                 <Bot className="size-4 shrink-0" aria-hidden />
                 {system.ai.configured
                   ? system.ai.data_policy
-                  : 'Set AI_API_KEY (and optionally AI_MODEL) in the backend .env file and restart the server to enable AI insights. Rule-based insights work without it.'}
+                  : 'AI insights are not enabled for this workspace. Rule-based insights are always available.'}
               </p>
             </CardBody>
           </Card>
@@ -79,7 +81,9 @@ export function SettingsPage() {
             <CardBody className="space-y-3 text-sm text-slate-600">
               <p className="flex gap-2">
                 <Workflow className="mt-0.5 size-4 shrink-0 text-slate-400" aria-hidden />
-                The webhook URL and signing secret are read from MAKE_WEBHOOK_URL and MAKE_WEBHOOK_SECRET on the server.
+                {system.automation_configured
+                  ? 'Send analysis results and reports to your Make.com scenarios.'
+                  : 'Make.com automation is not enabled for this workspace.'}
               </p>
               <LinkButton to="/automation" size="sm">
                 Open Automation
@@ -91,7 +95,6 @@ export function SettingsPage() {
             <CardHeader title="Storage" actions={<Badge tone={system.storage.persistent ? 'success' : 'warning'}>{system.storage.persistent ? 'Persistent' : 'Temporary'}</Badge>} />
             <CardBody>
               <dl className="text-sm">
-                <Row label="Engine">{system.storage.engine}</Row>
                 <Row label="Datasets stored">{formatNumber(datasets.length)}</Row>
               </dl>
               <p className="mt-3 flex gap-2 text-xs text-slate-500">
@@ -115,10 +118,6 @@ export function SettingsPage() {
                 <Row label="Maximum columns">{formatNumber(system.limits.max_columns)}</Row>
                 <Row label="Accepted files">{system.limits.accepted_extensions.join(', ')}</Row>
               </dl>
-              <p className="mt-3 flex gap-2 text-xs text-slate-500">
-                <Gauge className="size-4 shrink-0" aria-hidden />
-                Change with MAX_UPLOAD_MB, MAX_ROWS and MAX_COLUMNS on the server.
-              </p>
             </CardBody>
           </Card>
 
@@ -129,15 +128,19 @@ export function SettingsPage() {
                 <Row label="Application">{system.name}</Row>
                 <Row label="Version">{system.version}</Row>
               </dl>
-              <a
-                href={`${API_BASE}/docs`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-brand-700 hover:underline"
-              >
-                <BookOpen className="size-4" aria-hidden />
-                API documentation
-              </a>
+            </CardBody>
+          </Card>
+
+          <Card className="lg:col-span-2">
+            <CardHeader title="Data safety" />
+            <CardBody className="flex flex-wrap items-center justify-between gap-3 text-sm text-slate-600">
+              <p className="flex gap-2">
+                <ShieldCheck className="mt-0.5 size-4 shrink-0 text-slate-400" aria-hidden />
+                Three habits that keep your data and your reports safe: use demo or anonymised data, keep the webhook address private, and check before you forward.
+              </p>
+              <LinkButton to={`/upload#${BEFORE_YOU_UPLOAD_ID}`} size="sm">
+                Read before you upload
+              </LinkButton>
             </CardBody>
           </Card>
         </div>

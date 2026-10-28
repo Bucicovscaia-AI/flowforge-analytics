@@ -70,6 +70,20 @@ describe('App', () => {
     expect(await screen.findByText('Rule-based only')).toBeInTheDocument()
   })
 
+  it('shows the security habits on the upload page', async () => {
+    renderAt('/upload')
+    expect(await screen.findByRole('heading', { name: 'Before you upload' })).toBeInTheDocument()
+    expect(screen.getByText('Use demo or anonymised data only')).toBeInTheDocument()
+    expect(screen.getByText('Keep the webhook address private')).toBeInTheDocument()
+    expect(screen.getByText('Check before you forward')).toBeInTheDocument()
+  })
+
+  it('keeps server configuration details out of the settings page', async () => {
+    renderAt('/settings')
+    expect(await screen.findByRole('link', { name: 'Read before you upload' })).toHaveAttribute('href', '/upload#before-you-upload')
+    expect(document.body.textContent).not.toMatch(/AI_API_KEY|MAKE_WEBHOOK|MAX_UPLOAD_MB|\.env/)
+  })
+
   it('shows a not-found page for unknown addresses', async () => {
     renderAt('/does-not-exist')
     expect(await screen.findByText('Page not found')).toBeInTheDocument()
@@ -102,7 +116,9 @@ describe('when the server loses data', () => {
       'fetch',
       vi.fn((input: string) => {
         if (input.startsWith('/api/system/status')) return json({ ...SYSTEM, storage: { ...SYSTEM.storage, persistent: false } })
-        if (input.startsWith('/api/datasets')) return json(stored)
+        if (input === '/api/datasets') return json(stored)
+        // Leave per-dataset requests pending: an empty list is not a valid analysis and would crash the page.
+        if (input.startsWith('/api/datasets/')) return new Promise<Response>(() => {})
         return json([])
       }),
     )
@@ -110,6 +126,8 @@ describe('when the server loses data', () => {
     expect((await screen.findAllByText(/office-supplies-orders-2026/)).length).toBeGreaterThan(0)
 
     stored = []
+    // Flush pending effects so the app has recorded the dataset list before the event arrives.
+    await act(async () => {})
     act(() => {
       window.dispatchEvent(new Event(MISSING_DATA_EVENT))
     })
