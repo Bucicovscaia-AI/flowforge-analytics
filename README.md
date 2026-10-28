@@ -48,7 +48,7 @@ The browser communicates only with the API; data processing, storage and externa
 
 ## Getting started
 
-Prerequisites: Python 3.11 or newer, Node.js 20.19+ or 22.12+ with npm. No database server is required.
+Prerequisites: Python 3.12 or newer, Node.js 20.19+ or 22.12+ with npm. No database server is required.
 
 ```bash
 git clone https://github.com/Bucicovscaia-AI/flowforge-analytics.git
