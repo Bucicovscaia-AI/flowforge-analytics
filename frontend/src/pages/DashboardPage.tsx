@@ -36,7 +36,8 @@ import { useApp } from '../context/AppContext'
 import { useApi } from '../hooks/useApi'
 import { useLoadSample } from '../hooks/useLoadSample'
 import { cn } from '../lib/cn'
-import { formatDateTime, formatMetric, formatSignedPercent } from '../lib/format'
+import { categoryVariantNote } from '../lib/categories'
+import { formatDateTime, formatMetric, formatSignedPercent, pluralise } from '../lib/format'
 
 const WORKFLOW = [
   { label: 'Import', icon: Upload, to: '/upload' },
@@ -134,7 +135,7 @@ function TrendPanel({ analysis }: { analysis: AnalysisResult }) {
   return (
     <ChartCard
       title={isRevenue ? `Revenue by ${series.granularity}` : `Records by ${series.granularity}`}
-      description={`${formatDateTimeRange(series.first_date, series.last_date)}${series.excluded_rows ? ` · ${series.excluded_rows} rows without a readable date excluded` : ''}`}
+      description={`${formatDateTimeRange(series.first_date, series.last_date)}${series.excluded_rows ? ` · ${pluralise(series.excluded_rows, 'row')} without a readable date excluded` : ''}`}
       actions={
         comparison && change !== null ? (
           <Badge tone={change >= 0 ? 'success' : 'danger'}>
@@ -172,7 +173,7 @@ function BreakdownPanel({ analysis }: { analysis: AnalysisResult }) {
   const measureLabel = breakdown.measure === 'revenue' ? 'Revenue' : 'Records'
   const data = breakdown.rows.slice(0, 8).map((row) => ({ group: row.group, value: breakdown.measure === 'revenue' ? row.revenue : row.records, records: row.records, share: row.share }))
   return (
-    <ChartCard title={`${measureLabel} by ${breakdown.column}`} description={`Top ${data.length} of ${breakdown.total_groups} values`}>
+    <ChartCard title={`${measureLabel} by ${breakdown.column}`} description={`Top ${data.length} of ${breakdown.total_groups} values`} footer={categoryVariantNote(data.map((row) => row.group))}>
       <BarBreakdownChart data={data} valueLabel={measureLabel} formatValue={format} />
     </ChartCard>
   )
@@ -213,7 +214,7 @@ function ActivityPanel({ dataset }: { dataset: DatasetSummary }) {
         </CardBody>
       </Card>
       <Card>
-        <CardHeader title="Recent activity" description="Imports, cleaning, reports and automation for this dataset" />
+        <CardHeader title="Recent activity" />
         <CardBody className="p-0">
           {activity.loading ? (
             <LoadingState />
@@ -252,7 +253,6 @@ function DatasetDashboard({ dataset }: { dataset: DatasetSummary }) {
     <>
       <PageHeader
         title="Dashboard"
-        description="A summary of the selected dataset. Every figure is calculated from the data itself."
         eyebrow={<DatasetEyebrow dataset={dataset} />}
         actions={
           <>
@@ -297,7 +297,7 @@ function DatasetDashboard({ dataset }: { dataset: DatasetSummary }) {
             </Alert>
           )}
           <Card>
-            <CardHeader title="Next steps" description="Continue the workflow for this dataset" />
+            <CardHeader title="Next steps" />
             <CardBody className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 { to: '/quality', title: 'Improve data quality', text: 'Review findings and apply cleaning operations.', icon: ShieldCheck },

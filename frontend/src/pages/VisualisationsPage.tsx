@@ -1,5 +1,5 @@
 import { Download } from 'lucide-react'
-import { useState } from 'react'
+import { useState, type ReactNode } from 'react'
 
 import { api } from '../api/client'
 import type { Aggregation, DatasetDetail, DatasetSummary, Granularity } from '../api/types'
@@ -20,7 +20,8 @@ import { TableContainer, Td, Th, Tr } from '../components/ui/Table'
 import { SegmentedControl } from '../components/ui/Tabs'
 import { useApp } from '../context/AppContext'
 import { useApi } from '../hooks/useApi'
-import { formatNumber, formatPercent } from '../lib/format'
+import { categoryVariantNote } from '../lib/categories'
+import { formatNumber, formatPercent, pluralise } from '../lib/format'
 
 type ChartKind = 'bar' | 'time' | 'distribution'
 
@@ -60,7 +61,8 @@ function GroupedChart({ datasetId, groupBy, value, agg, topN, isCurrency }: { da
   return (
     <ChartCard
       title={`${label} by ${groupBy}`}
-      description={result.data && result.data.total_groups > data.length ? `Top ${data.length} of ${result.data.total_groups} groups; the rest are left out` : undefined}
+      description={result.data && result.data.total_groups > data.length ? `Top ${data.length} of ${result.data.total_groups} groups` : undefined}
+      footer={categoryVariantNote(data.map((row) => row.group))}
       actions={
         <DownloadLink href={api.aggregateCsvUrl(datasetId, { group_by: groupBy, value: value || undefined, agg: effectiveAgg })} icon={Download}>
           CSV
@@ -102,7 +104,7 @@ function GroupedChart({ datasetId, groupBy, value, agg, topN, isCurrency }: { da
   )
 }
 
-function TimeChart({ datasetId, dateColumn, value, agg, granularity, isCurrency, title }: { datasetId: string; dateColumn: string; value: string; agg: Aggregation; granularity: Granularity; isCurrency: boolean; title?: string }) {
+function TimeChart({ datasetId, dateColumn, value, agg, granularity, isCurrency, title, actions }: { datasetId: string; dateColumn: string; value: string; agg: Aggregation; granularity: Granularity; isCurrency: boolean; title?: string; actions?: ReactNode }) {
   const { dataVersion } = useApp()
   const effectiveAgg = value ? agg : 'count'
   const result = useApi(`ts:${datasetId}:${dataVersion}:${dateColumn}:${value}:${effectiveAgg}:${granularity}`, () =>
@@ -116,11 +118,12 @@ function TimeChart({ datasetId, dateColumn, value, agg, granularity, isCurrency,
     <ChartCard
       title={title ?? `${label} per ${result.data?.granularity ?? 'period'}`}
       description={result.data ? `${formatNumber(points.length)} ${result.data.granularity}s from ${dateColumn || 'the date column'}` : undefined}
+      actions={actions}
       footer={
         result.data && (partial > 0 || result.data.excluded_rows > 0)
           ? [
-              partial > 0 ? `${partial} partial period${partial === 1 ? '' : 's'} at the edges cover only part of the ${result.data.granularity}.` : '',
-              result.data.excluded_rows > 0 ? `${formatNumber(result.data.excluded_rows)} rows without a valid date are left out.` : '',
+              partial > 0 ? `${pluralise(partial, 'partial period')} at the edges.` : '',
+              result.data.excluded_rows > 0 ? `${pluralise(result.data.excluded_rows, 'row')} without a valid date left out.` : '',
             ]
               .filter(Boolean)
               .join(' ')
@@ -171,7 +174,7 @@ function DistributionChart({ datasetId, column }: { datasetId: string; column: s
     <ChartCard
       title={`Distribution of ${column}`}
       description={data ? `${formatNumber(data.count)} values · median ${formatNumber(data.median)} · mean ${formatNumber(data.mean)}` : undefined}
-      footer={data && data.excluded_rows > 0 ? `${formatNumber(data.excluded_rows)} rows without a valid number are left out.` : undefined}
+      footer={data && data.excluded_rows > 0 ? `${pluralise(data.excluded_rows, 'row')} without a valid number left out.` : undefined}
       table={
         data && (
           <TableContainer label={`Distribution of ${column}`}>
@@ -231,7 +234,7 @@ function ChartBuilder({ detail }: { detail: DatasetDetail }) {
   return (
     <div className="space-y-4">
       <Card>
-        <CardHeader title="Build a chart" description="Choose what to plot. Values are calculated on the server from the current working copy." />
+        <CardHeader title="Build a chart" />
         <CardBody className="space-y-4">
           <SegmentedControl label="Chart type" value={kind} onChange={setKind} options={kinds} />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -312,25 +315,24 @@ function DefaultCharts({ detail }: { detail: DatasetDetail }) {
   return (
     <div className="grid gap-6 xl:grid-cols-2">
       {date && (
-        <div className="space-y-2">
-          <div className="flex justify-end">
-            <SegmentedControl
-              label="Trend period"
-              value={granularity}
-              onChange={setGranularity}
-              options={GRANULARITIES.filter((item) => ['auto', 'week', 'month', 'quarter'].includes(item.value))}
-            />
-          </div>
-          <TimeChart
-            datasetId={detail.id}
-            dateColumn={date}
-            value={value}
-            agg="sum"
-            granularity={granularity}
-            isCurrency={Boolean(revenue)}
-            title={revenue ? 'Revenue over time' : 'Records over time'}
-          />
-        </div>
+        <TimeChart
+          datasetId={detail.id}
+          dateColumn={date}
+          value={value}
+          agg="sum"
+          granularity={granularity}
+          isCurrency={Boolean(revenue)}
+          title={revenue ? 'Revenue over time' : 'Records over time'}
+          actions={
+            <SelectField label="Trend period" className="w-36 [&_label]:sr-only [&_select]:h-8" value={granularity} onChange={(event) => setGranularity(event.target.value as Granularity)}>
+              {GRANULARITIES.filter((item) => ['auto', 'week', 'month', 'quarter'].includes(item.value)).map((item) => (
+                <option key={item.value} value={item.value}>
+                  {item.label}
+                </option>
+              ))}
+            </SelectField>
+          }
+        />
       )}
       {group && <GroupedChart datasetId={detail.id} groupBy={group} value={value} agg="sum" topN={10} isCurrency={Boolean(revenue)} />}
     </div>
@@ -356,7 +358,6 @@ export function VisualisationsPage() {
     <>
       <PageHeader
         title="Visualisations"
-        description="Charts of the selected dataset. Every chart has a table view with the exact values, and grouped results can be downloaded as CSV."
         eyebrow={selected && <DatasetEyebrow dataset={selected} />}
       />
       <RequireDataset purpose="chart it">{(dataset) => <VisualisationsContent dataset={dataset} />}</RequireDataset>

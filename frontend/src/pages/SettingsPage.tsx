@@ -26,10 +26,7 @@ export function SettingsPage() {
 
   return (
     <>
-      <PageHeader
-        title="Settings"
-        description="How this FlowForge server is configured. Integrations and limits are set with environment variables on the backend, so secrets never reach the browser."
-      />
+      <PageHeader title="Settings" />
       {systemError !== undefined && !system ? (
         <Card>
           <ErrorState title="Server settings could not be loaded" error={systemError} />

@@ -44,7 +44,6 @@ export function ReportHistoryPage() {
     <>
       <PageHeader
         title="Report History"
-        description="Every report generated on this server. Report files are stored with a snapshot of the data at the time, so they stay the same even if the dataset changes or is deleted."
         actions={
           <LinkButton to="/reports" variant="primary" icon={FileText}>
             New report
