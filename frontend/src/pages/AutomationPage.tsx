@@ -1,8 +1,9 @@
-import { CheckCircle2, Eye, KeyRound, Send, Workflow, XCircle } from 'lucide-react'
+import { Eye, FileDown, KeyRound, Send, Workflow } from 'lucide-react'
 import { useState } from 'react'
 
 import { api, errorMessage } from '../api/client'
 import type { AutomationRun, EventType } from '../api/types'
+import { RunStatus } from '../components/AutomationRunStatus'
 import { Alert } from '../components/ui/Alert'
 import { Badge } from '../components/ui/Badge'
 import { Button } from '../components/ui/Button'
@@ -15,6 +16,8 @@ import { TableContainer, Td, Th, Tr } from '../components/ui/Table'
 import { useApp } from '../context/AppContext'
 import { useToast } from '../context/ToastContext'
 import { useApi } from '../hooks/useApi'
+import { useAutomationSender } from '../hooks/useAutomationSender'
+import { runDetail } from '../lib/automation'
 import { formatDateTime, formatNumber } from '../lib/format'
 
 const SETUP_STEPS = [
@@ -24,18 +27,11 @@ const SETUP_STEPS = [
   'Restart the backend, then send a test event from this page and use it in Make.com to define the data structure.',
 ]
 
-function RunStatus({ run }: { run: AutomationRun }) {
-  return run.status === 'delivered' ? (
-    <Badge tone="success">
-      <CheckCircle2 className="size-3" aria-hidden />
-      Delivered
-    </Badge>
-  ) : (
-    <Badge tone="danger">
-      <XCircle className="size-3" aria-hidden />
-      Failed
-    </Badge>
-  )
+const EVENT_CONTENTS: Record<EventType, string> = {
+  'automation.test': 'No dataset or report data: only the event details and a confirmation link. Safe for checking the connection.',
+  'dataset.analysed': 'Dataset name, size and quality score, and the calculated KPIs. No rows from the dataset.',
+  'report.generated':
+    'Dataset and report details, the KPIs exactly as they appear in the report, and a temporary signed link to the report PDF. No rows from the dataset.',
 }
 
 export function AutomationPage() {
@@ -50,7 +46,6 @@ export function AutomationPage() {
   const reports = useApi(eventType === 'report.generated' ? 'automation-reports' : null, () => api.listReports(undefined, 50))
   const [preview, setPreview] = useState<Record<string, unknown> | null>(null)
   const [previewing, setPreviewing] = useState(false)
-  const [sending, setSending] = useState(false)
   const [viewRun, setViewRun] = useState<AutomationRun | null>(null)
 
   // Default to the selected dataset and the newest report until the user picks another.
@@ -75,19 +70,8 @@ export function AutomationPage() {
     }
   }
 
-  const send = async () => {
-    setSending(true)
-    try {
-      const run = await api.triggerAutomation(eventType, ...target())
-      if (run.status === 'delivered') notify('success', 'Event delivered to Make.com', run.message)
-      else notify('error', 'Delivery failed', run.message)
-      setRunsVersion((value) => value + 1)
-    } catch (error) {
-      notify('error', 'Could not send the event', errorMessage(error))
-    } finally {
-      setSending(false)
-    }
-  }
+  const sender = useAutomationSender(() => setRunsVersion((value) => value + 1))
+  const lastRun = runs.data?.[0]
 
   const configured = Boolean(status.data?.configured)
 
@@ -127,7 +111,33 @@ export function AutomationPage() {
                     <dd>{status.data.timeout_seconds} seconds</dd>
                     <dt className="text-slate-500">Report rule</dt>
                     <dd>{status.data.trigger_on_report ? 'Every new report is sent automatically' : 'Off: reports are sent only on request'}</dd>
+                    <dt className="text-slate-500">Report PDF</dt>
+                    <dd className="flex items-start gap-1.5">
+                      <FileDown className="mt-0.5 size-3.5 shrink-0 text-slate-400" aria-hidden />
+                      {status.data.pdf_links.enabled
+                        ? `Signed download link, valid for ${status.data.pdf_links.ttl_minutes} minutes${status.data.pdf_links.survive_restart ? '' : ' or until the server restarts'}`
+                        : `Not included: ${status.data.pdf_links.problem}`}
+                    </dd>
+                    <dt className="text-slate-500">Payload</dt>
+                    <dd>Schema version {status.data.schema_version}</dd>
+                    <dt className="text-slate-500">Last event</dt>
+                    <dd>
+                      {lastRun ? (
+                        <span className="inline-flex flex-wrap items-center gap-2">
+                          <RunStatus run={lastRun} />
+                          <span className="text-xs text-slate-500">{formatDateTime(lastRun.created_at)}</span>
+                        </span>
+                      ) : (
+                        'None sent yet'
+                      )}
+                    </dd>
                   </dl>
+                  {configured && (
+                    <p className="text-xs leading-relaxed text-slate-500">
+                      Accepted means the Make.com webhook received the event. A report counts as emailed only when your scenario calls the
+                      confirmation link in the event, which shows here as Confirmed by Make.com.
+                    </p>
+                  )}
                   {!configured && (
                     <ol className="mt-2 list-decimal space-y-1.5 pl-5 text-xs leading-relaxed">
                       {SETUP_STEPS.map((step) => (
@@ -148,7 +158,7 @@ export function AutomationPage() {
                       setEventType(event.target.value as EventType)
                       setPreview(null)
                     }}
-                    hint={status.data.event_types.find((item) => item.type === eventType)?.description}
+                    hint={EVENT_CONTENTS[eventType]}
                   >
                     {status.data.event_types.map((item) => (
                       <option key={item.type} value={item.type}>
@@ -194,11 +204,15 @@ export function AutomationPage() {
                     <Button variant="secondary" icon={Eye} loading={previewing} disabled={missingTarget} onClick={() => void showPreview()}>
                       Preview payload
                     </Button>
-                    <Button icon={Send} loading={sending} disabled={!configured || missingTarget} onClick={() => void send()}>
+                    <Button icon={Send} loading={sender.sending} disabled={!configured || missingTarget} onClick={() => void sender.send(eventType, ...target())}>
                       Send to Make.com
                     </Button>
                   </div>
                   {!configured && <p className="text-xs text-slate-500">Sending is disabled until a webhook URL is configured on the server. Previews still work.</p>}
+                  <p className="text-xs leading-relaxed text-slate-500">
+                    To test without sending private data, use automation.test, or generate a report from the built-in sample dataset and send that report
+                    to try the full email flow.
+                  </p>
                   {preview && (
                     <pre className="max-h-80 overflow-auto rounded-lg bg-ink-950 p-4 text-xs leading-relaxed text-slate-100" aria-label="Payload preview">
                       {JSON.stringify(preview, null, 2)}
@@ -241,7 +255,7 @@ export function AutomationPage() {
                         </Td>
                         <Td numeric>{run.http_status ?? '–'}</Td>
                         <Td numeric>{run.duration_ms !== null ? `${formatNumber(run.duration_ms)} ms` : '–'}</Td>
-                        <Td className="max-w-xs text-xs text-slate-600">{run.message}</Td>
+                        <Td className="max-w-xs text-xs text-slate-600">{runDetail(run)}</Td>
                         <Td className="text-right">
                           <Button size="sm" variant="ghost" onClick={() => setViewRun(run)}>
                             View
@@ -258,8 +272,10 @@ export function AutomationPage() {
       )}
 
       <Dialog open={viewRun !== null} title="Payload sent" onClose={() => setViewRun(null)}>
+        <p className="mb-2 text-xs text-slate-500">Link signatures are removed from stored payloads.</p>
         <pre className="max-h-96 overflow-auto rounded-lg bg-ink-950 p-4 text-xs text-slate-100">{JSON.stringify(viewRun?.payload, null, 2)}</pre>
       </Dialog>
+      {sender.dialog}
     </>
   )
 }

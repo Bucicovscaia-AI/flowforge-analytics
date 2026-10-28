@@ -290,12 +290,18 @@ export interface AutomationRun {
   trigger: 'manual' | 'rule'
   dataset_id: string | null
   report_id: string | null
-  status: 'delivered' | 'failed'
+  /** 'delivered' means the webhook accepted the event, not that the scenario's email was sent. */
+  status: 'sending' | 'delivered' | 'failed'
   http_status: number | null
   message: string
   duration_ms: number | null
   payload: Record<string, unknown>
   created_at: string
+  pdf_downloaded_at: string | null
+  /** Reported by the scenario through its confirmation link. */
+  confirmation_status: 'pending' | 'sent' | 'failed' | null
+  confirmation_message: string | null
+  confirmed_at: string | null
 }
 
 export interface ReportSummary {
@@ -323,6 +329,8 @@ export interface AutomationStatus {
   trigger_on_report: boolean
   timeout_seconds: number
   event_types: { type: EventType; description: string }[]
+  schema_version: number
+  pdf_links: { enabled: boolean; problem: string | null; ttl_minutes: number; survive_restart: boolean; max_pdf_mb: number }
 }
 
 export interface SystemStatus {

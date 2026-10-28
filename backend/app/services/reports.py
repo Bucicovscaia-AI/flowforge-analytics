@@ -4,14 +4,13 @@ from __future__ import annotations
 
 import json
 import logging
-import re
 import uuid
 from datetime import UTC, datetime
 
 from app.config import Settings
-from app.errors import NotFoundError
+from app.errors import AppError, NotFoundError
 from app.reporting.csv_export import report_to_csv_bytes
-from app.reporting.document import build_report_document
+from app.reporting.document import build_report_document, safe_download_name
 from app.reporting.html_report import render_html
 from app.reporting.pdf_report import render_pdf
 from app.services.automation import AutomationService
@@ -28,11 +27,6 @@ FORMATS = {
     "csv": ("text/csv; charset=utf-8", "csv"),
     "json": ("application/json", "json"),
 }
-
-
-def safe_download_name(title: str, extension: str) -> str:
-    slug = re.sub(r"[^A-Za-z0-9]+", "-", title).strip("-").lower()[:60] or "report"
-    return f"{slug}.{extension}"
 
 
 class ReportService:
@@ -108,7 +102,11 @@ class ReportService:
 
         automation_run = None
         if self.settings.automation_trigger_on_report and self.automation.status()["configured"] and status != "failed":
-            automation_run = self.automation.trigger("report.generated", report_id=report_id, trigger="rule")
+            try:
+                automation_run = self.automation.trigger("report.generated", report_id=report_id, trigger="rule")
+            except AppError as error:
+                # The report itself was generated; an automation problem must not turn that into an error.
+                logger.warning("Automation rule could not send report %s: %s", report_id, error.code)
         return {**report, "automation_run": automation_run}
 
     def get(self, report_id: str) -> dict:

@@ -208,7 +208,7 @@ All variables are read by the backend. Copy [.env.example](.env.example) to `bac
 | `MAX_COLUMNS` | `200` | Maximum columns per file |
 | `CORS_ORIGINS` | `http://localhost:5173,http://127.0.0.1:5173` | Browser origins allowed to call the API directly |
 | `FRONTEND_DIST_DIR` | empty | Path to `frontend/dist` to serve the built frontend from the backend |
-| `PUBLIC_BASE_URL` | empty | Public address of the server, used for report links in webhook payloads |
+| `PUBLIC_BASE_URL` | empty | Public address of the server, used for signed report PDF links sent to Make.com (falls back to Render's `RENDER_EXTERNAL_URL`) |
 | `LOG_LEVEL` | `INFO` | Python log level |
 | `AI_PROVIDER` | `anthropic` when a key is set | AI provider; `none` disables AI |
 | `AI_API_KEY` | empty | Provider API key; AI insights are off without it |
@@ -219,6 +219,8 @@ All variables are read by the backend. Copy [.env.example](.env.example) to `bac
 | `MAKE_WEBHOOK_SECRET` | empty | Optional HMAC signing secret |
 | `MAKE_TIMEOUT_SECONDS` | `10` | Webhook request timeout |
 | `AUTOMATION_TRIGGER_ON_REPORT` | `false` | Send every newly generated report to Make.com |
+| `REPORT_LINK_SECRET` | random per start | Key for signed PDF and confirmation links; set it to keep links valid across restarts |
+| `REPORT_LINK_TTL_MINUTES` | `60` | Lifetime of signed links |
 
 The frontend has one optional build-time variable, `VITE_API_BASE_URL` (default `/api`), for hosting the API on a different address. Never put secrets in `VITE_` variables: they are compiled into the browser bundle.
 
@@ -273,7 +275,7 @@ Full details, including exactly what is sent: [docs/integrations.md](docs/integr
 2. Set `MAKE_WEBHOOK_URL` (and optionally `MAKE_WEBHOOK_SECRET`) in the backend environment and restart.
 3. On **Automation**, send an `automation.test` event so Make.com can learn the data structure, then build the rest of the scenario.
 
-Events are sent only when a user presses **Send to Make.com**, or automatically for new reports if `AUTOMATION_TRIGGER_ON_REPORT=true`. The webhook address is never sent to the browser. Payload format, signature verification and failure behaviour: [docs/integrations.md](docs/integrations.md#makecom-automation).
+Events are sent only when a user presses **Send to Make.com**, or automatically for new reports if `AUTOMATION_TRIGGER_ON_REPORT=true`. The webhook address is never sent to the browser. A `report.generated` event carries the report's KPIs and a short-lived signed link to its PDF, so the scenario can email the PDF as an attachment and report back whether it was sent. Payload format, the Gmail scenario step by step, signed links and failure behaviour: [docs/integrations.md](docs/integrations.md#makecom-automation).
 
 ## 17. API documentation
 
@@ -297,6 +299,7 @@ With the backend running, interactive OpenAPI documentation is at `/api/docs` an
 | `POST /api/reports`, `GET /api/reports`, `GET/DELETE /api/reports/{id}` | Reports and history |
 | `GET /api/reports/{id}/download?format=html\|pdf\|csv\|json` | Download a report |
 | `GET /api/automation/status`, `POST /api/automation/preview`, `POST /api/automation/trigger`, `GET /api/automation/runs` | Make.com |
+| `GET /api/automation/runs/{id}/report.pdf`, `POST /api/automation/runs/{id}/confirmation` | Signed links used by the Make.com scenario |
 
 Errors always have the form `{"error": {"code": "...", "message": "...", "details": {}}}`.
 

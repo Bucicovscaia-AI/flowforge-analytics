@@ -157,6 +157,55 @@ class AutomationRepository:
             ).fetchall()
         return [_row(row, ("payload",)) for row in rows]
 
+    def get(self, run_id: str) -> dict | None:
+        with self.database.connect() as connection:
+            row = connection.execute("SELECT * FROM automation_runs WHERE id = ?", (run_id,)).fetchone()
+        return _row(row, ("payload",))
+
+    def latest_accepted_for_report(self, report_id: str) -> dict | None:
+        """The most recent event for a report that the webhook accepted and Make.com has not reported as failed."""
+        with self.database.connect() as connection:
+            row = connection.execute(
+                """SELECT * FROM automation_runs
+                   WHERE report_id = ? AND status = 'delivered' AND COALESCE(confirmation_status, '') != 'failed'
+                   ORDER BY created_at DESC, rowid DESC LIMIT 1""",
+                (report_id,),
+            ).fetchone()
+        return _row(row, ("payload",))
+
+    def finish(
+        self,
+        run_id: str,
+        *,
+        status: str,
+        http_status: int | None,
+        message: str,
+        duration_ms: int | None,
+        confirmation_status: str | None,
+    ) -> dict | None:
+        with self.database.connect() as connection:
+            # A fast scenario can confirm before this update runs, so an existing confirmation is kept.
+            connection.execute(
+                """UPDATE automation_runs SET status = ?, http_status = ?, message = ?, duration_ms = ?,
+                   confirmation_status = COALESCE(confirmation_status, ?) WHERE id = ?""",
+                (status, http_status, message, duration_ms, confirmation_status, run_id),
+            )
+        return self.get(run_id)
+
+    def mark_pdf_downloaded(self, run_id: str) -> None:
+        with self.database.connect() as connection:
+            connection.execute(
+                "UPDATE automation_runs SET pdf_downloaded_at = COALESCE(pdf_downloaded_at, ?) WHERE id = ?", (utc_now(), run_id)
+            )
+
+    def confirm(self, run_id: str, status: str, message: str | None) -> dict | None:
+        with self.database.connect() as connection:
+            connection.execute(
+                "UPDATE automation_runs SET confirmation_status = ?, confirmation_message = ?, confirmed_at = ? WHERE id = ?",
+                (status, message, utc_now(), run_id),
+            )
+        return self.get(run_id)
+
 
 class ActivityRepository:
     def __init__(self, database: Database):

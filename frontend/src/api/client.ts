@@ -150,9 +150,9 @@ export const api = {
     request<Record<string, unknown>>('POST', '/automation/preview', {
       body: { event_type: eventType, dataset_id: datasetId ?? null, report_id: reportId ?? null },
     }),
-  triggerAutomation: (eventType: EventType, datasetId?: string, reportId?: string) =>
+  triggerAutomation: (eventType: EventType, datasetId?: string, reportId?: string, resend = false) =>
     request<AutomationRun>('POST', '/automation/trigger', {
-      body: { event_type: eventType, dataset_id: datasetId ?? null, report_id: reportId ?? null },
+      body: { event_type: eventType, dataset_id: datasetId ?? null, report_id: reportId ?? null, resend },
     }),
 }
 
