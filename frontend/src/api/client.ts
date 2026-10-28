@@ -58,6 +58,42 @@ export async function parseError(response: Response): Promise<ApiError> {
 export const MISSING_DATA_EVENT = 'flowforge:missing-data'
 const MISSING_DATA_CODES = new Set(['dataset_not_found', 'report_not_found', 'report_file_missing'])
 
+/** How long a request may take before the app says the server is probably waking up. */
+export const SLOW_REQUEST_MS = 4000
+const slowListeners = new Set<() => void>()
+let slowRequests = 0
+
+/** True while at least one request has been waiting longer than SLOW_REQUEST_MS. */
+export function isServerSlow(): boolean {
+  return slowRequests > 0
+}
+
+export function subscribeServerSlow(listener: () => void): () => void {
+  slowListeners.add(listener)
+  return () => slowListeners.delete(listener)
+}
+
+function setSlowRequests(value: number) {
+  const changed = (slowRequests > 0) !== (value > 0)
+  slowRequests = value
+  if (changed) slowListeners.forEach((listener) => listener())
+}
+
+/** Hosts on a free plan sleep when idle, so the first request after a quiet period can take up to a minute. */
+async function trackSlow<T>(work: Promise<T>): Promise<T> {
+  let slow = false
+  const timer = setTimeout(() => {
+    slow = true
+    setSlowRequests(slowRequests + 1)
+  }, SLOW_REQUEST_MS)
+  try {
+    return await work
+  } finally {
+    clearTimeout(timer)
+    if (slow) setSlowRequests(slowRequests - 1)
+  }
+}
+
 type Query = Record<string, string | number | boolean | null | undefined>
 
 function buildUrl(path: string, query?: Query): string {
@@ -74,11 +110,13 @@ function buildUrl(path: string, query?: Query): string {
 export async function request<T>(method: string, path: string, options: { query?: Query; body?: unknown } = {}): Promise<T> {
   let response: Response
   try {
-    response = await fetch(buildUrl(path, options.query), {
-      method,
-      headers: options.body !== undefined ? { 'Content-Type': 'application/json' } : undefined,
-      body: options.body !== undefined ? JSON.stringify(options.body) : undefined,
-    })
+    response = await trackSlow(
+      fetch(buildUrl(path, options.query), {
+        method,
+        headers: options.body !== undefined ? { 'Content-Type': 'application/json' } : undefined,
+        body: options.body !== undefined ? JSON.stringify(options.body) : undefined,
+      }),
+    )
   } catch {
     throw new ApiError(0, 'network_error', NETWORK_MESSAGE)
   }

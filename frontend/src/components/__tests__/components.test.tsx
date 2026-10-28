@@ -1,9 +1,11 @@
-import { render, screen } from '@testing-library/react'
+import { act, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useState } from 'react'
 import { describe, expect, it, vi } from 'vitest'
 
+import { request, SLOW_REQUEST_MS } from '../../api/client'
 import { ChartCard } from '../charts/ChartCard'
+import { ServerWakingNotice } from '../ServerWakingNotice'
 import { ConfirmDialog } from '../ui/Dialog'
 import { Toggle } from '../ui/Field'
 import { QualityBadge } from '../ui/QualityBadge'
@@ -64,5 +66,28 @@ describe('ConfirmDialog', () => {
     expect(onConfirm).toHaveBeenCalledOnce()
     await userEvent.click(screen.getByRole('button', { name: 'Cancel' }))
     expect(onCancel).toHaveBeenCalledOnce()
+  })
+})
+
+describe('ServerWakingNotice', () => {
+  it('appears only while a request is taking longer than usual', async () => {
+    vi.useFakeTimers()
+    let finish: (response: Response) => void = () => {}
+    vi.stubGlobal('fetch', vi.fn(() => new Promise<Response>((resolve) => (finish = resolve))))
+    try {
+      render(<ServerWakingNotice />)
+      const pending = request('GET', '/system/status')
+      expect(screen.queryByText('The server is waking up')).not.toBeInTheDocument()
+      await act(() => vi.advanceTimersByTimeAsync(SLOW_REQUEST_MS))
+      expect(screen.getByText('The server is waking up')).toBeInTheDocument()
+      await act(async () => {
+        finish(new Response('{}', { status: 200 }))
+        await pending
+      })
+      expect(screen.queryByText('The server is waking up')).not.toBeInTheDocument()
+    } finally {
+      vi.unstubAllGlobals()
+      vi.useRealTimers()
+    }
   })
 })
