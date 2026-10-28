@@ -41,6 +41,16 @@ def _mount_frontend(app: FastAPI, settings: Settings) -> None:
         return FileResponse(index)
 
 
+def _ensure_sample(services: Services) -> None:
+    """On hosts whose storage is wiped on restart, start with the sample dataset so the app is never empty."""
+    if services.datasets.list_records():
+        return
+    try:
+        services.datasets.import_sample()
+    except Exception:
+        logging.getLogger("flowforge").exception("Could not load the sample dataset at start-up")
+
+
 def create_app(settings: Settings | None = None, services: Services | None = None) -> FastAPI:
     settings = settings or get_settings()
     logging.basicConfig(level=settings.log_level, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
@@ -54,6 +64,8 @@ def create_app(settings: Settings | None = None, services: Services | None = Non
         openapi_url=f"{API_PREFIX}/openapi.json",
     )
     app.state.services = services or build_services(settings)
+    if settings.load_sample_on_startup:
+        _ensure_sample(app.state.services)
     app.add_middleware(
         CORSMiddleware,
         allow_origins=list(settings.cors_origins),

@@ -208,6 +208,8 @@ All variables are read by the backend. Copy [.env.example](.env.example) to `bac
 | `MAX_COLUMNS` | `200` | Maximum columns per file |
 | `CORS_ORIGINS` | `http://localhost:5173,http://127.0.0.1:5173` | Browser origins allowed to call the API directly |
 | `FRONTEND_DIST_DIR` | empty | Path to `frontend/dist` to serve the built frontend from the backend |
+| `STORAGE_PERSISTENT` | `true` | Set to `false` where the disk is wiped on restart; the app then warns users |
+| `LOAD_SAMPLE_ON_STARTUP` | `false` | Import the sample dataset at start-up when there are no datasets |
 | `PUBLIC_BASE_URL` | empty | Public address of the server, used for signed report PDF links sent to Make.com (falls back to Render's `RENDER_EXTERNAL_URL`) |
 | `LOG_LEVEL` | `INFO` | Python log level |
 | `AI_PROVIDER` | `anthropic` when a key is set | AI provider; `none` disables AI |
@@ -349,7 +351,7 @@ The repository includes a `Dockerfile` that builds the frontend and serves it fr
 2. Select this repository and click **Apply**. Render builds the image and gives the service a public `https://….onrender.com` address.
 3. Optional: add `AI_API_KEY` or `MAKE_WEBHOOK_URL` under the service's **Environment** tab.
 
-On the free plan the service sleeps after about 15 minutes without traffic (the first visit afterwards takes up to a minute), and its disk is not persistent, so uploaded datasets and reports are cleared on every restart or redeploy. Anyone with the link can use the application, because it has no authentication. The same image runs on any Docker host: `docker build -t flowforge . && docker run -p 8000:8000 flowforge`.
+On the free plan the service sleeps after about 15 minutes without traffic (the first visit afterwards takes up to a minute), and its disk is not persistent, so uploaded datasets and reports are cleared on every restart or redeploy. The Blueprint sets `STORAGE_PERSISTENT=false`, so the app says this on the Settings page and shows a notice when data it was showing has gone, and `LOAD_SAMPLE_ON_STARTUP=true`, so the sample dataset is always available after a restart. Anyone with the link can use the application, because it has no authentication. The same image runs on any Docker host: `docker build -t flowforge . && docker run -p 8000:8000 flowforge`.
 
 ## 20. Security considerations
 
@@ -365,7 +367,7 @@ On the free plan the service sleeps after about 15 minutes without traffic (the 
 
 ## 21. Storage behaviour
 
-Everything is stored under `DATA_DIR` and survives restarts:
+Everything is stored under `DATA_DIR` and survives restarts when that directory is on a persistent disk (not on Render's free plan):
 
 - the original file as uploaded and a working copy that cleaning changes
 - dataset metadata, column mapping and cleaning history in SQLite

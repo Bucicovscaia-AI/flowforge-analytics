@@ -35,15 +35,15 @@ const EVENT_CONTENTS: Record<EventType, string> = {
 }
 
 export function AutomationPage() {
-  const { datasets, selected } = useApp()
+  const { datasets, selected, dataVersion } = useApp()
   const { notify } = useToast()
   const status = useApi('automation-status', () => api.automationStatus())
   const [runsVersion, setRunsVersion] = useState(0)
-  const runs = useApi(`automation-runs:${runsVersion}`, () => api.automationRuns(50))
+  const runs = useApi(`automation-runs:${runsVersion}:${dataVersion}`, () => api.automationRuns(50))
   const [eventType, setEventType] = useState<EventType>('dataset.analysed')
   const [datasetId, setDatasetId] = useState('')
   const [reportId, setReportId] = useState('')
-  const reports = useApi(eventType === 'report.generated' ? 'automation-reports' : null, () => api.listReports(undefined, 50))
+  const reports = useApi(eventType === 'report.generated' ? `automation-reports:${dataVersion}` : null, () => api.listReports(undefined, 50))
   const [preview, setPreview] = useState<Record<string, unknown> | null>(null)
   const [previewing, setPreviewing] = useState(false)
   const [viewRun, setViewRun] = useState<AutomationRun | null>(null)

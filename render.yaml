@@ -13,6 +13,11 @@ services:
     envVars:
       - key: MAX_UPLOAD_MB
         value: "10"
+      # The free plan's disk is wiped on restart: say so in the app, and start with the sample dataset.
+      - key: STORAGE_PERSISTENT
+        value: "false"
+      - key: LOAD_SAMPLE_ON_STARTUP
+        value: "true"
       - key: AI_API_KEY
         sync: false
       - key: MAKE_WEBHOOK_URL

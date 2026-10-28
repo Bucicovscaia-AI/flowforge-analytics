@@ -54,6 +54,10 @@ export async function parseError(response: Response): Promise<ApiError> {
   return new ApiError(response.status, 'http_error', `The server returned an error (HTTP ${response.status}).`)
 }
 
+/** Fired when the server no longer has a dataset or report the page referred to, for example after a restart wiped temporary storage. */
+export const MISSING_DATA_EVENT = 'flowforge:missing-data'
+const MISSING_DATA_CODES = new Set(['dataset_not_found', 'report_not_found', 'report_file_missing'])
+
 type Query = Record<string, string | number | boolean | null | undefined>
 
 function buildUrl(path: string, query?: Query): string {
@@ -78,7 +82,11 @@ export async function request<T>(method: string, path: string, options: { query?
   } catch {
     throw new ApiError(0, 'network_error', NETWORK_MESSAGE)
   }
-  if (!response.ok) throw await parseError(response)
+  if (!response.ok) {
+    const error = await parseError(response)
+    if (MISSING_DATA_CODES.has(error.code)) window.dispatchEvent(new Event(MISSING_DATA_EVENT))
+    throw error
+  }
   if (response.status === 204) return undefined as T
   return (await response.json()) as T
 }
