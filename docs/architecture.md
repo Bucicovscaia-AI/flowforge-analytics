@@ -72,6 +72,28 @@ frontend/src/
 
 The selected dataset is shared through `AppContext`. When data changes (upload, cleaning, mapping), `notifyDataChanged` refreshes the dataset list and then increments a version number that every data-loading key includes, so each page reloads the affected results. Pages other than the dashboard are code-split and loaded on first visit.
 
+## API
+
+With the backend running, interactive OpenAPI documentation is at `/api/docs` and the schema at `/api/openapi.json`. Main endpoints:
+
+| Method and path | Purpose |
+| --- | --- |
+| `GET /api/health` | Health check |
+| `GET /api/system/status` | Integration status and limits (no secrets) |
+| `POST /api/datasets/upload`, `POST /api/datasets/sample` | Upload a CSV (multipart field `file`, optional `name`) or import the sample dataset |
+| `GET /api/datasets`, `GET/PATCH/DELETE /api/datasets/{id}` | List, read, rename, delete |
+| `PUT /api/datasets/{id}/column-mapping` | Override detected business columns |
+| `GET /api/datasets/{id}/preview`, `GET /api/datasets/{id}/export.csv` | Preview rows, download the working copy |
+| `GET /api/datasets/{id}/quality` | Quality report |
+| `GET /api/cleaning/operations`, `POST /api/datasets/{id}/cleaning/preview` / `apply` / `reset` | Cleaning |
+| `GET /api/datasets/{id}/analysis` | Full analysis |
+| `GET /api/datasets/{id}/charts/aggregate`, `timeseries`, `distribution`, `aggregate.csv` | Chart data |
+| `POST /api/datasets/{id}/insights` | Insights (`{"use_ai": false}` for rule-based only) |
+| `POST /api/reports`, `GET /api/reports`, `GET/DELETE /api/reports/{id}` | Reports and history |
+| `GET /api/reports/{id}/download?format=html\|pdf\|csv\|json` | Download a report |
+| `GET /api/automation/status`, `POST /api/automation/preview`, `POST /api/automation/trigger`, `GET /api/automation/runs` | Make.com |
+| `GET /api/automation/runs/{id}/report.pdf`, `POST /api/automation/runs/{id}/confirmation` | Signed links used by the Make.com scenario |
+
 ## Error handling
 
 Every API error uses one shape:
