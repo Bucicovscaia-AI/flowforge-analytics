@@ -4,7 +4,7 @@ The quick start is in the [README](../README.md#getting-started).
 
 ## Prerequisites
 
-- Python 3.11 or newer (CI uses 3.13)
+- Python 3.12 or newer (CI uses 3.13)
 - Node.js 20.19+ or 22.12+ with npm (CI uses Node 22)
 
 ## Setup

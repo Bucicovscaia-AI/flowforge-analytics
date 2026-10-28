@@ -2,7 +2,7 @@
 name = "flowforge-analytics-backend"
 version = "1.0.0"
 description = "FlowForge Analytics API: CSV ingestion, data quality, analytics, insights, reports and automation."
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -11,7 +11,7 @@ filterwarnings = ["error::pandas.errors.PerformanceWarning"]
 
 [tool.ruff]
 line-length = 130
-target-version = "py311"
+target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "B", "UP", "S", "SIM"]
