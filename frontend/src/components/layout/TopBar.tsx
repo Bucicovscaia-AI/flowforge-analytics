@@ -7,12 +7,12 @@ import { Badge } from '../ui/Badge'
 
 function ConnectionStatus() {
   const { system, systemError } = useApp()
-  if (systemError) return <Badge tone="danger">API unreachable</Badge>
+  if (systemError) return <Badge tone="danger">Offline</Badge>
   if (!system) return <Badge>Connecting…</Badge>
   return (
     <Badge tone="success">
       <span className="size-1.5 rounded-full bg-emerald-500" aria-hidden />
-      API connected
+      Online
     </Badge>
   )
 }

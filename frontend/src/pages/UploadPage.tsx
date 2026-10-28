@@ -3,6 +3,7 @@ import { useRef, useState, type DragEvent } from 'react'
 
 import { api, errorMessage, uploadDataset } from '../api/client'
 import type { DatasetSummary } from '../api/types'
+import { BeforeYouUploadCard } from '../components/BeforeYouUploadCard'
 import { ColumnProfileTable, DataPreviewTable } from '../components/DatasetTables'
 import { Alert } from '../components/ui/Alert'
 import { Badge, SampleBadge } from '../components/ui/Badge'
@@ -129,90 +130,93 @@ export function UploadPage() {
   return (
     <>
       <PageHeader title="Data Upload" />
-      <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
-        <Card>
-          <CardHeader title="Upload a CSV file" />
-          <CardBody className="space-y-4">
-            <div
-              onDragOver={(event) => {
-                event.preventDefault()
-                setDragging(true)
-              }}
-              onDragLeave={() => setDragging(false)}
-              onDrop={onDrop}
-              className={cn(
-                'flex flex-col items-center justify-center rounded-xl border-2 border-dashed px-6 py-10 text-center transition-colors',
-                dragging ? 'border-brand-500 bg-brand-50' : 'border-slate-300 bg-slate-50/60',
-              )}
-            >
-              <UploadCloud className="size-10 text-brand-600" aria-hidden />
-              <p className="mt-3 text-sm font-medium text-slate-800">Drop your CSV file here</p>
-              <p className="text-xs text-slate-500">or</p>
-              <Button variant="secondary" className="mt-2" onClick={() => inputRef.current?.click()} disabled={uploading}>
-                Choose file
-              </Button>
-              <input
-                ref={inputRef}
-                type="file"
-                accept=".csv,.txt,text/csv"
-                className="sr-only"
-                aria-label="CSV file"
-                onChange={(event) => {
-                  choose(event.target.files?.[0])
-                  event.target.value = ''
+      <div className="grid items-start gap-6 lg:grid-cols-[1.6fr_1fr]">
+        <div className="min-w-0 space-y-6">
+          <Card>
+            <CardHeader title="Upload a CSV file" />
+            <CardBody className="space-y-4">
+              <div
+                onDragOver={(event) => {
+                  event.preventDefault()
+                  setDragging(true)
                 }}
-              />
-            </div>
-
-            {localError && <Alert tone="danger" title="This file cannot be uploaded">{localError}</Alert>}
-
-            {file && (
-              <div className="flex items-center gap-3 rounded-lg border border-slate-200 p-3">
-                <FileSpreadsheet className="size-8 shrink-0 text-emerald-600" aria-hidden />
-                <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-medium text-slate-800">{file.name}</p>
-                  <p className="text-xs text-slate-500">{formatBytes(file.size)}</p>
-                </div>
-                {!uploading && (
-                  <button type="button" className="rounded p-1 text-slate-400 hover:text-slate-700" onClick={() => setFile(null)} aria-label="Remove selected file">
-                    <X className="size-4" />
-                  </button>
+                onDragLeave={() => setDragging(false)}
+                onDrop={onDrop}
+                className={cn(
+                  'flex flex-col items-center justify-center rounded-xl border-2 border-dashed px-6 py-10 text-center transition-colors',
+                  dragging ? 'border-brand-500 bg-brand-50' : 'border-slate-300 bg-slate-50/60',
                 )}
+              >
+                <UploadCloud className="size-10 text-brand-600" aria-hidden />
+                <p className="mt-3 text-sm font-medium text-slate-800">Drop your CSV file here</p>
+                <p className="text-xs text-slate-500">or</p>
+                <Button variant="secondary" className="mt-2" onClick={() => inputRef.current?.click()} disabled={uploading}>
+                  Choose file
+                </Button>
+                <input
+                  ref={inputRef}
+                  type="file"
+                  accept=".csv,.txt,text/csv"
+                  className="sr-only"
+                  aria-label="CSV file"
+                  onChange={(event) => {
+                    choose(event.target.files?.[0])
+                    event.target.value = ''
+                  }}
+                />
               </div>
-            )}
 
-            {file && (
-              <TextField
-                label="Dataset name (optional)"
-                placeholder={file.name.replace(/\.[^.]+$/, '')}
-                value={name}
-                maxLength={120}
-                onChange={(event) => setName(event.target.value)}
-                hint="Defaults to the file name."
-              />
-            )}
+              {localError && <Alert tone="danger" title="This file cannot be uploaded">{localError}</Alert>}
 
-            {uploading && (
-              <div role="status" aria-live="polite">
-                <div className="mb-1 flex justify-between text-xs text-slate-600">
-                  <span>{progress < 1 ? 'Uploading…' : 'Validating and profiling on the server…'}</span>
-                  <span>{Math.round(progress * 100)}%</span>
+              {file && (
+                <div className="flex items-center gap-3 rounded-lg border border-slate-200 p-3">
+                  <FileSpreadsheet className="size-8 shrink-0 text-emerald-600" aria-hidden />
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-sm font-medium text-slate-800">{file.name}</p>
+                    <p className="text-xs text-slate-500">{formatBytes(file.size)}</p>
+                  </div>
+                  {!uploading && (
+                    <button type="button" className="rounded p-1 text-slate-400 hover:text-slate-700" onClick={() => setFile(null)} aria-label="Remove selected file">
+                      <X className="size-4" />
+                    </button>
+                  )}
                 </div>
-                <div className="h-2 overflow-hidden rounded-full bg-slate-200">
-                  <div className="h-full rounded-full bg-brand-600 transition-all" style={{ width: `${Math.max(4, progress * 100)}%` }} />
+              )}
+
+              {file && (
+                <TextField
+                  label="Dataset name (optional)"
+                  placeholder={file.name.replace(/\.[^.]+$/, '')}
+                  value={name}
+                  maxLength={120}
+                  onChange={(event) => setName(event.target.value)}
+                  hint="Defaults to the file name."
+                />
+              )}
+
+              {uploading && (
+                <div role="status" aria-live="polite">
+                  <div className="mb-1 flex justify-between text-xs text-slate-600">
+                    <span>{progress < 1 ? 'Uploading…' : 'Checking your file…'}</span>
+                    <span>{Math.round(progress * 100)}%</span>
+                  </div>
+                  <div className="h-2 overflow-hidden rounded-full bg-slate-200">
+                    <div className="h-full rounded-full bg-brand-600 transition-all" style={{ width: `${Math.max(4, progress * 100)}%` }} />
+                  </div>
                 </div>
+              )}
+
+              {uploadError !== undefined && <Alert tone="danger" title="This file could not be imported">{errorMessage(uploadError)}</Alert>}
+
+              <div className="flex flex-wrap gap-2">
+                <Button icon={UploadCloud} onClick={() => void submit()} disabled={!file} loading={uploading}>
+                  Upload and validate
+                </Button>
               </div>
-            )}
-
-            {uploadError !== undefined && <Alert tone="danger" title="The server rejected this file">{errorMessage(uploadError)}</Alert>}
-
-            <div className="flex flex-wrap gap-2">
-              <Button icon={UploadCloud} onClick={() => void submit()} disabled={!file} loading={uploading}>
-                Upload and validate
-              </Button>
-            </div>
-          </CardBody>
-        </Card>
+            </CardBody>
+          </Card>
+          <BeforeYouUploadCard />
+        </div>
 
         <div className="min-w-0 space-y-6">
           <Card>
@@ -243,9 +247,6 @@ export function UploadPage() {
               </div>
             </CardBody>
           </Card>
-          <Alert tone="warning" title="Protect personal data">
-            Avoid uploading files with customer names, contact details or other personal information unless you are permitted to process them. Data is stored on this server until you delete it.
-          </Alert>
         </div>
       </div>
       {result && (

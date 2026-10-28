@@ -132,7 +132,7 @@ function InsightsContent({ dataset }: { dataset: DatasetSummary }) {
               hint={
                 aiConfigured
                   ? `${system?.ai.provider} · ${system?.ai.model}`
-                  : 'Not configured. Set AI_API_KEY on the server to enable it.'
+                  : 'Not enabled for this workspace.'
               }
             />
             <Button className="w-full" icon={useAi ? Sparkles : RefreshCw} loading={loading} onClick={() => generate(useAi && aiConfigured)}>
