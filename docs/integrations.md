@@ -7,7 +7,7 @@ Both integrations are optional. Without them FlowForge still imports, cleans, an
 ### Configuration
 
 ```env
-AI_PROVIDER=anthropic          # the provider currently implemented; used by default when a key is set
+AI_PROVIDER=anthropic          # the provider currently implemented; selected automatically when a key is set
 AI_API_KEY=your-api-key
 AI_MODEL=claude-opus-5-5       # any model id the provider offers to your key
 AI_TIMEOUT_SECONDS=45
@@ -57,13 +57,7 @@ FlowForge ──POST event──▶ Make.com webhook
                               └─ HTTP: POST confirmation (signed link)        ──▶ FlowForge
 ```
 
-### Why a signed link instead of the PDF in the payload
-
-| Option | Verdict |
-| --- | --- |
-| A. PDF as base64 inside the webhook body | Works for small reports (Make.com accepts webhook bodies up to a few MB), but every event grows by a third of the PDF size, the PDF is stored in FlowForge's delivery history and in Make.com's execution logs, and HMAC signing and retries have to handle the whole file. |
-| **B. Metadata plus a short-lived signed PDF link (chosen)** | The event stays small, the scenario downloads the file with a standard **HTTP › Get a file** module, and the link only works for one event and expires (60 minutes by default). Make.com needs no login because the link's signature is the credential. |
-| C. Upload the PDF to object storage (S3, Google Drive) and send that link | Survives restarts, but needs new paid or credentialed infrastructure. Not needed while Make.com downloads the PDF seconds after the event. |
+The PDF is not embedded in the webhook body. Sending a link keeps events small, keeps report files out of Make.com execution logs and delivery history, and lets the scenario use a standard **HTTP › Get a file** module. Each link works for one event only and expires (60 minutes by default); its signature is the credential, so Make.com needs no login.
 
 ### Configuration
 
@@ -164,7 +158,7 @@ Field notes:
 - `report.pdf.available` is `false`, with a `reason`, when the report has no PDF, the file is no longer stored, the PDF is over 20 MB, or no public address is configured.
 - `delivery` is `null` when no public address is configured. `automation.test` events contain only the event fields, a message and `delivery`; no dataset or report data.
 
-Changes from schema version 1: `schema_version` is 2; `report.download_url` (a permanent, unsigned HTML link that was only sent when `PUBLIC_BASE_URL` was set) is replaced by `report.pdf`; `kpis`, `kpi_summary_html` and `delivery` are new. All other fields are unchanged. After deploying, open the scenario's webhook module, choose **Redetermine data structure** and send an event so Make.com learns the new fields.
+Version 2 replaced the earlier unsigned `report.download_url` with `report.pdf` and added `kpis`, `kpi_summary_html` and `delivery`. When the payload changes, open the scenario's webhook module, choose **Redetermine data structure** and send an event so Make.com learns the new fields.
 
 ### Signed links
 
@@ -179,7 +173,7 @@ Each link is signed with HMAC-SHA256 over its purpose, the event ID and the expi
 
 Modules, in order:
 
-1. **Webhooks › Custom webhook** (the existing one). After deploying this version, click **Redetermine data structure**, then send a report from FlowForge (use a report from the built-in sample dataset).
+1. **Webhooks › Custom webhook.** Click **Redetermine data structure**, then send a report from FlowForge (one generated from the built-in sample dataset is ideal).
 2. **Filter** between modules 1 and 2: `event` *Equal to* `report.generated` **and** `report.pdf.available` *Equal to (boolean)* `true`. Add a second route from module 1 if you also want to handle other events.
 3. **HTTP › Get a file** (called **Download a file** in newer versions of the HTTP app)
    - URL: `{{1.report.pdf.download_url}}`
