@@ -1,6 +1,6 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 
-import { api } from '../api/client'
+import { api, MISSING_DATA_EVENT } from '../api/client'
 import type { DatasetSummary, SystemStatus } from '../api/types'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import type { CurrencySymbol } from '../lib/format'
@@ -15,6 +15,9 @@ interface AppState {
   /** Increments whenever the selected dataset's contents change, so pages can reload. */
   dataVersion: number
   notifyDataChanged: () => void
+  /** True when data the user was working with disappeared from the server without being deleted here. */
+  dataGone: boolean
+  dismissDataGone: () => void
   system: SystemStatus | null
   systemError: unknown
   currency: CurrencySymbol
@@ -32,6 +35,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [dataVersion, setDataVersion] = useState(0)
   const [system, setSystem] = useState<SystemStatus | null>(null)
   const [systemError, setSystemError] = useState<unknown>()
+  const [dataGone, setDataGone] = useState(false)
+  const datasetsRef = useRef<DatasetSummary[]>([])
+
+  useEffect(() => {
+    datasetsRef.current = datasets
+  }, [datasets])
 
   const refreshDatasets = useCallback(async () => {
     try {
@@ -76,6 +85,37 @@ export function AppProvider({ children }: { children: ReactNode }) {
     return datasets.find((dataset) => dataset.id === selectedId) ?? datasets[0]
   }, [datasets, selectedId])
 
+  // The server can lose data on its own (temporary storage is wiped on restart). When a request refers to
+  // something that no longer exists, or the user comes back to the tab, reload the list and say what happened.
+  const recheckDatasets = useCallback(async () => {
+    const before = datasetsRef.current
+    let list: DatasetSummary[]
+    try {
+      list = await api.listDatasets()
+    } catch {
+      return
+    }
+    const ids = new Set(list.map((dataset) => dataset.id))
+    if (before.some((dataset) => !ids.has(dataset.id))) setDataGone(true)
+    setDatasets(list)
+    setDataVersion((value) => value + 1)
+  }, [])
+
+  useEffect(() => {
+    const onMissing = () => void recheckDatasets()
+    const onVisible = () => {
+      if (document.visibilityState === 'visible') void recheckDatasets()
+    }
+    window.addEventListener(MISSING_DATA_EVENT, onMissing)
+    document.addEventListener('visibilitychange', onVisible)
+    return () => {
+      window.removeEventListener(MISSING_DATA_EVENT, onMissing)
+      document.removeEventListener('visibilitychange', onVisible)
+    }
+  }, [recheckDatasets])
+
+  const dismissDataGone = useCallback(() => setDataGone(false), [])
+
   // Refresh the list first so pages never reload data for a dataset that was just deleted.
   const notifyDataChanged = useCallback(() => {
     void refreshDatasets().then(() => setDataVersion((value) => value + 1))
@@ -91,12 +131,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
       refreshDatasets,
       dataVersion,
       notifyDataChanged,
+      dataGone,
+      dismissDataGone,
       system,
       systemError,
       currency,
       setCurrency,
     }),
-    [datasets, datasetsLoaded, datasetsError, selected, setSelectedId, refreshDatasets, dataVersion, notifyDataChanged, system, systemError, currency, setCurrency],
+    [datasets, datasetsLoaded, datasetsError, selected, setSelectedId, refreshDatasets, dataVersion, notifyDataChanged, dataGone, dismissDataGone, system, systemError, currency, setCurrency],
   )
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>

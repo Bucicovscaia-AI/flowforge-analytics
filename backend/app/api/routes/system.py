@@ -32,8 +32,12 @@ def system_status(services: Services = Depends(get_services)) -> dict:
         "automation_configured": services.automation.status()["configured"],
         "storage": {
             "engine": "SQLite + local files",
-            "persistent": True,
-            "description": "Datasets, cleaning history, reports and automation runs are stored on the server's disk and remain after a restart until deleted.",
+            "persistent": settings.storage_persistent,
+            "description": (
+                "Datasets, cleaning history, reports and automation runs are stored on the server's disk and remain after a restart until deleted."
+                if settings.storage_persistent
+                else "This server has temporary storage: uploaded datasets, reports and automation history are deleted whenever it restarts or redeploys. Download reports you want to keep."
+            ),
         },
         "limits": {
             "max_upload_mb": settings.max_upload_mb,

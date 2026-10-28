@@ -77,6 +77,8 @@ class Settings:
     cors_origins: tuple[str, ...] = ("http://localhost:5173", "http://127.0.0.1:5173")
     frontend_dist_dir: Path | None = None
     public_base_url: str = ""
+    storage_persistent: bool = True
+    load_sample_on_startup: bool = False
     log_level: str = "INFO"
 
     ai_provider: str = ""
@@ -142,6 +144,8 @@ def load_settings() -> Settings:
         frontend_dist_dir=_path("FRONTEND_DIST_DIR", BACKEND_DIR) if frontend_dist else None,
         # Render sets RENDER_EXTERNAL_URL for every web service, so links work there without extra configuration.
         public_base_url=(_str("PUBLIC_BASE_URL") or _str("RENDER_EXTERNAL_URL")).rstrip("/"),
+        storage_persistent=_bool("STORAGE_PERSISTENT", True),
+        load_sample_on_startup=_bool("LOAD_SAMPLE_ON_STARTUP", False),
         log_level=_str("LOG_LEVEL", "INFO").upper(),
         ai_provider=provider,
         ai_api_key=api_key,
