@@ -69,7 +69,11 @@ CREATE TABLE IF NOT EXISTS automation_runs (
     message TEXT NOT NULL,
     duration_ms INTEGER,
     payload TEXT NOT NULL,
-    created_at TEXT NOT NULL
+    created_at TEXT NOT NULL,
+    pdf_downloaded_at TEXT,
+    confirmation_status TEXT,
+    confirmation_message TEXT,
+    confirmed_at TEXT
 );
 
 CREATE TABLE IF NOT EXISTS activity (
@@ -84,7 +88,18 @@ CREATE TABLE IF NOT EXISTS activity (
 CREATE INDEX IF NOT EXISTS idx_operations_dataset ON dataset_operations(dataset_id);
 CREATE INDEX IF NOT EXISTS idx_reports_dataset ON reports(dataset_id);
 CREATE INDEX IF NOT EXISTS idx_activity_created ON activity(created_at);
+CREATE INDEX IF NOT EXISTS idx_runs_report ON automation_runs(report_id);
 """
+
+# Columns added after the first release, applied to databases created before them.
+MIGRATIONS = {
+    "automation_runs": {
+        "pdf_downloaded_at": "TEXT",
+        "confirmation_status": "TEXT",
+        "confirmation_message": "TEXT",
+        "confirmed_at": "TEXT",
+    },
+}
 
 
 class Database:
@@ -92,6 +107,13 @@ class Database:
         self.path = path
         path.parent.mkdir(parents=True, exist_ok=True)
         with self.connect() as connection:
+            for table, columns in MIGRATIONS.items():
+                existing = {row["name"] for row in connection.execute(f"PRAGMA table_info({table})")}
+                if not existing:
+                    continue
+                for name, kind in columns.items():
+                    if name not in existing:
+                        connection.execute(f"ALTER TABLE {table} ADD COLUMN {name} {kind}")
             connection.executescript(SCHEMA)
 
     @contextmanager

@@ -89,6 +89,8 @@ class Settings:
     make_webhook_secret: str = field(default="", repr=False)
     make_timeout_seconds: float = 10.0
     automation_trigger_on_report: bool = False
+    report_link_secret: str = field(default="", repr=False)
+    report_link_ttl_minutes: int = 60
 
     @property
     def max_upload_bytes(self) -> int:
@@ -138,7 +140,8 @@ def load_settings() -> Settings:
         max_columns=_int("MAX_COLUMNS", 200),
         cors_origins=origins,
         frontend_dist_dir=_path("FRONTEND_DIST_DIR", BACKEND_DIR) if frontend_dist else None,
-        public_base_url=_str("PUBLIC_BASE_URL").rstrip("/"),
+        # Render sets RENDER_EXTERNAL_URL for every web service, so links work there without extra configuration.
+        public_base_url=(_str("PUBLIC_BASE_URL") or _str("RENDER_EXTERNAL_URL")).rstrip("/"),
         log_level=_str("LOG_LEVEL", "INFO").upper(),
         ai_provider=provider,
         ai_api_key=api_key,
@@ -149,6 +152,8 @@ def load_settings() -> Settings:
         make_webhook_secret=_str("MAKE_WEBHOOK_SECRET"),
         make_timeout_seconds=_float("MAKE_TIMEOUT_SECONDS", 10.0),
         automation_trigger_on_report=_bool("AUTOMATION_TRIGGER_ON_REPORT", False),
+        report_link_secret=_str("REPORT_LINK_SECRET"),
+        report_link_ttl_minutes=min(_int("REPORT_LINK_TTL_MINUTES", 60, minimum=5), 7 * 24 * 60),
     )
 
 
