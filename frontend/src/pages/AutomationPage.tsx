@@ -77,10 +77,7 @@ export function AutomationPage() {
 
   return (
     <>
-      <PageHeader
-        title="Automation"
-        description="Send analysis and report events to a Make.com scenario, for example to email a report, post to a team channel or update a spreadsheet. Events are only sent when you press Send or when a rule you configured on the server applies."
-      />
+      <PageHeader title="Automation" />
 
       {status.loading && !status.data ? (
         <LoadingState />
@@ -134,8 +131,7 @@ export function AutomationPage() {
                   </dl>
                   {configured && (
                     <p className="text-xs leading-relaxed text-slate-500">
-                      Accepted means the Make.com webhook received the event. A report counts as emailed only when your scenario calls the
-                      confirmation link in the event, which shows here as Confirmed by Make.com.
+                      Accepted means Make.com received the event. It shows as Confirmed by Make.com once the scenario calls the event's confirmation link.
                     </p>
                   )}
                   {!configured && (
@@ -149,7 +145,7 @@ export function AutomationPage() {
               </Card>
 
               <Card>
-                <CardHeader title="Send an event" description="Preview exactly what will be sent before sending it." />
+                <CardHeader title="Send an event" />
                 <CardBody className="space-y-4">
                   <SelectField
                     label="Event"
@@ -209,10 +205,6 @@ export function AutomationPage() {
                     </Button>
                   </div>
                   {!configured && <p className="text-xs text-slate-500">Sending is disabled until a webhook URL is configured on the server. Previews still work.</p>}
-                  <p className="text-xs leading-relaxed text-slate-500">
-                    To test without sending private data, use automation.test, or generate a report from the built-in sample dataset and send that report
-                    to try the full email flow.
-                  </p>
                   {preview && (
                     <pre className="max-h-80 overflow-auto rounded-lg bg-ink-950 p-4 text-xs leading-relaxed text-slate-100" aria-label="Payload preview">
                       {JSON.stringify(preview, null, 2)}
@@ -223,7 +215,7 @@ export function AutomationPage() {
             </div>
 
             <Card>
-              <CardHeader title="Delivery history" description="Every attempt to send an event, including failures" />
+              <CardHeader title="Delivery history" />
               {runs.loading && !runs.data ? (
                 <LoadingState />
               ) : runs.error ? (

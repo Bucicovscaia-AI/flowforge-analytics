@@ -19,7 +19,7 @@ import { useApp } from '../context/AppContext'
 import { useToast } from '../context/ToastContext'
 import { useApi } from '../hooks/useApi'
 import { cn } from '../lib/cn'
-import { formatDateTime, formatNumber, formatPercent } from '../lib/format'
+import { formatDateTime, formatNumber, formatPercent, pluralise } from '../lib/format'
 
 const SCORE_COLOURS: Record<BadgeTone, string> = {
   success: 'text-emerald-600',
@@ -101,8 +101,8 @@ function FindingItem({ finding, onFix }: { finding: QualityFinding; onFix: (sugg
           {finding.examples.length > 0 && (
             <p className="mt-1.5 text-xs text-slate-500">
               Examples:{' '}
-              {finding.examples.map((example) => (
-                <code key={example} className="mr-1 rounded bg-slate-100 px-1 py-0.5 text-slate-700">
+              {finding.examples.map((example, index) => (
+                <code key={index} className="mr-1 rounded bg-slate-100 px-1 py-0.5 text-slate-700">
                   {example}
                 </code>
               ))}
@@ -111,7 +111,7 @@ function FindingItem({ finding, onFix }: { finding: QualityFinding; onFix: (sugg
         </div>
         <div className="flex flex-col items-end gap-2">
           <span className="tabular text-sm text-slate-600">
-            {formatNumber(finding.affected_rows)} rows ({formatPercent(finding.affected_percent)})
+            {pluralise(finding.affected_rows, 'row')} ({formatPercent(finding.affected_percent)})
           </span>
           {finding.suggestion && (
             <Button size="sm" variant="secondary" icon={Wand2} onClick={() => onFix(finding.suggestion as SuggestedOperation)}>
@@ -206,7 +206,7 @@ function CleaningPanel({ detail, operations, preset, onApplied }: CleaningPanelP
   return (
     <Card>
       <div ref={panelRef} className="scroll-mt-20" />
-      <CardHeader title="Clean the data" description="Preview an operation, then apply it to the working copy. The original import is always kept." />
+      <CardHeader title="Clean the data" description="Changes apply to the working copy. The original import is always kept." />
       <CardBody className="space-y-4">
         <SelectField label="Operation" value={operationKey} onChange={(event) => changeOperation(event.target.value)}>
           {operations.map((item) => (
@@ -344,7 +344,6 @@ function CleaningHistory({ detail, onReset }: { detail: DatasetDetail; onReset: 
     <Card>
       <CardHeader
         title="Cleaning history"
-        description="Operations applied to the working copy, in order"
         actions={
           <Button size="sm" variant="secondary" icon={RotateCcw} onClick={() => setConfirming(true)} disabled={detail.operations.length === 0}>
             Reset to original
@@ -413,7 +412,6 @@ function QualityWorkspace({ dataset }: { dataset: DatasetSummary }) {
     <>
       <PageHeader
         title="Data Quality"
-        description="Automated checks for missing values, duplicates, invalid numbers and dates, inconsistent categories and suspicious values, with operations to fix them."
         eyebrow={<DatasetEyebrow dataset={dataset} />}
       />
       {quality.loading && !quality.data ? (
@@ -429,7 +427,6 @@ function QualityWorkspace({ dataset }: { dataset: DatasetSummary }) {
             <Card className="self-start">
               <CardHeader
                 title="Findings"
-                description="Sorted by severity, then by the number of rows affected"
                 actions={
                   <SelectField label="Show" className="w-40 [&_label]:sr-only" value={severity} onChange={(event) => setSeverity(event.target.value as typeof severity)}>
                     <option value="all">All findings</option>

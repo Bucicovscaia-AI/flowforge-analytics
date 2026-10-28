@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { api, errorMessage } from '../api/client'
 import type { DatasetSummary } from '../api/types'
 import { ColumnProfileTable, DataPreviewTable } from '../components/DatasetTables'
-import { Alert } from '../components/ui/Alert'
 import { Badge, SampleBadge } from '../components/ui/Badge'
 import { Button, DownloadLink, LinkButton } from '../components/ui/Button'
 import { Card, CardHeader } from '../components/ui/Card'
@@ -23,7 +22,7 @@ function SelectedDatasetDetail({ dataset }: { dataset: DatasetSummary }) {
   const { dataVersion } = useApp()
   const detail = useApi(`detail:${dataset.id}:${dataVersion}`, () => api.getDataset(dataset.id))
   return (
-    <div className="mt-6 grid gap-6">
+    <div className="mt-6 space-y-6">
       <Card>
         <CardHeader
           title={`Columns in ${dataset.name}`}
@@ -38,7 +37,7 @@ function SelectedDatasetDetail({ dataset }: { dataset: DatasetSummary }) {
         )}
       </Card>
       <Card>
-        <CardHeader title="Data preview" description="Rows from the working copy, including any cleaning you have applied" />
+        <CardHeader title="Data preview" description="Working copy, including any cleaning applied" />
         <DataPreviewTable datasetId={dataset.id} />
       </Card>
     </div>
@@ -88,17 +87,12 @@ export function DatasetsPage() {
     <>
       <PageHeader
         title="Datasets"
-        description="Every imported dataset, its size and quality. Select a dataset to analyse it across the application."
         actions={
           <LinkButton to="/upload" variant="primary" icon={Upload}>
             Import data
           </LinkButton>
         }
       />
-      <Alert tone="info" className="mb-6" title="How datasets are stored">
-        Each dataset is saved on the FlowForge server: the original file as imported, a working copy that cleaning operations change, and its
-        metadata in a local SQLite database. Data remains after a restart until you delete it here.
-      </Alert>
       <Card>
         {!datasetsLoaded ? (
           <LoadingState />
@@ -152,7 +146,7 @@ export function DatasetsPage() {
                       <QualityBadge score={dataset.quality_score} grade={dataset.quality_grade} />
                     </Td>
                     <Td>
-                      <Badge tone="success">{dataset.status}</Badge>
+                      <Badge tone="success" className="capitalize">{dataset.status}</Badge>
                     </Td>
                     <Td>
                       <div className="flex justify-end gap-1.5">

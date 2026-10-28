@@ -48,7 +48,7 @@ function MappingEditor({ detail, onSaved }: { detail: DatasetDetail; onSaved: ()
     <Card>
       <CardHeader
         title="Column mapping"
-        description="FlowForge detects which column holds each business field from its name and type. Change a mapping if the guess is wrong, or choose None to switch a field off."
+        description="Change a detected column if it is wrong, or choose None to switch a field off."
         actions={
           <>
             <Button variant="ghost" size="sm" disabled={!dirty || saving} onClick={() => setDraft(toDraft(detail))}>
@@ -245,7 +245,7 @@ function AnalysisContent({ dataset }: { dataset: DatasetSummary }) {
           )}
 
           <Card>
-            <CardHeader title="Column summaries" description="Descriptive statistics for every column, calculated from valid values only" />
+            <CardHeader title="Column summaries" description="Calculated from valid values only" />
             <TableContainer label="Column summaries">
               <thead>
                 <tr>
@@ -327,7 +327,6 @@ export function AnalysisPage() {
     <>
       <PageHeader
         title="Data Analysis"
-        description="Business metrics, comparisons and descriptive statistics calculated from the selected dataset. Every figure comes directly from your data."
         eyebrow={selected && <DatasetEyebrow dataset={selected} />}
         actions={
           selected && (

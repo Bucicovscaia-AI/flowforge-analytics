@@ -48,7 +48,6 @@ function ImportResult({ dataset }: { dataset: DatasetSummary }) {
       <Card>
         <CardHeader
           title="Columns and inferred types"
-          description="Types are inferred from the values. Numeric and date columns are used for calculations."
           actions={
             <>
               <LinkButton to="/quality" icon={ShieldCheck}>
@@ -63,7 +62,7 @@ function ImportResult({ dataset }: { dataset: DatasetSummary }) {
         {detail.loading ? <LoadingState /> : detail.error ? <ErrorState error={detail.error} onRetry={detail.reload} /> : detail.data && <ColumnProfileTable columns={detail.data.columns} />}
       </Card>
       <Card>
-        <CardHeader title="Preview" description="The first rows exactly as stored" />
+        <CardHeader title="Preview" description="First 10 rows" />
         <DataPreviewTable datasetId={dataset.id} pageSize={10} />
       </Card>
     </div>
@@ -129,13 +128,10 @@ export function UploadPage() {
 
   return (
     <>
-      <PageHeader
-        title="Data Upload"
-        description="Import a CSV file. FlowForge validates it on the server, infers column types and stores a working copy you can clean without losing the original."
-      />
+      <PageHeader title="Data Upload" />
       <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
         <Card>
-          <CardHeader title="Upload a CSV file" description="Drag a file onto the area below or browse for one." />
+          <CardHeader title="Upload a CSV file" />
           <CardBody className="space-y-4">
             <div
               onDragOver={(event) => {
@@ -218,7 +214,7 @@ export function UploadPage() {
           </CardBody>
         </Card>
 
-        <div className="space-y-6">
+        <div className="min-w-0 space-y-6">
           <Card>
             <CardHeader title="Supported files" />
             <CardBody>
@@ -229,7 +225,7 @@ export function UploadPage() {
                 <li className="flex gap-2"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-emerald-600" aria-hidden />Comma, semicolon, tab or pipe delimiters (detected automatically)</li>
               </ul>
               <p className="mt-4 text-xs leading-relaxed text-slate-500">
-                Empty cells and values such as N/A or null are treated as missing. File contents are only parsed as text and never executed.
+                Empty cells and values such as N/A or null are treated as missing.
               </p>
             </CardBody>
           </Card>
@@ -237,7 +233,7 @@ export function UploadPage() {
             <CardHeader title="No file to hand?" />
             <CardBody>
               <p className="text-sm text-slate-600">
-                Load 1,200 synthetic retail orders. The sample goes through the same validation and analysis as an uploaded file, and includes a few deliberate quality problems to fix.
+                Load 1,200 synthetic retail orders, including a few deliberate quality problems to fix.
               </p>
               <div className="mt-3 flex items-center gap-2">
                 <Button variant="secondary" icon={FlaskConical} loading={sampleLoading} onClick={() => void sample()}>
@@ -254,11 +250,11 @@ export function UploadPage() {
       </div>
       {result && (
         <section className="mt-8" aria-label="Import result">
-          <div className="mb-3 flex items-center gap-2">
+          <div className="mb-3 flex flex-wrap items-center gap-2">
             <h2 className="text-lg font-semibold text-slate-900">{result.name}</h2>
             {result.is_sample && <SampleBadge />}
             <QualityBadge score={result.quality_score} grade={result.quality_grade} />
-            <Badge>{result.status}</Badge>
+            <Badge className="capitalize">{result.status}</Badge>
           </div>
           <ImportResult dataset={result} />
         </section>

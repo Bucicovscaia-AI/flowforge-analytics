@@ -22,7 +22,7 @@ const KIND: Record<Insight['kind'], { label: string; tone: BadgeTone; help: stri
   suggestion: { label: 'Suggestion', tone: 'violet', help: 'A possible next step to consider' },
 }
 
-function InsightCard({ insight }: { insight: Insight }) {
+function InsightCard({ insight, showSource }: { insight: Insight; showSource: boolean }) {
   const kind = KIND[insight.kind]
   return (
     <article className="rounded-lg border border-slate-200 bg-white p-4">
@@ -30,10 +30,12 @@ function InsightCard({ insight }: { insight: Insight }) {
         <span title={kind.help}>
           <Badge tone={kind.tone}>{kind.label}</Badge>
         </span>
-        <Badge tone={insight.source === 'ai' ? 'brand' : 'neutral'}>
-          {insight.source === 'ai' ? <Bot className="size-3" aria-hidden /> : <Calculator className="size-3" aria-hidden />}
-          {insight.source === 'ai' ? 'AI-generated' : 'Rule-based'}
-        </Badge>
+        {showSource && (
+          <Badge tone={insight.source === 'ai' ? 'brand' : 'neutral'}>
+            {insight.source === 'ai' ? <Bot className="size-3" aria-hidden /> : <Calculator className="size-3" aria-hidden />}
+            {insight.source === 'ai' ? 'AI-generated' : 'Rule-based'}
+          </Badge>
+        )}
       </div>
       <h3 className="mt-2 text-sm font-semibold text-slate-900">{insight.title}</h3>
       <p className="mt-1 text-sm leading-relaxed text-slate-700">{insight.statement}</p>
@@ -100,7 +102,7 @@ function InsightsContent({ dataset }: { dataset: DatasetSummary }) {
                 <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500">{category.replace(/_/g, ' ')}</h2>
                 <div className="grid gap-3 xl:grid-cols-2">
                   {items.map((insight) => (
-                    <InsightCard key={insight.id} insight={insight} />
+                    <InsightCard key={insight.id} insight={insight} showSource={result.mode === 'ai'} />
                   ))}
                 </div>
               </section>
@@ -148,10 +150,12 @@ function InsightsContent({ dataset }: { dataset: DatasetSummary }) {
                 <span>{kind.help}.</span>
               </p>
             ))}
-            <p className="flex items-start gap-2 pt-1">
-              <ShieldAlert className="size-4 shrink-0 text-slate-400" aria-hidden />
-              The AI is instructed to use only numbers from the summary it receives. Verify AI-generated figures against the Data Analysis page before acting on them.
-            </p>
+            {aiConfigured && (
+              <p className="flex items-start gap-2 pt-1">
+                <ShieldAlert className="size-4 shrink-0 text-slate-400" aria-hidden />
+                Verify AI-generated figures against the Data Analysis page before acting on them.
+              </p>
+            )}
           </CardBody>
         </Card>
         {result && result.data_sent.length > 0 && (
@@ -186,7 +190,6 @@ export function InsightsPage() {
     <>
       <PageHeader
         title="AI Insights"
-        description="Plain-language findings about the selected dataset. Rule-based insights are always available; AI insights are added when a provider is configured and you ask for them."
         eyebrow={selected && <DatasetEyebrow dataset={selected} />}
       />
       <RequireDataset purpose="generate insights">{(dataset) => <InsightsContent key={dataset.id} dataset={dataset} />}</RequireDataset>
