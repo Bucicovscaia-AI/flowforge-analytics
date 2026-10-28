@@ -4,7 +4,7 @@ import { cn } from '../../lib/cn'
 
 export function TableContainer({ children, className, label }: { children: ReactNode; className?: string; label?: string }) {
   return (
-    <div className={cn('overflow-x-auto', className)} role={label ? 'region' : undefined} aria-label={label} tabIndex={label ? 0 : undefined}>
+    <div className={cn('relative overflow-x-auto', className)} role={label ? 'region' : undefined} aria-label={label} tabIndex={label ? 0 : undefined}>
       <table className="min-w-full border-collapse text-sm">{children}</table>
     </div>
   )

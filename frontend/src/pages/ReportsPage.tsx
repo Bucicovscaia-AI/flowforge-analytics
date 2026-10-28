@@ -65,7 +65,7 @@ function GeneratedReport({ report, onSent }: { report: ReportCreated; onSent: ()
               {sent ? 'Accepted by Make.com' : 'Send to Make.com'}
             </Button>
             <p className="text-xs text-slate-500">
-              Sends the report's KPIs and a temporary link to its PDF to your Make.com scenario, which can email it as an attachment.
+              Sends the KPIs and a temporary PDF link to your Make.com scenario.
             </p>
             {sender.dialog}
           </div>
@@ -104,7 +104,7 @@ function ReportsContent({ dataset }: { dataset: DatasetSummary }) {
     <div className="space-y-6">
       <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
         <Card>
-          <CardHeader title="New report" description={`From ${dataset.name}, using the working copy with all cleaning applied`} />
+          <CardHeader title="New report" description={`From ${dataset.name}, with all cleaning applied`} />
           <CardBody className="space-y-4">
             <TextField
               label="Report title (optional)"
@@ -126,8 +126,7 @@ function ReportsContent({ dataset }: { dataset: DatasetSummary }) {
             {system?.automation_configured && (
               <p className="flex items-center gap-1.5 text-xs text-slate-500">
                 <Workflow className="size-3.5" aria-hidden />
-                Make.com is connected. A report is sent only when you choose to send it, or automatically if the server's report rule is switched
-                on (see Automation).
+                Reports are sent to Make.com only on request, or automatically if the report rule is on.
               </p>
             )}
           </CardBody>
@@ -208,7 +207,6 @@ export function ReportsPage() {
     <>
       <PageHeader
         title="Reports"
-        description="Generate a shareable report of the selected dataset with metrics, charts, insights and data quality notes."
         eyebrow={selected && <DatasetEyebrow dataset={selected} />}
       />
       <RequireDataset purpose="generate a report">{(dataset) => <ReportsContent key={dataset.id} dataset={dataset} />}</RequireDataset>

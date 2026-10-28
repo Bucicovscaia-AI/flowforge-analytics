@@ -11,7 +11,7 @@ const FORMAT_ORDER: ReportFormat[] = ['html', 'pdf', 'csv', 'json']
 
 export function ReportDownloads({ report, showOpen = true, compact = false }: { report: ReportSummary; showOpen?: boolean; compact?: boolean }) {
   return (
-    <div className={cn('flex flex-wrap gap-1.5', compact && 'w-56')}>
+    <div className={cn('flex flex-wrap gap-1.5', compact && 'w-64')}>
       {showOpen && report.formats.includes('html') && (
         <DownloadLink href={api.reportUrl(report.id, 'html', true)} icon={ExternalLink} newTab>
           Open
@@ -31,7 +31,7 @@ const STATUS_TONE: Record<ReportSummary['status'], BadgeTone> = { completed: 'su
 export function ReportStatusBadge({ report }: { report: ReportSummary }) {
   return (
     <span title={report.error ?? undefined}>
-      <Badge tone={STATUS_TONE[report.status]}>{report.status}</Badge>
+      <Badge tone={STATUS_TONE[report.status]} className="capitalize">{report.status}</Badge>
     </span>
   )
 }
