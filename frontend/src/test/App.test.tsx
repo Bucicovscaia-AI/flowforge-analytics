@@ -116,7 +116,9 @@ describe('when the server loses data', () => {
       'fetch',
       vi.fn((input: string) => {
         if (input.startsWith('/api/system/status')) return json({ ...SYSTEM, storage: { ...SYSTEM.storage, persistent: false } })
-        if (input.startsWith('/api/datasets')) return json(stored)
+        if (input === '/api/datasets') return json(stored)
+        // Leave per-dataset requests pending: an empty list is not a valid analysis and would crash the page.
+        if (input.startsWith('/api/datasets/')) return new Promise<Response>(() => {})
         return json([])
       }),
     )
@@ -124,6 +126,8 @@ describe('when the server loses data', () => {
     expect((await screen.findAllByText(/office-supplies-orders-2026/)).length).toBeGreaterThan(0)
 
     stored = []
+    // Flush pending effects so the app has recorded the dataset list before the event arrives.
+    await act(async () => {})
     act(() => {
       window.dispatchEvent(new Event(MISSING_DATA_EVENT))
     })
