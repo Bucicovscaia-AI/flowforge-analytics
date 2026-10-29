@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 
 import { DataGoneNotice } from '../DataGoneNotice'
+import { ServerWakingNotice } from '../ServerWakingNotice'
 import { Sidebar } from './Sidebar'
 import { TopBar } from './TopBar'
 
@@ -26,6 +27,7 @@ export function AppShell() {
       <div className="lg:pl-64">
         <TopBar onOpenMenu={() => setMenuOpen(true)} />
         <main id="main" className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+          <ServerWakingNotice />
           <DataGoneNotice />
           <Outlet />
         </main>
